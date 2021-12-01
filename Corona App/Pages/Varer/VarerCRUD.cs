@@ -5,12 +5,11 @@ using System.Threading.Tasks;
 
 namespace Corona_App.Pages.Varer
 {
-    public class Drikkevarer : Vare
+    public class VarerCRUD : IKatalog
     {
-        public Boolean Alkohol
-        {
-            get;
-            set;
-        }
+
+        //void Create();
+        //void Update();
+        //void Delete();
     }
 }

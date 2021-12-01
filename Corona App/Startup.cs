@@ -1,3 +1,5 @@
+using Corona_App.Pages.Kunder;
+using Corona_App.Pages.Varer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -8,6 +10,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+
+
 
 namespace Corona_App
 {
@@ -24,6 +28,8 @@ namespace Corona_App
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+            services.AddSingleton<IKunde, BrugerCRUD>();
+            services.AddSingleton<IKatalog, VarerCRUD>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

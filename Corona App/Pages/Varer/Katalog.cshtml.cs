@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Corona_App.Pages.Shared.Varer
+namespace Corona_App.Pages.Varer
 {
     public class KatalogModel : PageModel
     {

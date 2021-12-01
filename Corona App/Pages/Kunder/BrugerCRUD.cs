@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Corona_App.Pages.Shared.Varer
+namespace Corona_App.Pages.Kunder
 {
-    public class Diverse
+    public class BrugerCRUD : IKunde
     {
-        test  hhg ghg
     }
 }
