@@ -1,0 +1,14 @@
+[
+  {
+    "VareNr": 2,
+    "Pris": 39,
+    "Navn": "welp",
+    "Kategori": "mad"
+  },
+  {
+    "VareNr": 4,
+    "Pris": 3,
+    "Navn": "muh",
+    "Kategori": "ehh"
+  }
+]

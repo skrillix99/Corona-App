@@ -8,9 +8,21 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 namespace Corona_App.Pages.Varer
 {
     public class KatalogModel : PageModel
-    {
-        public void OnGet()
+    {        
+        private IKatalog _katalog;
+
+        public List<Vare> Varer { get; private set; }
+
+        public KatalogModel(IKatalog katalog)
         {
+            _katalog = katalog;
+        }
+        
+        public IActionResult OnGet()
+        {
+            Varer = _katalog.Varer;
+
+            return Page();
         }
     }
 }

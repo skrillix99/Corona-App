@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 
 namespace Corona_App.Pages.Varer
 {
-    interface IKatalog
+    public interface IKatalog
     {
+        List<Vare> Varer { get; }
         void Create();
         void Update();
         void Delete();

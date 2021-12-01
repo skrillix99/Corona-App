@@ -2,3 +2,11 @@
 @model Corona_App.Pages.Varer.KatalogModel
 @{
 }
+
+@foreach (var item in @Model.Varer)
+{
+    <p>@item.VareNr</p>
+    <p>@item.Pris</p>
+    <p>@item.Navn</p>
+    <p>@item.Kategori</p>
+}
