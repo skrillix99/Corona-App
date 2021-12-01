@@ -7,5 +7,6 @@ namespace Corona_App.Pages.Shared.Varer
 {
     public class Diverse
     {
+        testc name.test;
     }
 }
