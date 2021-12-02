@@ -5,8 +5,13 @@
 
 @foreach (var item in @Model.Varer)
 {
-    <p>@item.VareNr</p>
-    <p>@item.Pris</p>
-    <p>@item.Navn</p>
-    <p>@item.Kategori</p>
+    <div class="col-4" style="border: solid 1.5px #000; margin-bottom: 2em;">
+        <a asp-page="RedigereVare" asp-route-id="@item.VareNr">
+            <p>@item.VareNr</p>
+            <p>@item.Pris</p>
+            <p>@item.Navn</p>
+            <p>@item.Kategori</p>
+        </a>
+    </div>
+
 }

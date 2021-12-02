@@ -27,7 +27,10 @@ namespace Corona_App.Pages.Varer
             }
         }
 
-        
+        public Vare GetSingel(int vareNr)
+        {
+            return Varer.Find(k => k.VareNr == vareNr);
+        }
 
         public void Create(Vare obj)
         {
@@ -40,9 +43,16 @@ namespace Corona_App.Pages.Varer
             throw new NotImplementedException();
         }
 
-        public void Update()
+        public void Update(Vare vare)
         {
-            throw new NotImplementedException();
+            Vare Get = GetSingel(vare.VareNr);
+
+            Get.VareNr = vare.VareNr;
+            Get.Pris = vare.Pris;
+            Get.Navn = vare.Navn;
+            Get.Kategori = vare.Kategori;
+
+            StoreToJson();
         }
 
         private void StoreToJson()
