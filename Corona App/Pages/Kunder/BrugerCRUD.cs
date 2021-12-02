@@ -7,5 +7,19 @@ namespace Corona_App.Pages.Kunder
 {
     public class BrugerCRUD : IKunde
     {
+        void IKunde.Create()
+        {
+            throw new NotImplementedException();
+        }
+
+        void IKunde.Delete()
+        {
+            throw new NotImplementedException();
+        }
+
+        void IKunde.Update()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
