@@ -27,10 +27,12 @@ namespace Corona_App.Pages.Varer
             }
         }
 
+        
 
-        public void Create()
+        public void Create(Vare obj)
         {
-            throw new NotImplementedException();
+            Varer.Add(obj);
+            StoreToJson();
         }
 
         public void Delete()
@@ -41,6 +43,15 @@ namespace Corona_App.Pages.Varer
         public void Update()
         {
             throw new NotImplementedException();
+        }
+
+        private void StoreToJson()
+        {
+            using (var file = File.OpenWrite(_filename))
+            {
+                var writer = new Utf8JsonWriter(file, new JsonWriterOptions());
+                JsonSerializer.Serialize(writer, Varer);
+            }
         }
     }
 }

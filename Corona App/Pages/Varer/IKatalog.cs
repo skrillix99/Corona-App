@@ -8,7 +8,7 @@ namespace Corona_App.Pages.Varer
     public interface IKatalog
     {
         List<Vare> Varer { get; }
-        void Create();
+        void Create(Vare obj);
         void Update();
         void Delete();
     }
