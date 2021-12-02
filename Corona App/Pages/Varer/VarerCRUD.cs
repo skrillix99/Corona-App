@@ -11,5 +11,19 @@ namespace Corona_App.Pages.Varer
         //void Create();
         //void Update();
         //void Delete();
+        public void Create()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
