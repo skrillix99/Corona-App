@@ -14,7 +14,7 @@ namespace Corona_App.Pages.Varer
         public void Create()
         {
             throw new NotImplementedException();
-        }
+        } 
 
         public void Delete()
         {
