@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Corona_App.Pages.Kunder
 {
-    public class OpretKunge
+    public class OpretKunde
     {
     }
 }
