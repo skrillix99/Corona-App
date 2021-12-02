@@ -9,23 +9,23 @@ namespace Corona_App.Pages.Varer
     {
         public int VareNr
         {
-            get;
-            set;
+            get => _vareNr;
+            set => _vareNr = value;
         }
         public int Pris
         {
-            get;
-            set;
+            get => _pris;
+            set => _pris = value;
         }
         public string Navn
         {
-            get;
-            set;
+            get => _navn;
+            set => _navn = value;
         }
         public string Kategori
         {
-            get;
-            set;
+            get => _katagori;
+            set => _katagori = value;   
         }
 
 }
