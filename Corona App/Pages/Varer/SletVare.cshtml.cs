@@ -7,12 +7,13 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Corona_App.Pages.Varer
 {
-    public class RedigereVareModel : PageModel
+    public class SletModel : PageModel
     {
         private IKatalog _katalog;
         [BindProperty]
         public Vare Varer { get; set; }
-        public RedigereVareModel(IKatalog katalog)
+
+        public SletModel(IKatalog katalog)
         {
             _katalog = katalog;
         }
@@ -22,7 +23,7 @@ namespace Corona_App.Pages.Varer
         }
         public IActionResult OnPost()
         {
-            _katalog.Update(Varer);
+            _katalog.Delete(Varer);
 
             return RedirectToPage("Katalog");
         }

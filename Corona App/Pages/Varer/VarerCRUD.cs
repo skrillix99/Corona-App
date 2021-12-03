@@ -27,7 +27,7 @@ namespace Corona_App.Pages.Varer
             }
         }
 
-        public Vare GetSingel(int vareNr)
+        public Vare GetSingle(int vareNr)
         {
             return Varer.Find(k => k.VareNr == vareNr);
         }
@@ -38,14 +38,20 @@ namespace Corona_App.Pages.Varer
             StoreToJson();
         }
 
-        public void Delete()
+        public void Delete(Vare vare)
         {
-            throw new NotImplementedException();
+            Vare Get = GetSingle(vare.VareNr);
+            if(Get.VareNr == null || Get.VareNr == 0)
+            {
+                throw new ArgumentNullException("Den angivede vare er ikke gyldig");
+            }
+            Varer.Remove(Get); 
+            StoreToJson();
         }
 
         public void Update(Vare vare)
         {
-            Vare Get = GetSingel(vare.VareNr);
+            Vare Get = GetSingle(vare.VareNr);
 
             Get.VareNr = vare.VareNr;
             Get.Pris = vare.Pris;
@@ -57,7 +63,7 @@ namespace Corona_App.Pages.Varer
 
         private void StoreToJson()
         {
-            using (var file = File.OpenWrite(_filename))
+            using (var file = File.Create(_filename))
             {
                 var writer = new Utf8JsonWriter(file, new JsonWriterOptions());
                 JsonSerializer.Serialize(writer, Varer);
