@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Corona_App.Pages.Varer
 {
+    public enum Katagoris {corgi, shiba, doggo, husky, welp }
     public class Vare
     {
         //private int _vareNr;
@@ -48,10 +49,9 @@ namespace Corona_App.Pages.Varer
             get;
             set;
         }
-        [Required]
-        [StringLength(25, MinimumLength =1, ErrorMessage = "Skal være minimum 1 tegn.")]
+        [Required]        
         // todo selector?
-        public string Kategori
+        public Katagoris Kategori
         {
             get;
             set;

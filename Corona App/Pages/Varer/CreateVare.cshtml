@@ -11,27 +11,37 @@
                 <div asp-validation-summary="All" class="alert-danger"></div>
 
                 <div class="form-group">
-                    <label asp-for="@Model.Varer.VareNr"></label>
-                    <input type="number" asp-for="@Model.Varer.VareNr" class="form-control" />
-                    <span asp-validation-for="@Model.Varer.VareNr" class="alert-danger"></span>
+                    <label asp-for="Varer.VareNr"></label>
+                    <input type="number" asp-for="Varer.VareNr" class="form-control" />
+                    <span asp-validation-for="Varer.VareNr" class="alert-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="@Model.Varer.Pris"></label>
-                    <input type="number" asp-for="@Model.Varer.Pris" class="form-control" />
-                    <span asp-validation-for="@Model.Varer.Pris" class="alert-danger"></span>
+                    <label asp-for="Varer.Pris"></label>
+                    <input type="number" asp-for="Varer.Pris" class="form-control" />
+                    <span asp-validation-for="Varer.Pris" class="alert-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="@Model.Varer.Navn"></label>
-                    <input type="text" asp-for="@Model.Varer.Navn" class="form-control" />
-                    <span asp-validation-for="@Model.Varer.Navn" class="alert-danger"></span>
+                    <label asp-for="Varer.Navn"></label>
+                    <input type="text" asp-for="Varer.Navn" class="form-control" />
+                    <span asp-validation-for="Varer.Navn" class="alert-danger"></span>
                 </div>
 
+                @*<div class="form-group">
+            <label asp-for="@Model.Varer.Kategori"></label>
+            <input type="text" asp-for="@Model.Varer.Kategori" class="form-control" />
+            <span asp-validation-for="@Model.Varer.Kategori" class="alert-danger"></span>
+        </div>*@
+
                 <div class="form-group">
-                    <label asp-for="@Model.Varer.Kategori"></label>
-                    <input type="text" asp-for="@Model.Varer.Kategori" class="form-control" />
-                    <span asp-validation-for="@Model.Varer.Kategori" class="alert-danger"></span>
+                    <label>Katagori</label>
+                    <select name="Varer.Kategori" asp-for="Varer.Kategori" class="form-control">
+                        @foreach (var katagori in Enum.GetValues(typeof(Katagoris)))
+                        {
+                            <option value="@katagori">@katagori</option>
+                        }
+                    </select>
                 </div>
 
                 <div class="form-group">
