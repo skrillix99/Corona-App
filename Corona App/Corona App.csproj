@@ -5,8 +5,4 @@
     <RootNamespace>Corona_App</RootNamespace>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="wwwroot\Billeder\" />
-  </ItemGroup>
-
 </Project>
