@@ -25,7 +25,10 @@ namespace Corona_App.Pages.Varer
 
         public IActionResult OnPost()
         {
-
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
 
             _vareCRUD.Create(Varer);
 

@@ -29,11 +29,19 @@ namespace Corona_App.Pages.Varer
 
         public Vare GetSingle(int vareNr)
         {
+            if (vareNr == null || vareNr == 0)
+            {
+                throw new ArgumentNullException("Det angivede vareNr er ikke gyldig");
+            }
             return Varer.Find(k => k.VareNr == vareNr);
         }
 
         public void Create(Vare obj)
         {
+            if (obj == null)
+            {
+                throw new ArgumentNullException("Der var fejl i at oprette den nye vare.");
+            }
             Varer.Add(obj);
             StoreToJson();
         }
@@ -51,6 +59,10 @@ namespace Corona_App.Pages.Varer
 
         public void Update(Vare vare)
         {
+            if(vare == null)
+            {
+                throw new ArgumentNullException("Den angivet vare findes ikke eller at der skete en fejl i at læse varen.");
+            }
             Vare Get = GetSingle(vare.VareNr);
 
             Get.VareNr = vare.VareNr;

@@ -19,7 +19,7 @@ namespace Corona_App.Pages.Varer
         }
         
         public IActionResult OnGet()
-        {
+        {            
             Varer = _katalog.Varer;
 
             return Page();
