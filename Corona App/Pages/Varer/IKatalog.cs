@@ -12,5 +12,6 @@ namespace Corona_App.Pages.Varer
         void Create(Vare obj);
         void Update(Vare vare);
         void Delete(Vare vare);
+        List<Vare> Search(string searchText);
     }
 }

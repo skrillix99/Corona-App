@@ -72,7 +72,6 @@ namespace Corona_App.Pages.Varer
 
             StoreToJson();
         }
-
         private void StoreToJson()
         {
             using (var file = File.Create(_filename))
@@ -80,6 +79,15 @@ namespace Corona_App.Pages.Varer
                 var writer = new Utf8JsonWriter(file, new JsonWriterOptions());
                 JsonSerializer.Serialize(writer, Varer);
             }
+        }
+
+        public List<Vare> Search(string searchText)
+        {
+            if(String.IsNullOrWhiteSpace(searchText))
+            {
+                return new List<Vare>();
+            }
+            return Varer.FindAll(k => k.Navn == searchText);
         }
     }
 }
