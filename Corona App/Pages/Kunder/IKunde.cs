@@ -5,10 +5,11 @@ using System.Threading.Tasks;
 
 namespace Corona_App.Pages.Kunder
 {
-    interface IKunde
+    public interface IKunde
     {
-        void Create();
-        void Update();
-        void Delete();
+        void Create(BrugerInfo b);
+        void Update(BrugerInfo b);
+        void Delete(BrugerInfo b);
+        List<BrugerInfo> Bruger { get; }
     }
 }
