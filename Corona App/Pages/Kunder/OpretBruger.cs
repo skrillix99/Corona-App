@@ -7,5 +7,6 @@ namespace Corona_App.Pages.Kunder
 {
     public class OpretBruger
     {
+       
     }
 }
