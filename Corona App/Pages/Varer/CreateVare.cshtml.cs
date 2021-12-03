@@ -12,7 +12,7 @@ namespace Corona_App.Pages.Varer
         private IKatalog _vareCRUD;
 
         [BindProperty]
-        public Vare Varer { get; set; }        
+        public Vare Varer { get; set; }
 
         public CreateVareModel(IKatalog katalog)
         {
