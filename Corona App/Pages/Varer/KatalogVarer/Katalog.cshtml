@@ -1,0 +1,35 @@
+﻿@page
+@model Corona_App.Pages.Varer.KatalogModel
+@{
+}
+
+<h1>Frugt og Grønt</h1>
+
+<form method="post">
+    <input type="search" asp-for="Search" placeholder="Søg efter navnet på en vare" />
+    <input type="submit" value="Søg" class="btn btn-primary" />
+</form>
+    
+
+
+@foreach (var kata in Enum.GetValues(typeof(Kategoris)))
+{
+<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        @kata
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    @foreach (var item in @Model.Varer)
+    {
+        if (kata.ToString() == item.Kategori.ToString())
+        {
+            <a class="dropdown-item" href="#">
+                @item.Navn <br />
+                @item.Pris            
+            </a>        
+        }
+
+    }
+    </div>
+</div>
+}
