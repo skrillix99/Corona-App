@@ -29,7 +29,7 @@ namespace Corona_App.Pages.Varer
         public IActionResult OnPost()
         {
             if (!String.IsNullOrWhiteSpace(Search))
-        {
+            {
                 Varer = _katalog.Search(Search);
             }
             return Page();
