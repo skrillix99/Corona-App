@@ -14,22 +14,24 @@ namespace Corona_App.Pages.Varer
         public List<Vare> Varer { get; private set; }
 
         [BindProperty]
-        public string Search { get; set; }
+        public string Search { get; set; }        
         public KatalogModel(IKatalog katalog)
         {
             _katalog = katalog;
         }
         
         public IActionResult OnGet()
-        {            
+        {
             Varer = _katalog.Varer;
 
             return Page();
         }
         public IActionResult OnPost()
         {
-            Varer = _katalog.Search(Search);
-
+            if(!String.IsNullOrWhiteSpace(Search))
+            {
+                Varer = _katalog.Search(Search);
+            }            
             return Page();
         }
     }

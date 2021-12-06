@@ -10,6 +10,7 @@ namespace Corona_App.Pages.Varer
 
         private string _filename = @"wwwroot\VarerJson.json";
 
+
         public List<Vare> Varer { get; private set; }
 
         public VarerCRUD()
@@ -88,6 +89,6 @@ namespace Corona_App.Pages.Varer
                 return new List<Vare>();
             }
             return Varer.FindAll(k => k.Navn == searchText);
-        }
+        }        
     }
 }

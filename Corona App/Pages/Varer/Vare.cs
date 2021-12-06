@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Corona_App.Pages.Varer
 {
-    public enum Katagoris {corgi, shiba, doggo, husky, welp }
+    public enum Katagoris {Frugt, Grøntsager, Kartofler_løg, Færdig_salater, Smoothies}
     public class Vare
     {
         //private int _vareNr;
