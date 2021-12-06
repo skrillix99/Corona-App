@@ -50,7 +50,8 @@ namespace Corona_App.Pages.Kunder
 
         public void Delete(BrugerInfo b)
         {
-            Bruger.Remove(b);
+            BrugerInfo g = GetSingle(b.Id);
+            Bruger.Remove(g);
             StoreToJson();
         }
 
