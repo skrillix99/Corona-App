@@ -33,24 +33,3 @@
     </div>
 </div>
 }
-
-@*@foreach (var kata in Enum.GetValues(typeof(Kategoris)))
-    {
-        // todo don't display empty kategoris
-        <h2>@kata</h2>
-        @foreach (var item in @Model.Varer)
-        {
-            if(kata.ToString() == item.Kategori.ToString())
-            {
-            <div class="col-4" style="border: solid 1.5px #000; margin-bottom: 2em;">
-                <a asp-page="RedigereVare" asp-route-id="@item.VareNr">
-                    <p>@item.VareNr</p>
-                    <p>@item.Pris</p>
-                    <p>@item.Navn</p>
-                </a>
-                <a asp-page="SletVare" asp-route-id="@item.VareNr">Slet</a>
-            </div>
-
-            }
-        }
-    }*@
