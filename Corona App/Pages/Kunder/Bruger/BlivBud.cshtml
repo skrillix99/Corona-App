@@ -4,7 +4,11 @@
     ViewData["Title"] = "Bliv Bud";
 }
 
-<img src="#" alt="Alternate Text" />
+<div class="imagecontainer">
+    <img src="~/Billeder/bud.png" alt="Billede af et bud på cykel" class="imgpadding" />
+    <div class="centered">BLIV BUD</div>
+</div>
+@* Billede taget fra https://www.freepik.com/free-vector/courier-riding-bike-checking-address-phone-woman-delivering-order-using-cell-with-map-web-template_10579704.htm#page=1&query=courier%20bike&position=45&from_view=search *@
 
 <p>
     Hjælp de isolerede danske borgere med  at får deres hverdag til at køre rundt, ved at blive budbringer.
@@ -15,3 +19,21 @@
 <p>
     Du vil blive betalt XX kr. for hver levering du udfører, og få de penge igen, som der bliver brugt på varerne.
 </p>
+<div class="line-space"></div>
+<div class="text-center">
+    <input type="checkbox" name="handelsbetingelserne" value="handelsbetingelserne" /> <label>Jeg har læst og accepteret handelsbetingelserne.</label>
+    <div class="line-space"></div>
+    <input type="button" name="Bliv bud" value="Jeg ønsker at blive bud" class="btn rema_farve" />
+</div>
+
+
+<nav class="menuknapper">
+    <div class="rowtest">
+        <div class="columntest"><button class="skaler">Varer</button></div>
+        <div class="columntest"><button class="skaler">Indkøbsliste</button></div>
+        <div class="columntest"><button class="skaler active-menu">Bliv bud</button></div>
+        <div class="columntest"><button class="skaler">Profil</button></div>
+    </div>
+</nav>
+
+@* Tilføj footer med menu knapperne *@
