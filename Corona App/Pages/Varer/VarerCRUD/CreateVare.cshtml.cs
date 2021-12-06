@@ -7,32 +7,32 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Corona_App.Pages.Varer
 {
-    public class KatalogModel : PageModel
+    public class CreateVareModel : PageModel
     {
-        private IKatalog _katalog;
-
-        public List<Vare> Varer { get; private set; }
+        private IKatalog _vareCRUD;
 
         [BindProperty]
-        public string Search { get; set; }
-        public KatalogModel(IKatalog katalog)
-        {
-            _katalog = katalog;
-        }
+        public Vare Varer { get; set; }
 
+        public CreateVareModel(IKatalog katalog)
+        {
+            _vareCRUD = katalog;
+        }
         public IActionResult OnGet()
         {
-            Varer = _katalog.Varer;
-
             return Page();
         }
+
         public IActionResult OnPost()
         {
-            if (!String.IsNullOrWhiteSpace(Search))
+            if (!ModelState.IsValid)
             {
-                Varer = _katalog.Search(Search);
+                return Page();
             }
-            return Page();
+
+            _vareCRUD.Create(Varer);
+
+            return RedirectToPage("/Varer/Katalog");
         }
     }
 }
