@@ -7,10 +7,17 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Corona_App.Pages.Shared.Kunder
 {
-    public class KurvModel : PageModel
+    public class BrugerModel : PageModel
     {
-        public void OnGet()
+
+        public IActionResult OnGet()
         {
+            return Page();
+        }
+
+        public void OnPost()
+        {
+
         }
     }
 }

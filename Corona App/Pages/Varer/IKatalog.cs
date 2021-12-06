@@ -5,10 +5,13 @@ using System.Threading.Tasks;
 
 namespace Corona_App.Pages.Varer
 {
-    interface IKatalog
+    public interface IKatalog
     {
-        void Create();
-        void Update();
-        void Delete();
+        List<Vare> Varer { get; }
+        Vare GetSingle(int vareNr);
+        void Create(Vare obj);
+        void Update(Vare vare);
+        void Delete(Vare vare);
+        List<Vare> Search(string searchText);
     }
 }
