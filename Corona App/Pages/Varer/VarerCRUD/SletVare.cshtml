@@ -1,0 +1,39 @@
+﻿@page "{id}"
+@model Corona_App.Pages.Varer.SletModel
+@{
+}
+
+<div class="container">
+    <h1>Er du sikker på at du vil slette denne vare?</h1>
+    <div class="row">
+        <div class="col-md-4">
+            <form method="post">
+                <input type="hidden" asp-for="@Model.Varer.VareNr" />
+                <div asp-validation-summary="All" class="alert-danger"></div>
+
+                <div class="form-group">
+                    <label>Pris</label>
+                    <input type="text" asp-for="@Model.Varer.Pris" class="form-control" disabled />
+                    <span asp-validation-for="@Model.Varer.Pris" class="alert-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label>Navn</label>
+                    <input type="text" asp-for="@Model.Varer.Navn" class="form-control" disabled />
+                    <span asp-validation-for="@Model.Varer.Navn" class="alert-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label>Katagori</label>
+                    <input type="text" asp-for="@Model.Varer.Kategori" class="form-control" disabled />
+                    <span asp-validation-for="@Model.Varer.Kategori" class="alert-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="SLET" class="btn btn-primary" />
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

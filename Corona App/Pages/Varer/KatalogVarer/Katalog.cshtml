@@ -1,5 +1,56 @@
 ﻿@page
-@model Corona_App.Pages.Varer.KatalogModel 
-@* bruges til varer *@
+@model Corona_App.Pages.Varer.KatalogModel
 @{
 }
+
+<h1>Frugt og Grønt</h1>
+
+<form method="post">
+    <input type="search" asp-for="Search" placeholder="Søg efter navnet på en vare" />
+    <input type="submit" value="Søg" class="btn btn-primary" />
+</form>
+    
+
+
+@foreach (var kata in Enum.GetValues(typeof(Kategoris)))
+{
+<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        @kata
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    @foreach (var item in @Model.Varer)
+    {
+        if (kata.ToString() == item.Kategori.ToString())
+        {
+            <a class="dropdown-item" href="#">
+                @item.Navn <br />
+                @item.Pris            
+            </a>        
+        }
+
+    }
+    </div>
+</div>
+}
+
+@*@foreach (var kata in Enum.GetValues(typeof(Kategoris)))
+    {
+        // todo don't display empty kategoris
+        <h2>@kata</h2>
+        @foreach (var item in @Model.Varer)
+        {
+            if(kata.ToString() == item.Kategori.ToString())
+            {
+            <div class="col-4" style="border: solid 1.5px #000; margin-bottom: 2em;">
+                <a asp-page="RedigereVare" asp-route-id="@item.VareNr">
+                    <p>@item.VareNr</p>
+                    <p>@item.Pris</p>
+                    <p>@item.Navn</p>
+                </a>
+                <a asp-page="SletVare" asp-route-id="@item.VareNr">Slet</a>
+            </div>
+
+            }
+        }
+    }*@
