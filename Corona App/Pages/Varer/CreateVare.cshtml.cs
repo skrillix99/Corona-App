@@ -13,6 +13,7 @@ namespace Corona_App.Pages.Varer
 
         [BindProperty]
         public Vare Varer { get; set; }
+        public string ErrorMsg { get; set; }
 
         public CreateVareModel(IKatalog katalog)
         {
@@ -25,14 +26,21 @@ namespace Corona_App.Pages.Varer
 
         public IActionResult OnPost()
         {
-            if (!ModelState.IsValid)
+            try
             {
-                return Page();
+                if (!ModelState.IsValid)
+                {
+                    return Page();
+                }
+
+                _vareCRUD.Create(Varer);
             }
+            catch (Exception e)
+            {
+                ErrorMsg = e.Message;
+            }
+                return RedirectToPage("/Varer/Katalog");
 
-            _vareCRUD.Create(Varer);
-
-            return RedirectToPage("/Varer/Katalog");
         }
     }
 }

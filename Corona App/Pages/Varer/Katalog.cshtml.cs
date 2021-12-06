@@ -15,6 +15,7 @@ namespace Corona_App.Pages.Varer
 
         [BindProperty]
         public string Search { get; set; }        
+        public string ErrorMsg { get; set; }
         public KatalogModel(IKatalog katalog)
         {
             _katalog = katalog;
@@ -22,16 +23,31 @@ namespace Corona_App.Pages.Varer
         
         public IActionResult OnGet()
         {
-            Varer = _katalog.Varer;
+            try
+            {
+                Varer = _katalog.Varer;
+            }
+            catch (Exception e)
+            {
+                ErrorMsg = e.Message;
+            }
 
             return Page();
         }
         public IActionResult OnPost()
         {
-            if(!String.IsNullOrWhiteSpace(Search))
+            try
             {
-                Varer = _katalog.Search(Search);
-            }            
+                if (!String.IsNullOrWhiteSpace(Search))
+                {
+                    Varer = _katalog.Search(Search);
+                }
+            }
+            catch (Exception e)
+            {
+                ErrorMsg = e.Message;
+            }
+            
             return Page();
         }
     }

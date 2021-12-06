@@ -12,23 +12,37 @@ namespace Corona_App.Pages.Varer
         private IKatalog _katalog;
         [BindProperty]
         public Vare Varer { get; set; }
+        public string ErrorMsg { get; set; }
         public RedigereVareModel(IKatalog katalog)
         {
             _katalog = katalog;
         }
         public void OnGet(int id)
         {
-            Varer = _katalog.GetSingle(id);
+            try
+            {
+                Varer = _katalog.GetSingle(id);
+            }
+            catch (Exception e)
+            {
+                ErrorMsg = e.Message;
+            }
         }
         public IActionResult OnPost()
         {
-            if (!ModelState.IsValid)
+            try
             {
-                return Page();
+                if (!ModelState.IsValid)
+                {
+                    return Page();
+                }
+
+                _katalog.Update(Varer);
             }
-
-            _katalog.Update(Varer);
-
+            catch (Exception e)
+            {
+                ErrorMsg = e.Message;   
+            }
             return RedirectToPage("Katalog");
         }
     }

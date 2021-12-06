@@ -12,6 +12,7 @@ namespace Corona_App.Pages.Varer
         private IKatalog _katalog;
         [BindProperty]
         public Vare Varer { get; set; }
+        public string ErrorMsg { get; set; }
 
         public SletModel(IKatalog katalog)
         {
@@ -19,11 +20,25 @@ namespace Corona_App.Pages.Varer
         }
         public void OnGet(int id)
         {
-            Varer = _katalog.GetSingle(id);
+            try
+            {
+                Varer = _katalog.GetSingle(id);
+            }
+            catch (Exception e)
+            {
+                ErrorMsg = e.Message;
+            }
         }
         public IActionResult OnPost()
         {
-            _katalog.Delete(Varer);
+            try
+            {
+                _katalog.Delete(Varer);
+            }
+            catch (Exception e)
+            {
+                ErrorMsg = e.Message;
+            }
 
             return RedirectToPage("Katalog");
         }

@@ -22,7 +22,7 @@ namespace Corona_App.Pages.Varer
                     Varer = JsonSerializer.Deserialize<List<Vare>>(file.ReadToEnd());
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 Varer = new List<Vare>();
             }
@@ -30,7 +30,7 @@ namespace Corona_App.Pages.Varer
 
         public Vare GetSingle(int vareNr)
         {
-            if (vareNr == null || vareNr == 0)
+            if (vareNr == 0)
             {
                 throw new ArgumentNullException("Det angivede vareNr er ikke gyldig");
             }
@@ -50,7 +50,7 @@ namespace Corona_App.Pages.Varer
         public void Delete(Vare vare)
         {
             Vare Get = GetSingle(vare.VareNr);
-            if(Get.VareNr == null || Get.VareNr == 0)
+            if(Get.VareNr == 0)
             {
                 throw new ArgumentNullException("Den angivede vare er ikke gyldig");
             }
@@ -87,7 +87,8 @@ namespace Corona_App.Pages.Varer
             if(String.IsNullOrWhiteSpace(searchText))
             {
                 return new List<Vare>();
-            }
+                throw new ArgumentNullException("Der er fejl i søgning");
+            }           
             return Varer.FindAll(k => k.Navn == searchText);
         }        
     }
