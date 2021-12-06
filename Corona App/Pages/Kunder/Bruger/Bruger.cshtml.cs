@@ -9,8 +9,15 @@ namespace Corona_App.Pages.Shared.Kunder
 {
     public class BrugerModel : PageModel
     {
-        public void OnGet()
+
+        public IActionResult OnGet()
         {
+            return Page();
+        }
+
+        public void OnPost()
+        {
+
         }
     }
 }
