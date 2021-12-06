@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Corona_App.Pages.Shared.Kunder
+namespace Corona_App.Pages.Kunder.Bruger
 {
-    public class KurvModel : PageModel
+    public class BlivBudModel : PageModel
     {
         public void OnGet()
         {
