@@ -37,9 +37,9 @@ namespace Corona_App.Pages.Kunder
             }
         }
 
-        public BrugerInfo GetSingle(BrugerInfo tlf)
+        public BrugerInfo GetSingle(int id)
         {
-            return Bruger.Find(k => k.TlfNummer == tlf.TlfNummer);
+            return Bruger.Find(k => k.Id == id);
         }
 
         public void Create(BrugerInfo b)
@@ -56,7 +56,7 @@ namespace Corona_App.Pages.Kunder
 
         public void Update(BrugerInfo b)
         {
-            BrugerInfo get = GetSingle(b);
+            BrugerInfo get = GetSingle(b.Id);
             get.TlfNummer = b.TlfNummer;
 
             get.Navn = b.Navn;

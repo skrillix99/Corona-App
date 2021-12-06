@@ -8,11 +8,18 @@ namespace Corona_App.Pages.Kunder
 {
     public class BrugerInfo
     {
+        private int _id;
         private string _navn;
         private string _tlfnummer;
         private string _adresse;
         private string _adgangskode;
         private string _email;
+
+        public int Id
+        {
+            get { return _id; }
+            set { _id = value; }
+        }
 
         [Required]
         [RegularExpression(@"\D*", ErrorMessage = "Navn skal skrives med bogstaver")]

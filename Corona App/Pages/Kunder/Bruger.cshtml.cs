@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Corona_App.Pages.Kunder;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -9,15 +10,34 @@ namespace Corona_App.Pages.Shared.Kunder
 {
     public class BrugerModel : PageModel
     {
-       
-        public IActionResult OnGet()
+        
+        [BindProperty]
+        public BrugerInfo b { get; set; }
+
+        private IKunde _kunde;
+
+        public BrugerModel(IKunde k)
         {
-            return Page();
+            _kunde = k;
         }
 
-        public void OnPost()
+        public void OnGet(int id)
         {
-
+            b = _kunde.GetSingle(id);
         }
+
+        public IActionResult OnPost()
+        {
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
+
+            _kunde.Update(b);
+            _kunde.Delete(b);
+
+            return RedirectToPage("/Index");
+        }
+
     }
 }
