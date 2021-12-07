@@ -1,1 +1,59 @@
-[{"Id":1,"Navn":"John","TlfNummer":"20242211","Adresse":"Roskildevej 11","Adgangskode":"Jh2011mm","Email":"jh@gmail.com"},{"Id":2,"Navn":"Cecilie M","TlfNummer":"29807701","Adresse":"Roskilde vej 1","Adgangskode":"Xxcceciliem","Email":"cille@gmail.com"},{"Id":3,"Navn":"Lars","TlfNummer":"40112013","Adresse":"K\u00F8gevej 1","Adgangskode":"Xxlars11","Email":"lars@gmail.com"},{"Id":4,"Navn":"Welp","TlfNummer":"25133144","Adresse":"Roskildevej 30","Adgangskode":"Welp211e","Email":"welp@gmail.com"},{"Id":5,"Navn":"\u00C6blemanden","TlfNummer":"10012022","Adresse":"\u00C6blevej 2","Adgangskode":"\u00C6ble33em","Email":"\u00E6ble@gmail.com"}]
+[
+  {
+    "Id": 1,
+    "Navn": "John",
+    "Mobilnummer": "20242211",
+    "Adresse": "Roskildevej 11",
+    "Adgangskode": "Jh2011mm",
+    "Email": "jh@gmail.com"
+  },
+  {
+    "Id": 2,
+    "Navn": "Cecilie M",
+    "Mobilnummer": "29807701",
+    "Adresse": "Roskilde vej 1",
+    "Adgangskode": "Xxcceciliem",
+    "Email": "cille@gmail.com"
+  },
+  {
+    "Id": 3,
+    "Navn": "Lars",
+    "Mobilnummer": null,
+    "Adresse": "K\u00F8gevej 1",
+    "Adgangskode": "Xxlars11",
+    "Email": "lars@gmail.com"
+  },
+  {
+    "Id": 4,
+    "Navn": "Welp",
+    "Mobilnummer": "25133144",
+    "Adresse": "Roskildevej 30",
+    "Adgangskode": "Welp211e",
+    "Email": "welp@gmail.com"
+  },
+  {
+    "Id": 5,
+    "Navn": "\u00C6blemanden",
+    "Mobilnummer": "10012022",
+    "Adresse": "\u00C6blevej 2",
+    "Adgangskode": "\u00C6ble33em",
+    "Email": "\u00E6ble@gmail.com"
+  },
+  {
+    "Id": 6,
+    "Navn": "Simon",
+    "Mobilnummer": "11121314",
+    "Adresse": "Borgvej 1",
+    "Adgangskode": "simon221",
+    "Email": "si@outlook.dk"
+  },
+  {
+    "Id": 7,
+    "Navn": "Frank",
+    "Mobilnummer": "20330130",
+    "Adresse": "Derudvej 1",
+    "Adgangskode": "Frank2211",
+    "Email": "fr@outlook.dk"
+  }
+
+]
