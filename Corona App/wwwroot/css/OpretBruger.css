@@ -1,0 +1,13 @@
+﻿@media only screen and (max-width: 414px)
+{
+    .opret {
+        border-radius: 50px;
+        
+    }
+
+    p{
+        text-align: center;
+        letter-spacing: 2px;
+    }
+
+}

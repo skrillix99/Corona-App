@@ -58,7 +58,7 @@ namespace Corona_App.Pages.Kunder
         public void Update(BrugerInfo b)
         {
             BrugerInfo get = GetSingle(b.Id);
-            get.TlfNummer = b.TlfNummer;
+            get.Mobilnummer = b.Mobilnummer;
 
             get.Navn = b.Navn;
             get.Adresse = b.Adresse;
