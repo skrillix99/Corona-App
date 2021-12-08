@@ -30,6 +30,12 @@ namespace Corona_App.Pages.Kunder.Bruger
                 return Page();
             }
 
+            if (b.Id == 0)
+            {
+                b.Id = 1;
+            }
+            b.Id = _kunde.Bruger.Max(k => k.Id) + 1;
+
             _kunde.Create(b);
 
             return RedirectToPage("/Index");

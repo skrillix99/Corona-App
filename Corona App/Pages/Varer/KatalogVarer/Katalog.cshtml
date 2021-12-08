@@ -3,6 +3,11 @@
 @{
 }
 
+
+
+
+
+
 <div class="kategori_banner">
 
     <div class="kategori_textOnImg">
@@ -75,7 +80,6 @@
                     </h5>
                 </div>
                 }
-
                 <div id="@item.IdNameCol" class="collapse show" aria-labelledby="@item.IdName" data-parent="#accordion">
                     <div class="card-body">
                         <div class="card-body container_dropdown_item">
@@ -133,16 +137,13 @@
 @foreach (var kata in Enum.GetValues(typeof(Katagoris)))
 {
     // todo don't display empty katagoris
-
-    @foreach (var item in @Model.Varer)
-    {
-        if (kata.ToString() == item.Kategori.ToString())
+    @*@foreach (var item in @Model.Varer.Distinct().ToList())
         {
-
-            <h2>@kata</h2>
-
-        }
-    }
+            if (kata.ToString() == item.Kategori.ToString())
+            {*@
+    <h2>@kata</h2>
+    @*}
+        }*@
     @foreach (var item in @Model.Varer)
     {
         if (kata.ToString() == item.Kategori.ToString())
@@ -161,19 +162,3 @@
         }
     }
 }
-<nav class="menuknapper">
-    <div class="rowtest">
-        <form method="get">
-            <div class="columntest"><input type="submit" formaction="/Varer/KatalogVarer/Katalog" value="Varer" class="skaler btn btn-primary"></div>
-        </form>
-        <form method="get">
-            <div class="columntest"><input type="submit" formaction="/" value="Indkøbsliste" class="skaler btn btn-primary"></div>
-        </form>
-        <form method="get">
-            <div class="columntest"><input type="submit" formaction="/Kunder/Bruger/BlivBud" value="Bliv Bud" class="skaler btn btn-primary"></div>
-        </form>
-        <form method="get">
-            <div class="columntest"><input type="submit" formaction="/Kunder/Bruger/Bruger" value="Profil" class="skaler btn btn-primary"></div>
-        </form>
-    </div>
-</nav>

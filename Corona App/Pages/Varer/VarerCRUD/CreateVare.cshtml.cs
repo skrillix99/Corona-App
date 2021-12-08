@@ -32,7 +32,7 @@ namespace Corona_App.Pages.Varer
 
             _vareCRUD.Create(Varer);
 
-            return RedirectToPage("/Varer/Katalog");
+            return RedirectToPage("/Varer/KatalogVarer/Katalog");
         }
     }
 }

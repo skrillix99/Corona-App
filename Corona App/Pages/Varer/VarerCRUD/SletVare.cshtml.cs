@@ -25,7 +25,7 @@ namespace Corona_App.Pages.Varer
         {
             _katalog.Delete(Varer);
 
-            return RedirectToPage("Katalog");
+            return RedirectToPage("/Varer/KatalogVarer/Katalog");
         }
     }
 }
