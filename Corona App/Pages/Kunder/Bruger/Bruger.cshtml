@@ -1,5 +1,5 @@
 ﻿@page "{id}"
-@model Corona_App.Pages.Shared.Kunder.BrugerModel
+@model Corona_App.Pages.Kunder.BrugerModel
 @{
     ViewData["Title"] = "Profil";
 }
@@ -53,3 +53,20 @@
         </div>
     </div>
 </div>
+
+<nav class="menuknapper">
+    <div class="rowtest">
+        <form method="get">
+            <div class="columntest"><input type="submit" formaction="/Varer/KatalogVarer/Katalog" value="Varer" class="skaler btn btn-primary"></div>
+        </form>
+        <form method="get">
+            <div class="columntest"><input type="submit" formaction="/" value="Indkøbsliste" class="skaler btn btn-primary"></div>
+        </form>
+        <form method="get">
+            <div class="columntest"><input type="submit" formaction="/Kunder/Bruger/BlivBud" value="Bliv Bud" class="skaler btn btn-primary"></div>
+        </form>
+        <form method="get">
+            <div class="columntest"><input type="submit" formaction="/Kunder/Bruger/Bruger" value="Profil" class="skaler btn btn-primary"></div>
+        </form>
+    </div>
+</nav>
