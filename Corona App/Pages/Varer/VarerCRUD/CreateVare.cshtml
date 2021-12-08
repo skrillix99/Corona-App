@@ -37,7 +37,7 @@
                 <div class="form-group">
                     <label>Katagori</label>
                     <select name="Varer.Kategori" asp-for="Varer.Kategori" class="form-control">
-                        @foreach (var kategori in Enum.GetValues(typeof(Kategoris)))
+                        @foreach (var kategori in Enum.GetValues(typeof(Katagoris)))
                         {
                             <option value="@kategori">@kategori</option>
                         }

@@ -4,15 +4,22 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Corona_App.Pages.Kunder.Bruger
+namespace Corona_App.Pages.Kunder
 {
     public class BrugerInfo
     {
+        private int _id;
         private string _navn;
-        private string _tlfnummer;
+        private string _mobilnummer;
         private string _adresse;
         private string _adgangskode;
         private string _email;
+
+        public int Id
+        {
+            get { return _id; }
+            set { _id = value; }
+        }
 
         [Required]
         [RegularExpression(@"\D*", ErrorMessage = "Navn skal skrives med bogstaver")]
@@ -24,10 +31,10 @@ namespace Corona_App.Pages.Kunder.Bruger
 
         [Required]
         [RegularExpression(@"\w*", ErrorMessage = "Tlf nummer skal skrives med tal")]
-        public string TlfNummer
+        public string Mobilnummer
         {
-            get { return _tlfnummer; }
-            set { _tlfnummer = value; }
+            get { return _mobilnummer; }
+            set { _mobilnummer = value; }
         }
 
         [Required]
@@ -59,10 +66,10 @@ namespace Corona_App.Pages.Kunder.Bruger
 
         }
 
-        public BrugerInfo(string Navn, string Tlfnummer, string Adresse, string Adgangskode, string Email)
+        public BrugerInfo(string Navn, string Mobilnummer, string Adresse, string Adgangskode, string Email)
         {
             _navn = Navn;
-            _tlfnummer = Tlfnummer;
+            _mobilnummer = Mobilnummer;
             _adresse = Adresse;
             _adgangskode = Adgangskode;
             _email = Email;
@@ -70,7 +77,7 @@ namespace Corona_App.Pages.Kunder.Bruger
 
         public string Tostring()
         {
-            return $"Navn = {Navn}, Tlfnummer = {TlfNummer}, Adresse = {Adresse}, Adgangskode = {Adgangskode}, Email = {Email}";
+            return $"Navn = {Navn}, Mobilnummer = {Mobilnummer}, Adresse = {Adresse}, Adgangskode = {Adgangskode}, Email = {Email}";
         }
     }
 }

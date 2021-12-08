@@ -6,25 +6,10 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Corona_App.Pages.Varer
 {
-    public enum Kategoris { Frugt, Grøntsager, Kartofler_løg, Færdig_salater, Smoothies }
-    public class Vare
+    public enum Katagoris { Frugt, Grøntsager, Kartofler_løg, Færdig_salater, Smoothies }
+
+    public class Vare : IComparable<Vare>
     {
-        //private int _vareNr;
-        //private int _pris;
-        //private string _navn;
-        //private string _katagori;
-
-        //public Vare()
-        //{
-
-        //}
-        //public Vare(int vareNr, int pris, string navn, string katagori)
-        //{
-        //    _vareNr = vareNr;
-        //    _pris = pris;
-        //    _navn = navn;
-        //    _katagori = katagori;
-        //}
 
         [Required]
         [RegularExpression(@"\d*", ErrorMessage = "Det må kun være tal.")]
@@ -50,12 +35,26 @@ namespace Corona_App.Pages.Varer
             set;
         }
         [Required]
-        // todo selector?
-        public Kategoris Kategori
+        public Katagoris Kategori
         {
             get;
             set;
         }
 
+        public string IdName
+        {
+            get;
+            set;
+        }
+        public string IdNameCol
+        {
+            get;
+            set;
+        }
+
+        public int CompareTo(Vare other)
+        {
+            return Kategori - other.Kategori;
+        }
     }
 }

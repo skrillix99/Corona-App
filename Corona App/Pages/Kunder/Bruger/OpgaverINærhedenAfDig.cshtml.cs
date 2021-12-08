@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Corona_App.Pages.Kunder
+namespace Corona_App.Pages.Kunder.Bruger
 {
-    public class OpgaverModel : PageModel
+    public class OpgaverINærhedenAfDigModel : PageModel
     {
         public void OnGet()
         {

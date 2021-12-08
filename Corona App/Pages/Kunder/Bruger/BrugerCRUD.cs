@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.IO;
 using System.Text.Json;
-using Corona_App.Pages.Kunder.Bruger;
 
 namespace Corona_App.Pages.Kunder
 {
@@ -38,9 +37,9 @@ namespace Corona_App.Pages.Kunder
             }
         }
 
-        public BrugerInfo GetSingle(BrugerInfo tlf)
+        public BrugerInfo GetSingle(int id)
         {
-            return Bruger.Find(k => k.TlfNummer == tlf.TlfNummer);
+            return Bruger.Find(k => k.Id == id);
         }
 
         public void Create(BrugerInfo b)
@@ -51,14 +50,15 @@ namespace Corona_App.Pages.Kunder
 
         public void Delete(BrugerInfo b)
         {
-            Bruger.Remove(b);
+            BrugerInfo g = GetSingle(b.Id);
+            Bruger.Remove(g);
             StoreToJson();
         }
 
         public void Update(BrugerInfo b)
         {
-            BrugerInfo get = GetSingle(b);
-            get.TlfNummer = b.TlfNummer;
+            BrugerInfo get = GetSingle(b.Id);
+            get.Mobilnummer = b.Mobilnummer;
 
             get.Navn = b.Navn;
             get.Adresse = b.Adresse;

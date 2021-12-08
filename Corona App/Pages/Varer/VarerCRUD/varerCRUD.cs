@@ -22,7 +22,7 @@ namespace Corona_App.Pages.Varer
                     Varer = JsonSerializer.Deserialize<List<Vare>>(file.ReadToEnd());
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 Varer = new List<Vare>();
             }
@@ -32,7 +32,7 @@ namespace Corona_App.Pages.Varer
         {
             if (vareNr == 0)
             {
-                throw new ArgumentNullException("Det angivede vareNr er ikke gyldig");
+                throw new KeyNotFoundException("Det angivede vareNr er ikke gyldig");
             }
             return Varer.Find(k => k.VareNr == vareNr);
         }
@@ -87,8 +87,9 @@ namespace Corona_App.Pages.Varer
             if (String.IsNullOrWhiteSpace(searchText))
             {
                 return new List<Vare>();
+                throw new ArgumentNullException("Der er fejl i søgning");
             }
-            return Varer.FindAll(k => k.Navn == searchText);
+            return Varer.FindAll(k => k.Navn == searchText || k.Kategori.ToString() == searchText);
         }
     }
 }
