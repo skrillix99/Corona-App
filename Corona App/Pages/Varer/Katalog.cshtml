@@ -6,7 +6,7 @@
 
 
 
-    
+
 
 <div class="kategori_banner">
 
@@ -29,27 +29,69 @@
 
 
     @*<div id="accordion">
-        @foreach (var item in Model.Varer)
+            @foreach (var item in Model.Varer)
+            {
+            <div class="card">
+                <div class="card-header" id="@item.IdName">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link" data-toggle="collapse" data-target="#@item.IdNameCol" aria-expanded="true" aria-controls="@item.IdNameCol">
+                            @item.Kategori
+                        </button>
+                    </h5>
+                </div>
+
+                @foreach (var kate in Enum.GetValues(typeof(Katagoris)))
+                {
+
+                    if (kate.ToString() == item.Kategori.ToString())
+                    {
+                        <div id="@item.IdNameCol" class="collapse show" aria-labelledby="@item.IdName" data-parent="#accordion">
+                            <div class="card-body container_dropdown_item">
+                                <img src="https://www.dummyimage.com/40px40px" alt="Alternate Text" />
+                                <div>
+                                    @item.Kategori
+                                    <p>@item.Navn</p>
+                                    <p>@item.Pris kr</p>
+                                    <p>250 gram</p>
+                                </div>
+                                <a href="#">Tilføj</a>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+            }
+
+
+        </div>*@
+
+
+
+
+    @*<div id="accordion">
+
+
+        @foreach (var kata in Enum.GetValues(typeof(Katagoris)))
         {
         <div class="card">
-            <div class="card-header" id="@item.IdName">
-                <h5 class="mb-0">
-                    <button class="btn btn-link" data-toggle="collapse" data-target="#@item.IdNameCol" aria-expanded="true" aria-controls="@item.IdNameCol">
-                        @item.Kategori
-                    </button>
-                </h5>
-            </div>
-
-            @foreach (var kate in Enum.GetValues(typeof(Katagoris)))
+            @foreach (var item in Model.Varer)
             {
-
-                if (kate.ToString() == item.Kategori.ToString())
+                @if (kata.ToString() == item.Kategori.ToString())
                 {
-                    <div id="@item.IdNameCol" class="collapse show" aria-labelledby="@item.IdName" data-parent="#accordion">
+                <div class="card-header" id="@item.IdName">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link" data-toggle="collapse" data-target="#@item.IdNameCol" aria-expanded="true" aria-controls="@item.IdNameCol">
+                            @kata
+                        </button>
+                    </h5>
+                </div>
+                }
+
+                <div id="@item.IdNameCol" class="collapse show" aria-labelledby="@item.IdName" data-parent="#accordion">
+                    <div class="card-body">
                         <div class="card-body container_dropdown_item">
                             <img src="https://www.dummyimage.com/40px40px" alt="Alternate Text" />
                             <div>
-                                @item.Kategori
                                 <p>@item.Navn</p>
                                 <p>@item.Pris kr</p>
                                 <p>250 gram</p>
@@ -57,120 +99,76 @@
                             <a href="#">Tilføj</a>
                         </div>
                     </div>
-                }
-            }
-        </div>
-        }
-
-
-    </div>*@
-
-
-
-
-@*<div id="accordion">
-
-
-    @foreach (var kata in Enum.GetValues(typeof(Katagoris))) 
-    { 
-    <div class="card">
-        @foreach (var item in Model.Varer)
-        {
-            @if (kata.ToString() == item.Kategori.ToString())
-            {
-            <div class="card-header" id="@item.IdName">
-                <h5 class="mb-0">
-                    <button class="btn btn-link" data-toggle="collapse" data-target="#@item.IdNameCol" aria-expanded="true" aria-controls="@item.IdNameCol">
-                        @kata
-                    </button>
-                </h5>
-            </div>
-            }
-            
-            <div id="@item.IdNameCol" class="collapse show" aria-labelledby="@item.IdName" data-parent="#accordion">
-                <div class="card-body">
-                    <div class="card-body container_dropdown_item">
-                        <img src="https://www.dummyimage.com/40px40px" alt="Alternate Text" />
-                        <div>
-                            <p>@item.Navn</p>
-                            <p>@item.Pris kr</p>
-                            <p>250 gram</p>
-                        </div>
-                        <a href="#">Tilføj</a>
-                    </div>
                 </div>
-            </div>
-            }
-        }
-    </div>
-    }
-    </div>*@
-
-
-
-
-
-
-
-        @*@foreach (var kata in Enum.GetValues(typeof(Katagoris)))
-    { // todo ikke vise tomme kategori
-    <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            @kata
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            @foreach (var item in @Model.Varer)
-            {
-                if (kata.ToString() == item.Kategori.ToString())
-                {
-                    <div class="dropdown-item container_dropdown_item">
-
-                        <img src="https://www.dummyimage.com/40px40px" alt="Alternate Text" />
-                        <div>
-                            <p>@item.Navn</p>
-                            <p>@item.Pris kr</p>
-                            <p>250 gram</p>
-                        </div>
-                        <a href="#">Tilføj</a>
-
-                    </div>
                 }
-
             }
         </div>
-    </div>
-    }*@
+        }
+        </div>*@
+
+
+
+
+
+
+
+    @*@foreach (var kata in Enum.GetValues(typeof(Katagoris)))
+        { // todo ikke vise tomme kategori
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                @kata
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                @foreach (var item in @Model.Varer)
+                {
+                    if (kata.ToString() == item.Kategori.ToString())
+                    {
+                        <div class="dropdown-item container_dropdown_item">
+
+                            <img src="https://www.dummyimage.com/40px40px" alt="Alternate Text" />
+                            <div>
+                                <p>@item.Navn</p>
+                                <p>@item.Pris kr</p>
+                                <p>250 gram</p>
+                            </div>
+                            <a href="#">Tilføj</a>
+
+                        </div>
+                    }
+
+                }
+            </div>
+        </div>
+        }*@
 </div>
 
 
 
-    @foreach (var kata in Enum.GetValues(typeof(Katagoris)))
-        {
-            // todo don't display empty katagoris
-            
-        @foreach (var item in @Model.Varer)
-        {
-            if (kata.ToString() == item.Kategori.ToString())
-            {
-                
+@foreach (var kata in Enum.GetValues(typeof(Katagoris)))
+{
+    // todo don't display empty katagoris
+    @*@foreach (var item in @Model.Varer.Distinct().ToList())
+    {
+        if (kata.ToString() == item.Kategori.ToString())
+        {*@
             <h2>@kata</h2>
+        @*}
+    }*@
+    @foreach (var item in @Model.Varer)
+    {
+        if (kata.ToString() == item.Kategori.ToString()) 
+        { 
+            <div class="dropdown-item container_dropdown_item">
 
-            }}
-            @foreach (var item in @Model.Varer)
-            {
-                if(kata.ToString() == item.Kategori.ToString())
-                {
-                <div class="dropdown-item container_dropdown_item">
+                <img src="https://www.dummyimage.com/40px40px" alt="Alternate Text" />
+                <div>
+                    <p>@item.Navn</p>
+                    <p>@item.Pris kr</p>
+                    <p>250 gram</p>
+                </div>
+                <a href="#">Tilføj</a>
 
-                        <img src="https://www.dummyimage.com/40px40px" alt="Alternate Text" />
-                        <div>
-                            <p>@item.Navn</p>
-                            <p>@item.Pris kr</p>
-                            <p>250 gram</p>
-                        </div>
-                        <a href="#">Tilføj</a>
-
-                    </div>                
-                }
-            }
+            </div>
         }
+}
+}

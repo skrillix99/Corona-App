@@ -19,7 +19,7 @@ namespace Corona_App.Pages.Varer
         public string Search { get; set; }        
         public string ErrorMsg { get; set; }
         public string IdName { get; set; }
-        public string IdNameCol { get; set; }
+        public string IdNameCol { get; set; }        
         public KatalogModel(IKatalog katalog)
         {
             _idName = new List<string>();
@@ -56,7 +56,7 @@ namespace Corona_App.Pages.Varer
         {
             try
             {                
-                 Varer = _katalog.Search(Search);                
+                Varer = _katalog.Search(Search);                
             }
             catch (ArgumentNullException e)
             {
