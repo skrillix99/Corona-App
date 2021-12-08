@@ -28,13 +28,18 @@ namespace Corona_App.Pages.Shared.Kunder
 
         public IActionResult OnPost()
         {
-            if (!ModelState.IsValid)
+            
+            if (ModelState.IsValid)
             {
-                return Page();
-            }
-
-            _kunde.Update(b);
-            _kunde.Delete(b);
+                _kunde.Update(b);
+                //return Page();
+                return RedirectToPage("/Index");
+            } 
+            
+                _kunde.Delete(b);
+            
+            //_kunde.Update(b);
+            //_kunde.Delete(b);
 
             return RedirectToPage("/Index");
         }

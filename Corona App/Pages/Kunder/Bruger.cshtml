@@ -1,7 +1,7 @@
 ﻿@page "{id}"
 @model Corona_App.Pages.Shared.Kunder.BrugerModel
 @{
-    ViewData["Title"] = "Bruger";
+    ViewData["Title"] = "Profil";
 }
 <div class="container">
     <h1>Profil</h1>
@@ -10,7 +10,7 @@
             <form method="post">
                 <input type="hidden" asp-for="b.Id" />
 
-                <div class="form-group f">
+                <div class="form-group">
                     <label> Navn: </label>
                     <input type="text" asp-for="b.Navn" class="form-control" />
                     <span asp-validation-for="b.Navn" class="alert-danger"></span>
@@ -48,6 +48,7 @@
                 <div class="form-group knap2">
                     <input type="submit" value="Slet bruger" class="btn btn-danger knap2" />
                 </div>
+                
             </form>
         </div>
     </div>
