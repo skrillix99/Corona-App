@@ -1,4 +1,6 @@
 ﻿@page
+
+@*Lavet Af Anders & Jonathan*@
 @model Corona_App.Pages.Kunder.Bruger.BlivBudModel
 @{
     ViewData["Title"] = "Bliv Bud";
@@ -19,13 +21,22 @@
 <p>
     Du vil blive betalt XX kr. for hver levering du udfører, og få de penge igen, som der bliver brugt på varerne.
 </p>
+
 <div class="line-space"></div>
 <div class="text-center">
-    <input type="checkbox" name="handelsbetingelserne" value="handelsbetingelserne" /> <label>Jeg har læst og accepteret handelsbetingelserne.</label>
-    <div class="line-space"></div>
+    <p><a href="https://shop.rema1000.dk/handelsbetingelser">Læs vores handelsbetingelser her</a></p>
     <form>
-    <input type="submit" formaction="/Kunder/Bruger/OpgaverINærhedenAfDig" name="Bliv bud" value="Jeg ønsker at blive bud" class="btn rema_farve" />
+        <input type="checkbox" name="handelsbetingelserne" value="handelsbetingelserne" id="test" required /> <label>Jeg har læst og accepteret handelsbetingelserne.</label>
+        <input type="submit" value="Bliv Bud" onclick="myFunction()" formaction="/Kunder/Bruger/OpgaverINærhedenAfDig" class="btn rema_farve">
     </form>
+    <div class="line-space"></div>
+
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myCheck").required;
+            document.getElementById("test").innerHTML = x;
+        }
+    </script>
 </div>
 
 
@@ -43,6 +54,6 @@
         <form method="get">
             <div class="columntest"><input type="submit" formaction="/Kunder/Bruger/Bruger" value="Profil" class="skaler btn btn-primary"></div>
         </form>
-        </div>
+    </div>
 </nav>
 

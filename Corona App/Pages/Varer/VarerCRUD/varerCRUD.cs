@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
 
-namespace Corona_App.Pages.Varer
+namespace Corona_App.Pages.Varer //Lavet Af Marcus
 {
-    public class varerCRUD : IKatalog
+    public class varerCRUD : IVare
     {
 
         private string _filename = @"wwwroot\VarerJson.json";

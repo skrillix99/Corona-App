@@ -5,16 +5,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Corona_App.Pages.Varer
+namespace Corona_App.Pages.Varer //Lavet Af Marcus
 {
     public class CreateVareModel : PageModel
     {
-        private IKatalog _vareCRUD;
+        private IVare _vareCRUD;
 
         [BindProperty]
         public Vare Varer { get; set; }
 
-        public CreateVareModel(IKatalog katalog)
+        public CreateVareModel(IVare katalog)
         {
             _vareCRUD = katalog;
         }

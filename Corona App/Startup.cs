@@ -29,7 +29,7 @@ namespace Corona_App
         {
             services.AddRazorPages();
             services.AddSingleton<IKunde, BrugerCRUD>();
-            services.AddSingleton<IKatalog, varerCRUD>();
+            services.AddSingleton<IVare, varerCRUD>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

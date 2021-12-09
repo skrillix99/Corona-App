@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Text.Json;
 
-namespace Corona_App.Pages.Kunder
+namespace Corona_App.Pages.Kunder //Lavet Af Cecilie & Marcus
 {
     public class BrugerCRUD : IKunde
     {

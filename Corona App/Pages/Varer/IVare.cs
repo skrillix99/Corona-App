@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Corona_App.Pages.Varer
+namespace Corona_App.Pages.Varer //Lavet Af Marcus
 {
-    public interface IKatalog
+    public interface IVare
     {
         List<Vare> Varer { get; }
         Vare GetSingle(int vareNr);

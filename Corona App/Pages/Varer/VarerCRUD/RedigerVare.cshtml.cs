@@ -5,15 +5,15 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Corona_App.Pages.Varer
+namespace Corona_App.Pages.Varer //Lavet Af Marcus
 {
-    public class RedigereVareModel : PageModel
+    public class RedigereVareModel : PageModel 
     {
-        private IKatalog _katalog;
+        private IVare _katalog;
         [BindProperty]
         public Vare Varer { get; set; }
         public string ErrorMsg { get; set; }
-        public RedigereVareModel(IKatalog katalog)
+        public RedigereVareModel(IVare katalog)
         {
             _katalog = katalog;
         }

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Corona_App.Pages.Kunder
+namespace Corona_App.Pages.Kunder //Lavet Af Cecilie
 {
     public class BrugerInfo
     {

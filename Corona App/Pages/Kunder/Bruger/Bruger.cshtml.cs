@@ -7,7 +7,7 @@ using Corona_App.Pages.Kunder.Bruger;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Corona_App.Pages.Kunder
+namespace Corona_App.Pages.Kunder // Lavet Af Cecilie
 {
     public class BrugerModel : PageModel
     {
