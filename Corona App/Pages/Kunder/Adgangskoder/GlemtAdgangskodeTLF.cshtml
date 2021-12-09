@@ -1,5 +1,5 @@
 ﻿@page
-@model Corona_App.Pages.GlemtAdgangskodeModel
+@model Corona_App.Pages.Kunder.Adgangskoder.GlemtAdgangskodeTLFModel
 @{
     ViewData["Title"] = "Glemt Adgangskode";
 }
@@ -12,13 +12,13 @@
 <div class="line-space"></div>
 
 <div class="text-center line-space">
-    <p>Indtast E-mail</p>
+    <p>Indtast Telefon Nummer</p>
 </div>
 
 <div class="line-space"></div>
 <div class="text-center line-space">
     <form>
-        <input type="text" placeholder="Indtast E-mail..."/>
+        <input type="text" placeholder="Indtast Telefon Nummer..."/>
     </form>
 </div>
 
@@ -35,7 +35,7 @@
 <div class="line-space"></div>
 <div class="text-center">
     <form>
-        <input type="submit" value="Brug Telefon Nummer" formaction="/Kunder/Adgangskoder/GlemtAdgangskodeTLF" class="btn rema_farve">
+        <input type="submit" value="Brug e-mail" formaction="/Kunder/Adgangskoder/GlemtAdgangskode" class="btn rema_farve">
     </form>
     <div class="line-space"></div>
 </div>
