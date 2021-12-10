@@ -55,13 +55,8 @@ namespace Corona_App.Pages.Varer
             {
                 throw new KeyNotFoundException("Varen findes ikke eller der skete en fejl");
             }
-            //if(KundensVare == null)
-            //{
-            //    throw new ArgumentNullException("Vi kunne ikke tilføje varen");
-            //}            
-            Vare g = GetSingle(tilføj);
-            //KundensVare.Add(GetSingle(tilføj));
-            KundensVare.Add(g); // test
+            
+            KundensVare.Add(GetSingle(tilføj));
             StoreToJsonBestilling();
         }
 
