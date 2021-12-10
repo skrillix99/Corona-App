@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
+
 namespace Corona_App.Pages.Varer //Lavet Af Marcus
 {
     public class SletModel : PageModel

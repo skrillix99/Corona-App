@@ -1,32 +1,14 @@
 ﻿@page
-
-@model Corona_App.Pages.Varer.KatalogModel
+@model Corona_App.Pages.Varer.KatalogVarer.KatalogModel
 @{
 }
-@*Lavet Af Marcus*@
+
 
 
 
 
 
 <div class="kategori_banner">
-
-    <nav class="menuknapper">
-        <div class="rowtest">
-            <form method="get">
-                <div class="columntest"><input type="submit" formaction="/Varer/KatalogVarer/Katalog" value="Varer" class="skaler btn btn-primary"></div>
-            </form>
-            <form method="get">
-                <div class="columntest"><input type="submit" formaction="/" value="Indkøbsliste" class="skaler btn btn-primary"></div>
-            </form>
-            <form method="get">
-                <div class="columntest"><input type="submit" formaction="/Kunder/Bruger/BlivBud" value="Bliv Bud" class="skaler btn btn-primary"></div>
-            </form>
-            <form method="get">
-                <div class="columntest"><input type="submit" formaction="/Kunder/Bruger/Bruger" value="Profil" class="skaler btn btn-primary"></div>
-            </form>
-        </div>
-    </nav>
 
     <div class="kategori_textOnImg">
         <h1>Frugt og Grønt</h1>
@@ -174,11 +156,12 @@
                     <p>@item.Pris kr</p>
                     <p>250 gram</p>
                 </div>
-                <a href="#">Tilføj</a>
+                <a asp-page-handler="buynow" asp-route-vareNr="@item.VareNr">Tilføj</a>
+                @*<form method="post">
+                        <input asp-for="@item" value="Tilføj" class="btn" asp-page-handler="buynow"/>
+                    </form>*@
 
             </div>
-
-          
         }
     }
 }

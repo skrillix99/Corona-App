@@ -13,6 +13,7 @@ namespace Corona_App.Pages.Varer //Lavet Af Marcus
 
         [BindProperty]
         public Vare Varer { get; set; }
+        public string ErrorMsg { get; set; }
 
         public CreateVareModel(IVare katalog)
         {
@@ -25,14 +26,21 @@ namespace Corona_App.Pages.Varer //Lavet Af Marcus
 
         public IActionResult OnPost()
         {
-            if (!ModelState.IsValid)
+            try
             {
-                return Page();
+                if (!ModelState.IsValid)
+                {
+                    return Page();
+                }
+
+                _vareCRUD.Create(Varer);
             }
+            catch (ArgumentNullException e)
+            {
+                ErrorMsg = e.ParamName;
+            }
+            return RedirectToPage("/Varer/Katalog");
 
-            _vareCRUD.Create(Varer);
-
-            return RedirectToPage("/Varer/KatalogVarer/Katalog");
         }
     }
 }
