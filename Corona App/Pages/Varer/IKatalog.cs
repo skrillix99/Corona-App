@@ -13,5 +13,8 @@ namespace Corona_App.Pages.Varer
         void Update(Vare vare);
         void Delete(Vare vare);
         List<Vare> Search(string searchText);        
+
+        List<Vare> KundensVare { get; }
+        void TilføjVareTilBestilling(int tilføj);
     }
 }

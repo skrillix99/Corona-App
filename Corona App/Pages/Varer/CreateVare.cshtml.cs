@@ -35,9 +35,9 @@ namespace Corona_App.Pages.Varer
 
                 _vareCRUD.Create(Varer);
             }
-            catch (Exception e)
+            catch (ArgumentNullException e)
             {
-                ErrorMsg = e.Message;
+                ErrorMsg = e.ParamName;
             }
                 return RedirectToPage("/Varer/Katalog");
 

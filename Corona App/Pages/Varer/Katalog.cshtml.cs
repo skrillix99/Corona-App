@@ -9,32 +9,17 @@ namespace Corona_App.Pages.Varer
 {
     public class KatalogModel : PageModel
     {        
-        private IKatalog _katalog;
-        private List<string> _idName;
-        private List<string> _idNameCol;
+        private IKatalog _katalog;        
 
         public List<Vare> Varer { get; private set; }
+        [BindProperty]
+        public Vare KundensVare { get; set; }
 
         [BindProperty]
         public string Search { get; set; }        
-        public string ErrorMsg { get; set; }
-        public string IdName { get; set; }
-        public string IdNameCol { get; set; }        
+        public string ErrorMsg { get; set; }       
         public KatalogModel(IKatalog katalog)
-        {
-            _idName = new List<string>();
-            _idName.Add(new("headingOne"));
-            _idName.Add(new("headingTwo"));
-            _idName.Add(new("headingThree"));
-            _idName.Add(new("headingFour"));
-            _idName.Add(new("headingFive"));
-
-            _idNameCol = new List<string>();
-            _idNameCol.Add(new("collapseOne"));
-            _idNameCol.Add(new("collapseTwo"));
-            _idNameCol.Add(new("collapseThree"));
-            _idNameCol.Add(new("collapseFour"));
-            _idNameCol.Add(new("collapseFive"));
+        {           
             _katalog = katalog;
         }
         
@@ -52,15 +37,24 @@ namespace Corona_App.Pages.Varer
 
             return Page();
         }
+
+        
+        public IActionResult OnGetBuyNow(int vareNr)
+        {
+
+            _katalog.TilføjVareTilBestilling(vareNr);
+            return RedirectToPage("Katalog");
+        }
         public IActionResult OnPost()
         {
             try
             {                
-                Varer = _katalog.Search(Search);                
+                Varer = _katalog.Search(Search);
             }
-            catch (ArgumentNullException e)
+            
+            catch (ArgumentNullException n)
             {
-                ErrorMsg = e.Message;
+                ErrorMsg = n.ParamName;
             }
             
             return Page();

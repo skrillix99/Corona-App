@@ -7,11 +7,12 @@ namespace Corona_App.Pages.Varer
 {
     public class VarerCRUD : IKatalog
     {
-
         private string _filename = @"wwwroot\VarerJson.json";
-
+        private string _filenameBestilling = @"wwwroot\BestillingJson.json";
 
         public List<Vare> Varer { get; private set; }
+
+        public List<Vare> KundensVare { get; set; }
 
         public VarerCRUD()
         {
@@ -25,7 +26,9 @@ namespace Corona_App.Pages.Varer
             catch (Exception)
             {
                 Varer = new List<Vare>();
+
             }
+            KundensVare = new List<Vare>();
         }
 
         public Vare GetSingle(int vareNr)
@@ -34,7 +37,7 @@ namespace Corona_App.Pages.Varer
             {
                 throw new KeyNotFoundException("Det angivede vareNr er ikke gyldig");
             }
-            return Varer.Find(k => k.VareNr == vareNr);
+                return Varer.Find(k => k.VareNr == vareNr);
         }
 
         public void Create(Vare obj)
@@ -46,14 +49,29 @@ namespace Corona_App.Pages.Varer
             Varer.Add(obj);
             StoreToJson();
         }
+        public void TilføjVareTilBestilling(int tilføj)
+        {
+            if (tilføj == 0)
+            {
+                throw new KeyNotFoundException("Varen findes ikke eller der skete en fejl");
+            }
+            //if(KundensVare == null)
+            //{
+            //    throw new ArgumentNullException("Vi kunne ikke tilføje varen");
+            //}            
+            Vare g = GetSingle(tilføj);
+            //KundensVare.Add(GetSingle(tilføj));
+            KundensVare.Add(g); // test
+            StoreToJsonBestilling();
+        }
 
         public void Delete(Vare vare)
         {
-            Vare Get = GetSingle(vare.VareNr);
-            if(Get.VareNr == 0)
+            if(vare == null)
             {
                 throw new ArgumentNullException("Den angivede vare er ikke gyldig");
             }
+            Vare Get = GetSingle(vare.VareNr);
             Varer.Remove(Get); 
             StoreToJson();
         }
@@ -79,6 +97,14 @@ namespace Corona_App.Pages.Varer
             {
                 var writer = new Utf8JsonWriter(file, new JsonWriterOptions());
                 JsonSerializer.Serialize(writer, Varer);
+            }   
+        }
+        private void StoreToJsonBestilling()
+        {
+            using (var file = File.Create(_filenameBestilling))
+            {
+                var writer = new Utf8JsonWriter(file, new JsonWriterOptions());
+                JsonSerializer.Serialize(writer, KundensVare);
             }
         }
 
@@ -86,10 +112,10 @@ namespace Corona_App.Pages.Varer
         {
             if(String.IsNullOrWhiteSpace(searchText))
             {
-                return new List<Vare>();
-                throw new ArgumentNullException("Der er fejl i søgning");
+                return Varer;
+                throw new ArgumentNullException("Der er fejl i din søgning");
             }
-            return Varer.FindAll(k => k.Navn == searchText || k.Kategori.ToString() == searchText);
+            return Varer.FindAll(k => k.Navn.ToLower() == searchText.ToLower() || k.Kategori.ToString().ToLower() == searchText.ToLower());
         }        
     }
 }

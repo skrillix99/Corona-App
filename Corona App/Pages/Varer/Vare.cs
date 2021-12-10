@@ -41,17 +41,6 @@ namespace Corona_App.Pages.Varer
             set;
         }
 
-        public string IdName
-        {
-            get;
-            set;
-        }
-        public string IdNameCol
-        {
-            get;
-            set;
-        }
-
         public int CompareTo(Vare other)
         {
             return Kategori - other.Kategori;

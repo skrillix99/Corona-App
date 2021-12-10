@@ -166,9 +166,12 @@
                     <p>@item.Pris kr</p>
                     <p>250 gram</p>
                 </div>
-                <a href="#">Tilføj</a>
+                <a asp-page-handler="buynow" asp-route-vareNr="@item.VareNr">Tilføj</a>
+            @*<form method="post">
+                <input asp-for="@item" value="Tilføj" class="btn" asp-page-handler="buynow"/>                
+            </form>*@
 
             </div>
         }
-}
+    }
 }

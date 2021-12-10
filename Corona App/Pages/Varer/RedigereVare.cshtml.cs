@@ -39,9 +39,9 @@ namespace Corona_App.Pages.Varer
 
                 _katalog.Update(Varer);
             }
-            catch (Exception e)
+            catch (ArgumentNullException e)
             {
-                ErrorMsg = e.Message;   
+                ErrorMsg = e.ParamName;   
             }
             return RedirectToPage("Katalog");
         }
