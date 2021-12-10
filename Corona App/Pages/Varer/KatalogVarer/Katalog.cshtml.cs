@@ -7,8 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Corona_App.Pages.Varer.KatalogVarer //Lavet Af Marcus
 {
-    public class KatalogModel : PageModel
-    {
+    
         public class katalogModel : PageModel
         {
             private IVare _katalog;
@@ -63,4 +62,3 @@ namespace Corona_App.Pages.Varer.KatalogVarer //Lavet Af Marcus
             }
         }
     }
-}
