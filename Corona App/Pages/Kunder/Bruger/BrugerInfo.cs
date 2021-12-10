@@ -31,6 +31,8 @@ namespace Corona_App.Pages.Kunder //Lavet Af Cecilie
 
         [Required]
         [RegularExpression(@"\w*", ErrorMessage = "Tlf nummer skal skrives med tal")]
+        [Range(8, 8, ErrorMessage ="Dit nummer skal være 8 tegn")]
+        [MaxLength(8)]
         public string Mobilnummer
         {
             get { return _mobilnummer; }
