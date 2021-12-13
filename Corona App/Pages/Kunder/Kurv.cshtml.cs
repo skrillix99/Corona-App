@@ -10,19 +10,31 @@ namespace Corona_App.Pages.Kunder
 {
     public class KurvModel : PageModel
     {
-        public VarerCRUD _varerCRUD; // null, check Anders
+        public IKatalog _katelog; // null, check Anders
 
-        public List<Vare> KundensVare { get; set; }
-        
-        //public List<Vare> JsonReader()
-        //{
-        //    return _varerCRUD.ReadJson();
-        //}
+        public List<Bestilling> KundensVare { get; set; }
+
+        public KurvModel(IKatalog katelog)
+        {
+            _katelog = katelog;
+        }
+
+        public List<Bestilling> JsonReader()
+        {
+            return _katelog.ReadJson();
+        }
 
         public void OnGet()
         {
-            //KundensVare = JsonReader();
-            //KundensVare = _varerCRUD.KundensVare;
+            KundensVare = JsonReader();
+            KundensVare = _katelog.KundensVare;
+        }
+
+        public IActionResult OnGetTest(int vareNr)
+        {
+            _katelog.SletVareFraBestilling(vareNr);
+            KundensVare = _katelog.KundensVare;
+            return RedirectToPage("kurv");
         }
     }
 }

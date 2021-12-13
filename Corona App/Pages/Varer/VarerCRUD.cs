@@ -94,6 +94,16 @@ namespace Corona_App.Pages.Varer
             Varer.Remove(Get); 
             StoreToJson();
         }
+        public void SletVareFraBestilling(int vareNr)
+        {
+            if(!KundensVare.Exists(k => k.VareNr == vareNr))
+            {
+                throw new ArgumentNullException("Den angivede vare er ikke gyldig");
+            }
+            Bestilling Get = KundensVare.Find(k => k.VareNr == vareNr);
+            KundensVare.Remove(Get);
+            StoreToJsonBestilling();
+        }
 
         public void Update(Vare vare)
         {

@@ -7,9 +7,13 @@
 
 @foreach (var item in Model.KundensVare)
 {
-    <p>@item.VareNr</p>
-    <p>@item.Navn</p>
-    <p>@item.Pris</p>
-    <p>@item.Kategori</p>
-    
+    <section style="border: dashed 1.5px #111; margin-bottom:2em;">
+        <p>@item.VareNr</p>
+        <p>@item.Navn</p>
+        <p>@item.Pris</p>
+        <p>@item.Kategori</p>
+        <p>@item.lokation</p>
+
+        <a asp-route-vareNr="@item.VareNr" asp-page-handler="test">Slet</a>
+    </section>
 }
