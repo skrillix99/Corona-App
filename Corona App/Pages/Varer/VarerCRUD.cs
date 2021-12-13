@@ -12,7 +12,7 @@ namespace Corona_App.Pages.Varer
 
         public List<Vare> Varer { get; private set; }
 
-        public List<Vare> KundensVare { get; set; }
+        public List<Bestilling> KundensVare { get; set; }
 
         public VarerCRUD()
         {
@@ -28,7 +28,23 @@ namespace Corona_App.Pages.Varer
                 Varer = new List<Vare>();
 
             }
-            KundensVare = new List<Vare>();
+            KundensVare = new List<Bestilling>();
+        }
+
+        public List<Bestilling> ReadJson()
+        {
+            try
+            {
+                using (var file = File.OpenText(_filenameBestilling))
+                {
+                    KundensVare = JsonSerializer.Deserialize<List<Bestilling>>(file.ReadToEnd());
+                }
+            }
+            catch (Exception)
+            {
+                KundensVare = new List<Bestilling>();
+            }
+            return KundensVare;
         }
 
         public Vare GetSingle(int vareNr)
@@ -56,7 +72,15 @@ namespace Corona_App.Pages.Varer
                 throw new KeyNotFoundException("Varen findes ikke eller der skete en fejl");
             }
             
-            KundensVare.Add(GetSingle(tilføj));
+            //KundensVare.Add(GetSingle(tilføj));
+            KundensVare.Add(new Bestilling(tilføj));
+            
+            Bestilling Get = KundensVare.Find(k => k.VareNr == tilføj);
+
+
+            Get.Pris = Varer.Find(k => k.VareNr == tilføj).Pris;
+            Get.Navn = Varer.Find(k => k.VareNr == tilføj).Navn;
+            Get.Kategori = Varer.Find(k => k.VareNr == tilføj).Kategori;            
             StoreToJsonBestilling();
         }
 
@@ -85,6 +109,16 @@ namespace Corona_App.Pages.Varer
             Get.Kategori = vare.Kategori;
 
             StoreToJson();
+        }
+        public void UpdateLokation(string lokation, int tilføj)
+        {
+
+            foreach (Bestilling l in KundensVare)
+            {               
+                l.lokation = lokation;
+                //Bestilling Get = KundensVare.Find(k => k.Id == tilføj);
+            }
+            StoreToJsonBestilling();
         }
         private void StoreToJson()
         {

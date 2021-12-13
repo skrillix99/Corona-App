@@ -1,0 +1,12 @@
+﻿@page "{id}"
+@model Corona_App.Pages.Varer.LokationModel
+@{
+}
+
+<h1>Skriv en lokation</h1>
+
+<form method="post">
+    <label>Lokation</label>
+    <input type="text" placeholder="skriv her" asp-for="@Model.Lokation" />
+    <input type="submit" value="Videre" />
+</form>

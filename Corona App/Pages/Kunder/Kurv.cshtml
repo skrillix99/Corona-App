@@ -1,4 +1,15 @@
 ﻿@page
-@model Corona_App.Pages.Shared.Kunder.KurvModel
+@model Corona_App.Pages.Kunder.KurvModel
 @{
+}
+
+<h1>welp</h1>
+
+@foreach (var item in Model.KundensVare)
+{
+    <p>@item.VareNr</p>
+    <p>@item.Navn</p>
+    <p>@item.Pris</p>
+    <p>@item.Kategori</p>
+    
 }

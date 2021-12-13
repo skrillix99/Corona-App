@@ -12,8 +12,10 @@ namespace Corona_App.Pages.Varer
         private IKatalog _katalog;        
 
         public List<Vare> Varer { get; private set; }
+
+        
         [BindProperty]
-        public Vare KundensVare { get; set; }
+        public string Lokation { get; set; }
 
         [BindProperty]
         public string Search { get; set; }        
@@ -27,6 +29,7 @@ namespace Corona_App.Pages.Varer
         {
             try
             {
+                
                 Varer = _katalog.Varer;
                 Varer.Sort();
             }
@@ -41,9 +44,8 @@ namespace Corona_App.Pages.Varer
         
         public IActionResult OnGetBuyNow(int vareNr)
         {
-
             _katalog.TilføjVareTilBestilling(vareNr);
-            return RedirectToPage("Katalog");
+            return RedirectToPage("katalog");
         }
         public IActionResult OnPost()
         {
