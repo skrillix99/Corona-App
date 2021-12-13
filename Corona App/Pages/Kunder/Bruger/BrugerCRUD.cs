@@ -29,6 +29,14 @@ namespace Corona_App.Pages.Kunder
             }
         }
 
+
+        public static List<BrugerInfo> JsonFileRead(string fileName)
+        {
+            using (var file = File.OpenText(fileName))
+            {
+                return JsonSerializer.Deserialize<List<BrugerInfo>>(file.ReadToEnd());
+            }
+        }
         private void StoreToJson()
         {
             using (var file = File.Create(_filename))
@@ -67,6 +75,7 @@ namespace Corona_App.Pages.Kunder
 
             StoreToJson();
         }
+        
 
     }
 }
