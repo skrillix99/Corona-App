@@ -10,7 +10,7 @@ namespace Corona_App.Pages.Kunder
 {
     public class KurvModel : PageModel
     {
-        public IKatalog _katelog; // null, check Anders
+        public IKatalog _katelog;
 
         public List<Bestilling> KundensVare { get; set; }
 

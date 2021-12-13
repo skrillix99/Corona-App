@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
+using Corona_App.Pages.Kunder;
 
 namespace Corona_App.Pages.Varer
 {
@@ -9,6 +10,8 @@ namespace Corona_App.Pages.Varer
     {
         private string _filename = @"wwwroot\VarerJson.json";
         private string _filenameBestilling = @"wwwroot\BestillingJson.json";
+        private string _filenameKunde = @"wwwroot\Kunde.json";
+        
 
         public List<Vare> Varer { get; private set; }
 
@@ -76,8 +79,7 @@ namespace Corona_App.Pages.Varer
             KundensVare.Add(new Bestilling(tilføj));
             
             Bestilling Get = KundensVare.Find(k => k.VareNr == tilføj);
-
-
+            
             Get.Pris = Varer.Find(k => k.VareNr == tilføj).Pris;
             Get.Navn = Varer.Find(k => k.VareNr == tilføj).Navn;
             Get.Kategori = Varer.Find(k => k.VareNr == tilføj).Kategori;            
@@ -120,14 +122,18 @@ namespace Corona_App.Pages.Varer
 
             StoreToJson();
         }
-        public void UpdateLokation(string lokation, int tilføj)
+        public void UpdateLokation(string lokation, string mobil)
         {
-
+            BrugerInfo Get = BrugerCRUD.JsonFileRead(_filenameKunde).Find(k => k.Mobilnummer == mobil);
             foreach (Bestilling l in KundensVare)
             {               
-                l.lokation = lokation;
-                //Bestilling Get = KundensVare.Find(k => k.Id == tilføj);
+                if(l.Id == 0)
+                {
+                    l.lokation = lokation;
+                    l.Id = Get.Id;
+                }
             }
+
             StoreToJsonBestilling();
         }
         private void StoreToJson()

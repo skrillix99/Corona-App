@@ -1,12 +1,16 @@
-﻿@page "{id}"
+﻿@page
 @model Corona_App.Pages.Varer.LokationModel
 @{
 }
 
-<h1>Skriv en lokation</h1>
+<h1>Bekræftigelse af brugeren</h1>
 
 <form method="post">
     <label>Lokation</label>
     <input type="text" placeholder="skriv her" asp-for="@Model.Lokation" />
+
+    <label>Skriv dit Telefon nummer</label>
+    <input type="number" asp-for="@Model.Mobil" />
+
     <input type="submit" value="Videre" />
 </form>
