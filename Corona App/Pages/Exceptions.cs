@@ -7,6 +7,6 @@ namespace Corona_App.Pages
 {
     public class Exceptions
     {
-       
+        string e = "test";
     }
 }

@@ -23,6 +23,7 @@ namespace Corona_App.Pages.Kunder //Lavet Af Cecilie
 
         [Required]
         [RegularExpression(@"\D*", ErrorMessage = "Navn skal skrives med bogstaver")]
+        [MinLength(2, ErrorMessage = "Skal indeholde minimum 2 tegn")]
         public string Navn
         {
             get { return _navn; }
@@ -31,7 +32,7 @@ namespace Corona_App.Pages.Kunder //Lavet Af Cecilie
 
         [Required]
         [RegularExpression(@"\w*", ErrorMessage = "Tlf nummer skal skrives med tal")]
-        [Range(8, 8, ErrorMessage ="Dit nummer skal være 8 tegn")]
+        [MinLength(8, ErrorMessage = "Dit nummer skal være 8 tegn")]
         [MaxLength(8)]
         public string Mobilnummer
         {
@@ -40,7 +41,8 @@ namespace Corona_App.Pages.Kunder //Lavet Af Cecilie
         }
 
         [Required]
-        [MinLength(1, ErrorMessage = "Skal indeholde vejnavn og nummer")]
+        [MinLength(5, ErrorMessage = "Skal indeholde vejnavn og nummer")]
+        [MaxLength(50)]
         public string Adresse
         {
             get { return _adresse; }
@@ -49,6 +51,7 @@ namespace Corona_App.Pages.Kunder //Lavet Af Cecilie
 
         [Required]
         [MinLength(8, ErrorMessage = "Skal indeholde minumum 8 tegn")]
+        [DataType(DataType.Password)]
         public string Adgangskode
         {
             get { return _adgangskode; }
@@ -57,6 +60,8 @@ namespace Corona_App.Pages.Kunder //Lavet Af Cecilie
 
         [Required]
         [RegularExpression(@"\S+@\S+", ErrorMessage = "Email skal indeholde et @")]
+        [MinLength(6, ErrorMessage ="Din email skal indeholde minimum 6 tegn")]
+        [EmailAddress]
         public string Email
         {
             get { return _email; }

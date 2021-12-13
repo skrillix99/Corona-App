@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.IO;
 using System.Text.Json;
+using Corona_App.Pages.Kunder.Bruger;
+
 
 namespace Corona_App.Pages.Kunder //Lavet Af Cecilie & Marcus
 {
@@ -27,7 +29,13 @@ namespace Corona_App.Pages.Kunder //Lavet Af Cecilie & Marcus
                 Bruger = new List<BrugerInfo>();
             }
         }
-
+        public static List<BrugerInfo> JsonFileRead(string fileName)
+        {
+            using (var file = File.OpenText(fileName))
+            {
+                return JsonSerializer.Deserialize<List<BrugerInfo>>(file.ReadToEnd());
+            }
+        }
         private void StoreToJson()
         {
             using (var file = File.Create(_filename))
@@ -60,10 +68,10 @@ namespace Corona_App.Pages.Kunder //Lavet Af Cecilie & Marcus
             BrugerInfo get = GetSingle(b.Id);
             get.Mobilnummer = b.Mobilnummer;
 
-            get.Navn = b.Navn;
-            get.Adresse = b.Adresse;
+            get.Navn = b.Navn.ToLower();
+            get.Adresse = b.Adresse.ToLower();
             get.Adgangskode = b.Adgangskode;
-            get.Email = b.Email;
+            get.Email = b.Email.ToLower();
 
             StoreToJson();
         }

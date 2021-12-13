@@ -5,21 +5,38 @@
 }
 
 <div class="text-center">
-    <form>
-        <h1 class="display-4">SuperHandleren 4000!!!</h1>
-        <input type="email" name="e-mail" placeholder="E-mail" class="wider-box" />
+    @* Overskrift *@
+    <h1 class="display-4">SuperHandleren 4000!!!</h1>
+    <form method="post">
+
+        @* Log ind *@
+        <div class="text-danger" asp-validation-summary="All"></div>
+        <input type="email" asp-for="Logind.Email" placeholder="E-mail" class="wider-box" autofocus />
         <div class="line-space"></div>
-        <input type="password" name="adgangskode" placeholder="Adgangskode" class="wider-box" />
+        <input type="password" asp-for="Logind.Adgangskode" placeholder="Adgangskode" class="wider-box" />
+
         <div class="line-space"></div>
+
+        @* Husk mig boks *@
         <input type="checkbox" name="husk mig" value="Husk mig" /> <label>Husk mig</label>
         <div class="line-space"></div>
+
+        @* Log ind knap *@
         <input type="submit" Value="Log Ind" class="btn btn-primary" />
-        <div class="line-space"></div>
-        <input type="submit" name="glemt adgangskode" value="Glemt adgangskode" formaction="/Kunder/Adgangskoder/GlemtAdgangskode" class="btn btn-danger skinnyboi" />
-        <input type="submit" name="opret bruger" value="Opret bruger" formaction="/Kunder/Bruger/OpretKunde" class="btn btn-dark" />
-        <div class="line-space"></div>
-        <p class="text-left">SuperHandleren 4000!!! er Rema 1000s initiativ til at hjælpe de isolerede danske borgere. Lav en bruger og få dine varer leveret hjem til dig, så du kan forblive i isolation, og hjælpe med at stoppe spredningen af Covid-19.</p>
-        <p class="text-left">Du kan også oprette dig som bud, hvor du får ansvaret for at købe og levere varer, for isolerede borgere, i nærheden af dig. Du bliver betalt for hver levering.</p>
-        <img src="~/Billeder/rema 1000.png" alt="Rema 1000 Vi handler for dig" class="Bredde100" />
     </form>
+    <div class="line-space"></div>
+
+    @* Glemt adgangskode *@
+    <input type="button" name="glemt adgangskode" value="Glemt adgangskode" formaction="/Kunder/Adgangskoder/GlemtAdgangskode" class="btn btn-danger skinnyboi" />
+
+    @* Opret Bruger *@
+    <form method="get">
+        <input type="submit" formaction="/Kunder/Bruger/OpretKunde" name="opret bruger" value="Opret bruger" class="btn btn-dark" />
+    </form>
+
+    @* Tekst til forsiden *@
+    <div class="line-space"></div>
+    <p class="text-left">SuperHandleren 4000!!! er Rema 1000s initiativ til at hjælpe de isolerede danske borgere. Lav en bruger og få dine varer leveret hjem til dig, så du kan forblive i isolation, og hjælpe med at stoppe spredningen af Covid-19.</p>
+    <p class="text-left">Du kan også oprette dig som bud, hvor du får ansvaret for at købe og levere varer, for isolerede borgere, i nærheden af dig. Du bliver betalt for hver levering.</p>
+    <img src="~/Billeder/rema 1000.png" alt="Rema 1000 Vi handler for dig" class="Bredde100" />
 </div>

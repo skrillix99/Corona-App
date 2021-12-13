@@ -38,7 +38,7 @@
 
                 <div class="form-group">
                     <label>Adgangskode</label>
-                    <input type="text" asp-for="b.Adgangskode" class="form-control" />
+                    <input type="password" asp-for="b.Adgangskode" class="form-control" />
                     <span asp-validation-for="b.Adgangskode" class="alert-danger"></span>
                 </div>
 
@@ -49,7 +49,10 @@
             <p><a href="https://shop.rema1000.dk/handelsbetingelser">Læs vores handelsbetingelser her</a></p>
             
                 <input type="checkbox" name="handelsbetingelserne" value="handelsbetingelserne" id="test2" required /> <label>Jeg har læst og accepteret handelsbetingelserne.</label>
-                <input type="submit" value="Opret Bruger" onclick="myFunction()" asp-page="/" class="btn rema_farve">
+
+                <input type="submit" value="Opret Bruger" onclick="myFunction()" class="btn rema_farve">
+                <span @Model.ErrorMsg ></span>
+                
             
             <div class="line-space"></div>
 

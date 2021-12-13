@@ -13,6 +13,7 @@ namespace Corona_App.Pages.Varer //Lavet Af Marcus
         private IVare _katalog;
         [BindProperty]
         public Vare Varer { get; set; }
+        public string ErrorMsg { get; set; }
 
         public SletModel(IVare katalog)
         {
@@ -20,13 +21,27 @@ namespace Corona_App.Pages.Varer //Lavet Af Marcus
         }
         public void OnGet(int id)
         {
-            Varer = _katalog.GetSingle(id);
+            try
+            {
+                Varer = _katalog.GetSingle(id);
+            }
+            catch (Exception e)
+            {
+                ErrorMsg = e.Message;
+            }
         }
         public IActionResult OnPost()
         {
-            _katalog.Delete(Varer);
+            try
+            {
+                _katalog.Delete(Varer);
+            }
+            catch (ArgumentNullException e)
+            {
+                ErrorMsg = e.ParamName;
+            }
 
-            return RedirectToPage("/Varer/KatalogVarer/Katalog");
+            return RedirectToPage("Katalog");
         }
     }
 }

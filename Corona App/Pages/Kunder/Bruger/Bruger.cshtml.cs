@@ -34,7 +34,7 @@ namespace Corona_App.Pages.Kunder // Lavet Af Cecilie
             {
                 _kunde.Update(b);
                 //return Page();
-                return RedirectToPage("/Index");
+                return RedirectToPage("/Kunder/Bruger/Velkommen");
             }
 
             _kunde.Delete(b);
