@@ -6,6 +6,23 @@
 
 
 
+<nav class="menuknapper">
+    <div class="rowtest">
+        <form method="get">
+            <div class="columntest"><input type="submit" formaction="/Varer/KatalogVarer/Katalog" value="Varer" class="skaler btn btn-primary"></div>
+        </form>
+        <form method="get">
+            <div class="columntest"><input type="submit" formaction="/" value="Indkøbsliste" class="skaler btn btn-primary"></div>
+        </form>
+        <form method="get">
+            <div class="columntest"><input type="submit" formaction="/Kunder/Bruger/BlivBud" value="Bliv Bud" class="skaler btn btn-primary"></div>
+        </form>
+        <form method="get">
+            <div class="columntest"><input type="submit" formaction="/Kunder/Bruger/Bruger" value="Profil" class="skaler btn btn-primary"></div>
+        </form>
+    </div>
+</nav>
+
 
 
 <div class="kategori_banner">
@@ -13,134 +30,18 @@
     <div class="kategori_textOnImg">
         <h1>Frugt og Grønt</h1>
         <img src="/Billeder/Frugt-og-groent-2.jpg" alt="Frugt og grønt banner" />
-
     </div>
-
-    <form method="post">
-        <fieldset>
-            <input type="search" asp-for="Search" placeholder="Søg efter navnet på en vare" class="search_input" />
-            <input type="submit" value="Søg" class="btn" />
-        </fieldset>
-    </form>
-
-
-
-
-
-
-    @*<div id="accordion">
-            @foreach (var item in Model.Varer)
-            {
-            <div class="card">
-                <div class="card-header" id="@item.IdName">
-                    <h5 class="mb-0">
-                        <button class="btn btn-link" data-toggle="collapse" data-target="#@item.IdNameCol" aria-expanded="true" aria-controls="@item.IdNameCol">
-                            @item.Kategori
-                        </button>
-                    </h5>
-                </div>
-                @foreach (var kate in Enum.GetValues(typeof(Katagoris)))
-                {
-                    if (kate.ToString() == item.Kategori.ToString())
-                    {
-                        <div id="@item.IdNameCol" class="collapse show" aria-labelledby="@item.IdName" data-parent="#accordion">
-                            <div class="card-body container_dropdown_item">
-                                <img src="https://www.dummyimage.com/40px40px" alt="Alternate Text" />
-                                <div>
-                                    @item.Kategori
-                                    <p>@item.Navn</p>
-                                    <p>@item.Pris kr</p>
-                                    <p>250 gram</p>
-                                </div>
-                                <a href="#">Tilføj</a>
-                            </div>
-                        </div>
-                    }
-                }
-            </div>
-            }
-        </div>*@
-
-
-
-
-    @*<div id="accordion">
-        @foreach (var kata in Enum.GetValues(typeof(Katagoris)))
-        {
-        <div class="card">
-            @foreach (var item in Model.Varer)
-            {
-                @if (kata.ToString() == item.Kategori.ToString())
-                {
-                <div class="card-header" id="@item.IdName">
-                    <h5 class="mb-0">
-                        <button class="btn btn-link" data-toggle="collapse" data-target="#@item.IdNameCol" aria-expanded="true" aria-controls="@item.IdNameCol">
-                            @kata
-                        </button>
-                    </h5>
-                </div>
-                }
-                <div id="@item.IdNameCol" class="collapse show" aria-labelledby="@item.IdName" data-parent="#accordion">
-                    <div class="card-body">
-                        <div class="card-body container_dropdown_item">
-                            <img src="https://www.dummyimage.com/40px40px" alt="Alternate Text" />
-                            <div>
-                                <p>@item.Navn</p>
-                                <p>@item.Pris kr</p>
-                                <p>250 gram</p>
-                            </div>
-                            <a href="#">Tilføj</a>
-                        </div>
-                    </div>
-                </div>
-                }
-            }
-        </div>
-        }
-        </div>*@
-
-
-
-
-
-
-
-    @*@foreach (var kata in Enum.GetValues(typeof(Katagoris)))
-        { // todo ikke vise tomme kategori
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                @kata
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                @foreach (var item in @Model.Varer)
-                {
-                    if (kata.ToString() == item.Kategori.ToString())
-                    {
-                        <div class="dropdown-item container_dropdown_item">
-                            <img src="https://www.dummyimage.com/40px40px" alt="Alternate Text" />
-                            <div>
-                                <p>@item.Navn</p>
-                                <p>@item.Pris kr</p>
-                                <p>250 gram</p>
-                            </div>
-                            <a href="#">Tilføj</a>
-                        </div>
-                    }
-                }
-            </div>
-        </div>
-        }*@
+        <form method="post">
+            <fieldset>
+                <input type="search" asp-for="Search" placeholder="Søg efter navnet på en vare" class="search_input" />
+                <input type="submit" value="Søg" class="btn" />
+            </fieldset>
+        </form>
 </div>
-
-
 
 @foreach (var kata in Enum.GetValues(typeof(Katagoris)))
 {
-    // todo don't display empty katagoris
-    @*@foreach (var item in @Model.Varer.Distinct().ToList())
-        {
-            if (kata.ToString() == item.Kategori.ToString())
-            {*@
+    
     <h2>@kata</h2>
     @*}
         }*@
@@ -157,11 +58,9 @@
                     <p>250 gram</p>
                 </div>
                 <a asp-page-handler="buynow" asp-route-vareNr="@item.VareNr">Tilføj</a>
-                @*<form method="post">
-                        <input asp-for="@item" value="Tilføj" class="btn" asp-page-handler="buynow"/>
-                    </form>*@
-
+                
             </div>
+
         }
     }
 }
