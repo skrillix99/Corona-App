@@ -51,8 +51,7 @@
                 <input type="checkbox" name="handelsbetingelserne" value="handelsbetingelserne" id="test2" required /> <label>Jeg har læst og accepteret handelsbetingelserne.</label>
 
                 <input type="submit" value="Opret Bruger" onclick="myFunction()" class="btn rema_farve">
-                <span @Model.ErrorMsg ></span>
-                
+               <span asp-validation-for="@Model.ErrorMsg"></span> 
             
             <div class="line-space"></div>
 

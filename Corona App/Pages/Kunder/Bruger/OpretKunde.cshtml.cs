@@ -39,8 +39,8 @@ namespace Corona_App.Pages.Kunder.Bruger //Lavet Af Cecilie
         {
                 if (Hent().Exists(k => k.Email == b.Email || k.Adgangskode == b.Adgangskode || k.Mobilnummer == b.Mobilnummer))
                 {
-                ErrorMsg = "gty";
-                    return Page();
+
+                throw new ArgumentException(ErrorMsg);
                 }
 
             if (!ModelState.IsValid)
