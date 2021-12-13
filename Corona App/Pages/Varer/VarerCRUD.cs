@@ -8,22 +8,23 @@ namespace Corona_App.Pages.Varer
 {
     public class VarerCRUD : IKatalog
     {
+        // sti til Json filer
         private string _filename = @"wwwroot\VarerJson.json";
         private string _filenameBestilling = @"wwwroot\BestillingJson.json";
         private string _filenameKunde = @"wwwroot\Kunde.json";
         
 
-        public List<Vare> Varer { get; private set; }
+        public List<Vare> Varer { get; private set; } // listen af vare
 
-        public List<Bestilling> KundensVare { get; set; }
+        public List<Bestilling> KundensVare { get; set; } = new List<Bestilling>(); // listen af varene som en kunde har tilføjet til kurv
 
         public VarerCRUD()
         {
             try
             {
-                using (var file = File.OpenText(_filename))
+                using (var file = File.OpenText(_filename)) // laver json filens indhold om til en List<Vare>
                 {
-                    Varer = JsonSerializer.Deserialize<List<Vare>>(file.ReadToEnd());
+                    Varer = JsonSerializer.Deserialize<List<Vare>>(file.ReadToEnd()); 
                 }
             }
             catch (Exception)
@@ -31,10 +32,10 @@ namespace Corona_App.Pages.Varer
                 Varer = new List<Vare>();
 
             }
-            KundensVare = new List<Bestilling>();
+            //KundensVare = new List<Bestilling>();
         }
 
-        public List<Bestilling> ReadJson()
+        public List<Bestilling> ReadJson() // skal bruges??
         {
             try
             {
@@ -50,7 +51,25 @@ namespace Corona_App.Pages.Varer
             return KundensVare;
         }
 
-        public Vare GetSingle(int vareNr)
+        private void StoreToJson() // opretter/redigere og sletter i json filen for Varer
+        {
+            using (var file = File.Create(_filename))
+            {
+                var writer = new Utf8JsonWriter(file, new JsonWriterOptions());
+                JsonSerializer.Serialize(writer, Varer);
+            }
+        }
+        private void StoreToJsonBestilling() // opretter/redigere og sletter i json filen for KundensVare
+        {
+            using (var file = File.Create(_filenameBestilling))
+            {
+                var writer = new Utf8JsonWriter(file, new JsonWriterOptions());
+                JsonSerializer.Serialize(writer, KundensVare);
+            }
+        }
+
+
+        public Vare GetSingle(int vareNr) // henter den specifikke vare fra Varer
         {
             if (vareNr == 0)
             {
@@ -59,7 +78,8 @@ namespace Corona_App.Pages.Varer
                 return Varer.Find(k => k.VareNr == vareNr);
         }
 
-        public void Create(Vare obj)
+
+        public void Create(Vare obj) // opretter en ny vare til Varer
         {
             if (obj == null)
             {
@@ -67,26 +87,8 @@ namespace Corona_App.Pages.Varer
             }
             Varer.Add(obj);
             StoreToJson();
-        }
-        public void TilføjVareTilBestilling(int tilføj)
-        {
-            if (tilføj == 0)
-            {
-                throw new KeyNotFoundException("Varen findes ikke eller der skete en fejl");
-            }
-            
-            //KundensVare.Add(GetSingle(tilføj));
-            KundensVare.Add(new Bestilling(tilføj));
-            
-            Bestilling Get = KundensVare.Find(k => k.VareNr == tilføj);
-            
-            Get.Pris = Varer.Find(k => k.VareNr == tilføj).Pris;
-            Get.Navn = Varer.Find(k => k.VareNr == tilføj).Navn;
-            Get.Kategori = Varer.Find(k => k.VareNr == tilføj).Kategori;            
-            StoreToJsonBestilling();
-        }
-
-        public void Delete(Vare vare)
+        }        
+        public void Delete(Vare vare) // sletter den angivede vare fra Varer
         {
             if(vare == null)
             {
@@ -96,20 +98,9 @@ namespace Corona_App.Pages.Varer
             Varer.Remove(Get); 
             StoreToJson();
         }
-        public void SletVareFraBestilling(int vareNr)
+        public void Update(Vare vare) // redigere den angivede vare fra Varer
         {
-            if(!KundensVare.Exists(k => k.VareNr == vareNr))
-            {
-                throw new ArgumentNullException("Den angivede vare er ikke gyldig");
-            }
-            Bestilling Get = KundensVare.Find(k => k.VareNr == vareNr);
-            KundensVare.Remove(Get);
-            StoreToJsonBestilling();
-        }
-
-        public void Update(Vare vare)
-        {
-            if(vare == null)
+            if (vare == null)
             {
                 throw new ArgumentNullException("Den angivet vare findes ikke eller at der skete en fejl i at læse varen.");
             }
@@ -122,7 +113,35 @@ namespace Corona_App.Pages.Varer
 
             StoreToJson();
         }
-        public void UpdateLokation(string lokation, string mobil)
+
+
+        public void TilføjVareTilBestilling(int tilføj) // tilføjer en vare til KundensVare
+        {
+            if (tilføj == 0)
+            {
+                throw new KeyNotFoundException("Varen findes ikke eller der skete en fejl"); // todo
+            }
+
+            KundensVare.Add(new Bestilling(tilføj)); // overrides json
+            Vare Dry = Varer.Find(k => k.VareNr == tilføj);
+
+            Bestilling Get = KundensVare.Find(k => k.VareNr == tilføj);
+            Get.Pris = Dry.Pris;
+            Get.Navn = Dry.Navn;
+            Get.Kategori = Dry.Kategori;
+            StoreToJsonBestilling();
+        }
+        public void SletVareFraBestilling(int vareNr) // sletter den angivede vare fra KundensVare
+        {
+            if(!KundensVare.Exists(k => k.VareNr == vareNr))
+            {
+                throw new ArgumentNullException("Den angivede vare er ikke gyldig");
+            }
+            Bestilling Get = KundensVare.Find(k => k.VareNr == vareNr);
+            KundensVare.Remove(Get);
+            StoreToJsonBestilling();
+        }        
+        public void UpdateLokation(string lokation, string mobil) // redigere den angivede vare fra KundensVare
         {
             BrugerInfo Get = BrugerCRUD.JsonFileRead(_filenameKunde).Find(k => k.Mobilnummer == mobil);
             foreach (Bestilling l in KundensVare)
@@ -133,27 +152,11 @@ namespace Corona_App.Pages.Varer
                     l.Id = Get.Id;
                 }
             }
-
             StoreToJsonBestilling();
         }
-        private void StoreToJson()
-        {
-            using (var file = File.Create(_filename))
-            {
-                var writer = new Utf8JsonWriter(file, new JsonWriterOptions());
-                JsonSerializer.Serialize(writer, Varer);
-            }   
-        }
-        private void StoreToJsonBestilling()
-        {
-            using (var file = File.Create(_filenameBestilling))
-            {
-                var writer = new Utf8JsonWriter(file, new JsonWriterOptions());
-                JsonSerializer.Serialize(writer, KundensVare);
-            }
-        }
+        
 
-        public List<Vare> Search(string searchText)
+        public List<Vare> Search(string searchText) // viser den/de vare fra Varer som indholder enten det navn eller kategroi man har søgt efter
         {
             if(String.IsNullOrWhiteSpace(searchText))
             {
