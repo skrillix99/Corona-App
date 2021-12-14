@@ -1,15 +1,42 @@
 ﻿@page
 @model Corona_App.Pages.Varer.IndkøbslisteModel
 @{
+    ViewData["Title"] = "Indkøbsliste";
 }
 
+<div class="container">
+    <div class="image">
+        <h1>Indkøbsliste</h1>
+        <img src="~/Billeder/images.jfif" alt="i" />
+    </div>
 
 
 
+    <div class="text-center">
+        <label>
+            <input type="checkbox" />
+            Tilføj levering (+ 40 kr.)
+        </label>
+    </div>
 
 
+    <form action="/action_page.php" class="text-center">
+        Kommentar til ordre:<br>
+        <textarea name="explanation" dirname="explanation.dir"></textarea>
+        <div class="form-group betal">
+            <input type="submit" value="Betal" class="btn btn-primary betal" />
+        </div>
+        @*<input type="submit" value="Submit">*@
+    </form>
 
-<nav class="menuknapper">
+
+    @*<div class="form-group betal">
+            <input type="submit" value="Betal" class="btn btn-primary betal" />
+        </div>*@
+
+</div>
+
+        <nav class="menuknapper">
     <div class="rowtest">
         <form method="get">
             <div class="columntest"><input type="submit" formaction="/Varer/KatalogVarer/Katalog" value="Varer" class="skaler btn btn-primary"></div>

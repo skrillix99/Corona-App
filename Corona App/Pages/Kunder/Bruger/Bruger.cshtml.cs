@@ -12,9 +12,11 @@ namespace Corona_App.Pages.Kunder // Lavet Af Cecilie
     public class BrugerModel : PageModel
     {
 
+        //binder brugerinfor, så info kan bruges
         [BindProperty]
         public BrugerInfo b { get; set; }
 
+        //interface kan bruges
         private IKunde _kunde;
 
         public BrugerModel(IKunde k)
@@ -22,6 +24,7 @@ namespace Corona_App.Pages.Kunder // Lavet Af Cecilie
             _kunde = k;
         }
 
+        //gør at vi kan få fat i brugerens specifikke id
         public void OnGet(int id)
         {
             b = _kunde.GetSingle(id);
@@ -30,6 +33,7 @@ namespace Corona_App.Pages.Kunder // Lavet Af Cecilie
         public IActionResult OnPost()
         {
 
+            //opdatere bruger hvis brugerens info findes i systemet
             if (ModelState.IsValid)
             {
                 _kunde.Update(b);

@@ -40,5 +40,11 @@
     "Pris": 32,
     "Navn": "fffffffff",
     "Kategori": 4
+  },
+  {
+    "VareNr": 99,
+    "Pris": 675,
+    "Navn": "testM",
+    "Kategori": 4
   }
 ]

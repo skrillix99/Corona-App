@@ -12,6 +12,7 @@
         <div class="col-md-4">
             <form method="post">
 
+                @* Felt til at skrive ens navn, og kommer med en validation alert hvis man skriver noget forkert *@
                 <div class="form-group">
                     <label>Fulde navn</label>
                     <input type="text" asp-for="b.Navn" class="form-control" />
@@ -45,23 +46,24 @@
                 <p>Dit Tlf nummer skal være forbundet til en mobilepay konto, for at du kan modtage penge til at købe ind for andre</p>
 
                 <div class="line-space"></div>
-        <div class="text-center">
-            <p><a href="https://shop.rema1000.dk/handelsbetingelser">Læs vores handelsbetingelser her</a></p>
-            
-                <input type="checkbox" name="handelsbetingelserne" value="handelsbetingelserne" id="test2" required /> <label>Jeg har læst og accepteret handelsbetingelserne.</label>
+                <div class="text-center">
+                    <p><a href="https://shop.rema1000.dk/handelsbetingelser">Læs vores handelsbetingelser her</a></p>
 
-                <input type="submit" value="Opret Bruger" onclick="myFunction()" class="btn rema_farve">
-               <span asp-validation-for="@Model.ErrorMsg"></span> 
-            
-            <div class="line-space"></div>
+                    @* Checkbox til accept af handelsbetingelser *@
+                    <input type="checkbox" name="handelsbetingelserne" value="handelsbetingelserne" required /> <label>Jeg har læst og accepteret handelsbetingelserne.</label>
 
-            <script>
-                function myFunction() {
-                    var z = document.getElementById("myCheck").required;
-                    document.getElementById("test2").innerHTML = z;
-                }
-            </script>
-        </div>
+                    <input type="submit" value="Opret Bruger" onclick="myFunction()" class="btn rema_farve">
+                    <span asp-validation-for="@Model.ErrorMsg"></span>
+
+                    <div class="line-space"></div>
+
+                    <script>
+                        function myFunction() {
+                            var z = document.getElementById("myCheck").required;
+                            document.getElementById("test2").innerHTML = z;
+                        }
+                    </script>
+                </div>
             </form>
         </div>
     </div>
