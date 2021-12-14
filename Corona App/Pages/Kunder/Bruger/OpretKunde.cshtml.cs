@@ -17,7 +17,7 @@ namespace Corona_App.Pages.Kunder.Bruger //Lavet Af Cecilie
         [BindProperty]
         public BrugerInfo b { get; set; }
 
-        public string ErrorMsg { get; set; }
+        public string ErrorMsg = "Denne Email eller Mobil nummer bruges allerede.";
 
         private IKunde _kunde;
 
@@ -37,7 +37,7 @@ namespace Corona_App.Pages.Kunder.Bruger //Lavet Af Cecilie
 
         public IActionResult OnPost()
         {
-                if (Hent().Exists(k => k.Email == b.Email || k.Adgangskode == b.Adgangskode || k.Mobilnummer == b.Mobilnummer))
+                if (Hent().Exists(k => k.Email == b.Email || k.Mobilnummer == b.Mobilnummer))
                 {
 
                 throw new ArgumentException(ErrorMsg);
