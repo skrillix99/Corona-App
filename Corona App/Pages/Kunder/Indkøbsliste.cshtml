@@ -4,7 +4,7 @@
     ViewData["Title"] = "Indkøbsliste";
 }
 
-<div class="container">
+<div class="container, text-center">
     <div class="image">
         <h1>Indkøbsliste</h1>
         <img src="~/Billeder/images.jfif" alt="i" />
@@ -24,7 +24,7 @@
         Kommentar til ordre:<br>
         <textarea name="explanation" dirname="explanation.dir"></textarea>
         <div class="form-group betal">
-            <input type="submit" value="Betal" class="btn btn-primary betal" />
+            <input type="submit" value="Betal" formaction="/Kunder/Bruger/Betaling" class="btn btn-primary betal" />
         </div>
         @*<input type="submit" value="Submit">*@
     </form>
@@ -42,7 +42,7 @@
             <div class="columntest"><input type="submit" formaction="/Varer/KatalogVarer/Katalog" value="Varer" class="skaler btn btn-primary"></div>
         </form>
         <form method="get">
-            <div class="columntest"><input type="submit" formaction="/" value="Indkøbsliste" class="skaler btn btn-primary"></div>
+            <div class="columntest"><input type="submit" formaction="/Kunder/Indkøbsliste" value="Indkøbsliste" class="skaler btn btn-primary"></div>
         </form>
         <form method="get">
             <div class="columntest"><input type="submit" formaction="/Kunder/Bruger/BlivBud" value="Bliv Bud" class="skaler btn btn-primary"></div>

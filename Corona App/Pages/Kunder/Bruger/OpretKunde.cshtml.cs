@@ -18,8 +18,6 @@ namespace Corona_App.Pages.Kunder.Bruger //Lavet Af Cecilie
         [BindProperty]
         public BrugerInfo b { get; set; }
 
-        public string ErrorMsg = "Denne Email eller Mobil nummer bruges allerede.";
-
         // interface kunde, kan nu bruges her
         private IKunde _kunde;
 
@@ -39,11 +37,12 @@ namespace Corona_App.Pages.Kunder.Bruger //Lavet Af Cecilie
 
         public IActionResult OnPost()
         {
-                if (Hent().Exists(k => k.Email == b.Email || k.Mobilnummer == b.Mobilnummer))
+            
+                if (Hent().Exists(k => k.Email == b.Email || k.Mobilnummer == b.Mobilnummer || k.Adresse == b.Adresse))
                 {
-
-                throw new ArgumentException(ErrorMsg);
+                return Page();
                 }
+            
 
             if (!ModelState.IsValid)
             {

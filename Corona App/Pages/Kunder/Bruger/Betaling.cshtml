@@ -1,0 +1,15 @@
+﻿@page
+@model Corona_App.Pages.Kunder.Bruger.BetalingModel
+@{
+    <div class="image, text-center">
+        <h1>Scan QR Kode for at betale</h1>
+        <img src="~/Billeder/qr.png" alt="i" />
+    </div>
+
+    <form method="get">
+        <div class="text-center">
+            <h3>Tryk her for at komme tilbage til forsiden</h3>
+            <input type="submit" value="Forside" formaction="/Kunder/Bruger/Velkommen" class="btn btn-primary" />
+        </div>
+    </form>
+}

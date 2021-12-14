@@ -2,16 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Corona_App.Pages.Kunder;
-using Corona_App.Pages.Kunder.Bruger;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Corona_App.Pages.Kunder // Lavet Af Cecilie
+namespace Corona_App.Pages.Kunder.Bruger
 {
-    public class BrugerModel : PageModel
+    public class SletBrugerModel : PageModel
     {
-
         //binder brugerinfor, så info kan bruges
         [BindProperty]
         public BrugerInfo b { get; set; }
@@ -19,7 +16,7 @@ namespace Corona_App.Pages.Kunder // Lavet Af Cecilie
         //interface kan bruges
         private IKunde _kunde;
 
-        public BrugerModel(IKunde k)
+        public SletBrugerModel(IKunde k)
         {
             _kunde = k;
         }
@@ -33,20 +30,9 @@ namespace Corona_App.Pages.Kunder // Lavet Af Cecilie
         public IActionResult OnPost()
         {
 
-            //opdatere bruger hvis brugerens info findes i systemet
-            
-           
-
-
-            if (ModelState.IsValid)
-            {
-                _kunde.Update(b);
-     
-                return RedirectToPage("/Kunder/Bruger/Velkommen");
-            }
-
-            return Page();
-
+                _kunde.Delete(b);
+                return RedirectToPage("/Index");
+        
         }
 
     }

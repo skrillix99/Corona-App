@@ -25,7 +25,7 @@ namespace Corona_App.Pages
             [MinLength(10, ErrorMessage = "Din e-mail skal være mindst 10 tegn")]
             public string Email { get; set; }
 
-            [RegularExpression(@"^(?!.([A-Za-z0-9])\1{1})(?=.?[A-Z])(?=.?[a-z])(?=.?[0-9])(?=.?[#?!@$%^&-]).{8,}$")]
+
             [Required(ErrorMessage = "Du skal udfylde adgangskode feltet.")]        //Giver fejl hvis adgangskoden er under 8 tegn eller ikke passer med json filen
             [MinLength(8, ErrorMessage = "Din Adgangskode skal indeholde minumum 8 tegn.")]
             [DataType(DataType.Password)]

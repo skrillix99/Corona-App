@@ -49,7 +49,6 @@ namespace Corona_App.Pages.Kunder //Lavet Af Cecilie
             get { return _adresse; }
             set { _adresse = value; }
         }
-
         [Required]
         [MinLength(8, ErrorMessage = "Skal indeholde minumum 8 tegn")]
         [DataType(DataType.Password)]
@@ -61,7 +60,7 @@ namespace Corona_App.Pages.Kunder //Lavet Af Cecilie
 
         //validering med at der skal være noget før @ og noget efter @.
         [Required]
-        [RegularExpression(@"\S+@\S+", ErrorMessage = "Email skal indeholde et @")]
+        [RegularExpression(@"[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$", ErrorMessage = "Ugyldig email")]
         [MinLength(6, ErrorMessage ="Din email skal indeholde minimum 6 tegn")]
         [EmailAddress]
         public string Email

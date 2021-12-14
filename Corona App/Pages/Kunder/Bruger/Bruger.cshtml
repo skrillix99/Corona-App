@@ -14,7 +14,7 @@
                 @* felt til navn, viser den pågældendes brugers information *@
                 <div class="form-group">
                     <label> Navn: </label>
-                    <input type="text" asp-for="b.Navn" class="form-control" />
+                    <input type="text" asp-for="b.Navn" class="form-control" minlength="2" />
                     <span asp-validation-for="b.Navn" class="alert-danger"></span>
                 </div>
 
@@ -27,28 +27,29 @@
 
                 <div class="form-group">
                     <label>Tlf nummer</label>
-                    <input type="text" asp-for="b.Mobilnummer" class="form-control" />
+                    <input type="text" asp-for="b.Mobilnummer" class="form-control" minlength="8"/>
                     <span asp-validation-for="b.Mobilnummer" class="alert-danger"></span>
                 </div>
 
                 <div class="form-group">
                     <label>Email</label>
-                    <input type="text" asp-for="b.Email" class="form-control" />
+                    <input type="email" asp-for="b.Email" class="form-control" minlength="6" pattern="\[a-z0-9._%+-]+@@[a-z0-9.-]{1,}+\.[a-z]{2,}$"/>
                     <span asp-validation-for="b.Email" class="alert-danger"></span>
                 </div>
 
                 <div class="form-group">
                     <label>Adgangskode</label>
-                    <input type="text" asp-for="b.Adgangskode" class="form-control" />
+                    <input type="password" asp-for="b.Adgangskode" placeholder="Adgangskode" class="form-control" minlength="8" />
                     <span asp-validation-for="b.Adgangskode" class="alert-danger"></span>
                 </div>
 
                 <div class="form-group knap">
                     <input type="submit" value="Gem ændringer" class="btn btn-primary knap" />
+                    <span asp-validation-summary="All" class="text-danger"></span>
                 </div>
 
                 <div class="form-group knap2">
-                    <input type="submit" value="Slet bruger" class="btn btn-danger knap2" />
+                    <input type="submit" value="Slet bruger" formaction="/Kunder/Bruger/SletBruger" class="btn btn-danger knap2" />
                 </div>
 
             </form>
@@ -62,7 +63,7 @@
             <div class="columntest"><input type="submit" formaction="/Varer/KatalogVarer/Katalog" value="Varer" class="skaler btn btn-primary"></div>
         </form>
         <form method="get">
-            <div class="columntest"><input type="submit" formaction="/" value="Indkøbsliste" class="skaler btn btn-primary"></div>
+            <div class="columntest"><input type="submit" formaction="/Kunder/Indkøbsliste" value="Indkøbsliste" class="skaler btn btn-primary"></div>
         </form>
         <form method="get">
             <div class="columntest"><input type="submit" formaction="/Kunder/Bruger/BlivBud" value="Bliv Bud" class="skaler btn btn-primary"></div>

@@ -6,7 +6,6 @@ using System.IO;
 using System.Text.Json;
 using Corona_App.Pages.Kunder.Bruger;
 
-
 namespace Corona_App.Pages.Kunder //Lavet Af Cecilie & Marcus
 {
     public class BrugerCRUD : IKunde
