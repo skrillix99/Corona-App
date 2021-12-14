@@ -1,0 +1,77 @@
+﻿@page
+@model Corona_App.Pages.Kunder.Bruger.OpretKundeModel
+@{
+    ViewData["Title"] = "Opret bruger";
+}
+<div class="container">
+    <div class="text-center">
+        <h1>Opret Bruger</h1>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <form method="post">
+
+                @* Felt til at skrive ens navn, og kommer med en validation alert hvis man skriver noget forkert *@
+                <div class="form-group">
+                    <label>Fulde navn</label>
+                    <input type="text" asp-for="b.Navn" class="form-control" />
+                    <span asp-validation-for="b.Navn" class="alert-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label>Mobil nummer</label>
+                    <input type="text" asp-for="b.Mobilnummer" class="form-control" />
+                    <span asp-validation-for="b.Mobilnummer" class="alert-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label>Adresse</label>
+                    <input type="text" asp-for="b.Adresse" class="form-control" />
+                    <span asp-validation-for="b.Adresse" class="alert-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="text" asp-for="b.Email" class="form-control" />
+                    <span asp-validation-for="b.Email" class="alert-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label>Adgangskode</label>
+                    <input type="text" asp-for="b.Adgangskode" class="form-control" />
+                    <span asp-validation-for="b.Adgangskode" class="alert-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label>Kommune</label>
+                    <select name="b.Kommune" asp-for="b.Kommune" class="form-control">
+                        @foreach (var kom in Enum.GetValues(typeof(kommuner)))
+                        {
+                            <option value="@kom">@kom</option>
+                        }
+                    </select>
+                </div>
+
+                <p>Dit Tlf nummer skal være forbundet til en mobilepay konto, for at du kan modtage penge til at købe ind for andre</p>
+
+                @* Checkbox til ´accept af handelsbetingelser *@
+                <div class="text-center">
+                    <label>
+                        <input type="checkbox" />
+                        Acepter vores handelsbetingelser
+                    </label>
+                </div>
+
+
+                <p><a href="https://shop.rema1000.dk/handelsbetingelser">Læs vores handelsbetingelser her</a></p>
+
+                <div class="form-group">
+                    <input type="submit" value="Opret bruger" class="btn btn-primary opret" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+

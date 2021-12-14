@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Text.Json;
 using System.ComponentModel.DataAnnotations;
+using Corona_App.Pages.Kunder;
 
 namespace Corona_App.Pages.Varer
 {
@@ -17,8 +18,7 @@ namespace Corona_App.Pages.Varer
             VareNr = vareNr;
             Pris = 0;
             Navn = "";
-            Kategori = 0;
-            lokation = "";
+            Kategori = 0;            
         }
         public int Id
         {
@@ -55,7 +55,7 @@ namespace Corona_App.Pages.Varer
             set;
         }
         [Required]
-        public string lokation
+        public kommuner lokation
         {
             get;
             set;

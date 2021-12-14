@@ -14,7 +14,7 @@ namespace Corona_App.Pages.Varer
         void Delete(Vare vare);
         List<Vare> Search(string searchText);
         
-        void UpdateLokation(string lokation, string mobil);
+        void UpdateLokation(string mobil);
         List<Bestilling> KundensVare { get; }
         void TilføjVareTilBestilling(int tilføj);
         void SletVareFraBestilling(int vareNr);

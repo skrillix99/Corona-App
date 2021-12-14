@@ -13,10 +13,9 @@ namespace Corona_App.Pages.Varer
         private string _filenameBestilling = @"wwwroot\BestillingJson.json";
         private string _filenameKunde = @"wwwroot\Kunde.json";
         
-
         public List<Vare> Varer { get; private set; } // listen af vare
 
-        public List<Bestilling> KundensVare { get; private set; }// = new List<Bestilling>(); // listen af varene som en kunde har tilføjet til kurv
+        public List<Bestilling> KundensVare { get; private set; }// listen af varene som en kunde har tilføjet til kurv
 
         public VarerCRUD()
         {
@@ -116,16 +115,20 @@ namespace Corona_App.Pages.Varer
             {
                 throw new KeyNotFoundException("Varen findes ikke eller der skete en fejl"); // todo
             }
+            
+            KundensVare.Add(new Bestilling(tilføj));
 
-            KundensVare.Add(new Bestilling(tilføj)); // overrides json
-            Vare Dry = Varer.Find(k => k.VareNr == tilføj);
+            foreach (Bestilling Get in KundensVare.FindAll(k => k.VareNr == tilføj))
+            {                
+                Vare Dry = Varer.Find(k => k.VareNr == tilføj);
 
-            Bestilling Get = KundensVare.Find(k => k.VareNr == tilføj);
-            Get.Pris = Dry.Pris;
-            Get.Navn = Dry.Navn;
-            Get.Kategori = Dry.Kategori;
+                Get.Pris = Dry.Pris;
+                Get.Navn = Dry.Navn;
+                Get.Kategori = Dry.Kategori;                
+            }            
             StoreToJsonBestilling();
         }
+        
         public void SletVareFraBestilling(int vareNr) // sletter den angivede vare fra KundensVare
         {
             if(!KundensVare.Exists(k => k.VareNr == vareNr))
@@ -136,14 +139,14 @@ namespace Corona_App.Pages.Varer
             KundensVare.Remove(Get);
             StoreToJsonBestilling();
         }        
-        public void UpdateLokation(string lokation, string mobil) // redigere den angivede vare fra KundensVare
+        public void UpdateLokation(string mobil) // redigere den angivede vare fra KundensVare
         {
             BrugerInfo Get = BrugerCRUD.JsonFileRead(_filenameKunde).Find(k => k.Mobilnummer == mobil);
             foreach (Bestilling l in KundensVare)
             {               
                 if(l.Id == 0)
                 {
-                    l.lokation = lokation;
+                    l.lokation = Get.Kommune;
                     l.Id = Get.Id;
                 }
             }
@@ -160,5 +163,16 @@ namespace Corona_App.Pages.Varer
             }
             return Varer.FindAll(k => k.Navn.ToLower() == searchText.ToLower() || k.Kategori.ToString().ToLower() == searchText.ToLower());
         }        
+        
+        public List<Bestilling> SearchBestilling(string searchText) // viser den/de vare fra Bestillinger som indholder enten det navn eller kategroi man har søgt efter
+        {
+            if(String.IsNullOrWhiteSpace(searchText))
+            {
+                return KundensVare;
+                throw new ArgumentNullException("Der er fejl i din søgning");
+            }
+            return KundensVare.FindAll(k => k.lokation.ToString().ToLower() == searchText.ToLower());
+        }        
+        
     }
 }

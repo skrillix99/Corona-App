@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Corona_App.Pages.Kunder
 {
+    public enum kommuner {Roskilde, Greve, Lejre}
     public class BrugerInfo
     {
         private int _id;
@@ -59,6 +60,12 @@ namespace Corona_App.Pages.Kunder
         {
             get { return _email; }
             set { _email = value; }
+        }
+
+        public kommuner Kommune
+        {
+            get;
+            set;
         }
 
         public BrugerInfo()

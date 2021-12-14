@@ -10,11 +10,7 @@ namespace Corona_App.Pages.Varer
 {
     public class LokationModel : PageModel
     {
-        private IKatalog _katelog;
-        private IKunde _kunde;
-
-        [BindProperty]
-        public string Lokation { get; set; }
+        private IKatalog _katelog;        
 
         [BindProperty]
         public string Mobil { get; set; }
@@ -29,7 +25,7 @@ namespace Corona_App.Pages.Varer
 
         public IActionResult OnPost()
         {
-            _katelog.UpdateLokation(Lokation, Mobil);
+            _katelog.UpdateLokation(Mobil);
             return RedirectToPage("/Kunder/Kurv");
         }
     }
