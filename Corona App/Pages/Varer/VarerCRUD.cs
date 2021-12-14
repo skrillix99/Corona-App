@@ -16,7 +16,7 @@ namespace Corona_App.Pages.Varer
 
         public List<Vare> Varer { get; private set; } // listen af vare
 
-        public List<Bestilling> KundensVare { get; set; } = new List<Bestilling>(); // listen af varene som en kunde har tilføjet til kurv
+        public List<Bestilling> KundensVare { get; private set; }// = new List<Bestilling>(); // listen af varene som en kunde har tilføjet til kurv
 
         public VarerCRUD()
         {
@@ -32,11 +32,7 @@ namespace Corona_App.Pages.Varer
                 Varer = new List<Vare>();
 
             }
-            //KundensVare = new List<Bestilling>();
-        }
 
-        public List<Bestilling> ReadJson() // skal bruges??
-        {
             try
             {
                 using (var file = File.OpenText(_filenameBestilling))
@@ -48,7 +44,6 @@ namespace Corona_App.Pages.Varer
             {
                 KundensVare = new List<Bestilling>();
             }
-            return KundensVare;
         }
 
         private void StoreToJson() // opretter/redigere og sletter i json filen for Varer

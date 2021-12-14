@@ -19,14 +19,8 @@ namespace Corona_App.Pages.Kunder
             _katelog = katelog;
         }
 
-        public List<Bestilling> JsonReader()
-        {
-            return _katelog.ReadJson();
-        }
-
         public void OnGet()
         {
-            KundensVare = JsonReader();
             KundensVare = _katelog.KundensVare;
         }
 

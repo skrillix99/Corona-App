@@ -3,14 +3,22 @@
 @{
 }
 
-<h1>Bekræftigelse af brugeren</h1>
+<div class="centering">
 
-<form method="post">
-    <label>Lokation</label>
-    <input type="text" placeholder="skriv her" asp-for="@Model.Lokation" />
+    <h2>Bekræftigelse af brugeren</h2>
 
-    <label>Skriv dit Telefon nummer</label>
-    <input type="number" asp-for="@Model.Mobil" />
+    <form method="post">
+        <fieldset>
+            <label>Lokation</label>
+            <input type="text" placeholder="skriv her" asp-for="@Model.Lokation" />
+        </fieldset>
 
-    <input type="submit" value="Videre" />
-</form>
+        <fieldset>
+            <label>Skriv dit Telefon nummer</label>
+            <input type="number" asp-for="@Model.Mobil" />
+        </fieldset>
+
+        <input type="submit" value="Videre" />
+    </form>
+
+</div>
