@@ -152,4 +152,22 @@ body {
         width: 100%;
         height: 4rem;
     }
+
+.rund_knap {
+    border-radius: 50px ;
+}
+
+.opgave_border {
+    border-style: solid;
+    padding: 1em 0em;
+}
+
+.ingen_liste_prik {
+    padding-left: 0px;
+    list-style-type: none;
+}
+
+.knap_divider {
+    margin-right: 30%;
+}
 /*}*/
