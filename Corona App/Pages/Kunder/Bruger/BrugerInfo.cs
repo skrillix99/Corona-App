@@ -42,7 +42,7 @@ namespace Corona_App.Pages.Kunder //Lavet Af Cecilie
         }
 
         [Required]
-        [MinLength(5, ErrorMessage = "Skal indeholde vejnavn og nummer")]
+         [MinLength(5, ErrorMessage = "Skal indeholde vejnavn og nummer")]
         [MaxLength(50)]
         public string Adresse
         {
