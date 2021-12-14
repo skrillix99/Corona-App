@@ -43,6 +43,16 @@
                     <span asp-validation-for="b.Adgangskode" class="alert-danger"></span>
                 </div>
 
+                <div class="form-group">
+                    <label>Kommune</label>
+                    <select name="b.Kommune" asp-for="b.Kommune" class="form-control">
+                        @foreach (var kom in Enum.GetValues(typeof(kommuner)))
+                        {
+                            <option value="@kom">@kom</option>
+                        }
+                    </select>
+                </div>
+
                 <p>Dit Tlf nummer skal være forbundet til en mobilepay konto, for at du kan modtage penge til at købe ind for andre</p>
 
                 <div class="line-space"></div>

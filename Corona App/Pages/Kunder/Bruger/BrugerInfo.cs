@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Corona_App.Pages.Kunder //Lavet Af Cecilie
 {
+    public enum kommuner { Roskilde, Greve, Lejre }
     public class BrugerInfo
     {
         private int _id;
@@ -42,7 +43,8 @@ namespace Corona_App.Pages.Kunder //Lavet Af Cecilie
         }
 
         [Required]
-         [MinLength(5, ErrorMessage = "Skal indeholde vejnavn og nummer")]
+       // [RegularExpression(@"^[0-9]+\s+([a-zA-Z]+|[a-zA-Z]+\s[a-zA-Z]+)$", ErrorMessage ="Ugyldig Adresse")]
+        [MinLength(5, ErrorMessage = "Skal indeholde vejnavn og nummer")]
         [MaxLength(50)]
         public string Adresse
         {
@@ -67,6 +69,12 @@ namespace Corona_App.Pages.Kunder //Lavet Af Cecilie
         {
             get { return _email; }
             set { _email = value; }
+        }
+
+        public kommuner Kommune
+        {
+            get;
+            set;
         }
 
         public BrugerInfo()

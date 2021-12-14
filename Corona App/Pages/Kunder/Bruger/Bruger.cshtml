@@ -27,13 +27,13 @@
 
                 <div class="form-group">
                     <label>Tlf nummer</label>
-                    <input type="text" asp-for="b.Mobilnummer" class="form-control" minlength="8"/>
+                    <input type="text" asp-for="b.Mobilnummer" class="form-control" minlength="8" />
                     <span asp-validation-for="b.Mobilnummer" class="alert-danger"></span>
                 </div>
 
                 <div class="form-group">
                     <label>Email</label>
-                    <input type="email" asp-for="b.Email" class="form-control" minlength="6" pattern="\[a-z0-9._%+-]+@@[a-z0-9.-]{1,}+\.[a-z]{2,}$"/>
+                    <input type="email" asp-for="b.Email" class="form-control" minlength="6" pattern="\[a-z0-9._%+-]+@@[a-z0-9.-]{1,}+\.[a-z]{2,}$" />
                     <span asp-validation-for="b.Email" class="alert-danger"></span>
                 </div>
 
@@ -41,6 +41,16 @@
                     <label>Adgangskode</label>
                     <input type="password" asp-for="b.Adgangskode" placeholder="Adgangskode" class="form-control" minlength="8" />
                     <span asp-validation-for="b.Adgangskode" class="alert-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label>Kommune</label>
+                    <select name="b.Kommune" asp-for="b.Kommune" class="form-control">
+                        @foreach (var kom in Enum.GetValues(typeof(kommuner)))
+                        {
+                            <option value="@kom">@kom</option>
+                        }
+                    </select>
                 </div>
 
                 <div class="form-group knap">

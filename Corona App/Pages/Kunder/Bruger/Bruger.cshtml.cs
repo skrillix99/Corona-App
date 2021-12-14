@@ -2,8 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Corona_App.Pages.Kunder;
-using Corona_App.Pages.Kunder.Bruger;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -11,7 +9,6 @@ namespace Corona_App.Pages.Kunder // Lavet Af Cecilie
 {
     public class BrugerModel : PageModel
     {
-
         //binder brugerinfor, så info kan bruges
         [BindProperty]
         public BrugerInfo b { get; set; }
@@ -34,10 +31,6 @@ namespace Corona_App.Pages.Kunder // Lavet Af Cecilie
         {
 
             //opdatere bruger hvis brugerens info findes i systemet
-            
-           
-
-
             if (ModelState.IsValid)
             {
                 _kunde.Update(b);
