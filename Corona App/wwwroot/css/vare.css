@@ -1,20 +1,8 @@
 ﻿@media only screen and (max-width: 415px) {
-    /*
-        Fuk boostrap styling
-    */
-    .container {
-        padding: 0;
-    }
-
-    .kategori_banner .dropdown-menu {
-        position: inherit !important; /* cRIeVRItIME*/
-        transform: none !important; /* cRIeVRItIME*/
-
-
+    .kategori_banner {
         width: 100%;
         margin: 0;
         padding: 0;
-        /*margin-bottom: 1em;*/
     }
 
     /* Firefox only */
@@ -114,4 +102,32 @@
             background: limegreen;
             font-size: 1.2em;
         }
+
+    .centering {
+        text-align: center;
+    }
+
+        .centering fieldset {
+            display: flex;
+            flex-direction: column;
+            width: 70%;
+            margin: 0 auto 1em;
+        }
+
+        .centering label {
+            align-self: start;
+        }
+
+        .centering input {
+            width: 100%;
+        }
+
+            .centering input[type="submit"] {
+                background-color: #2359a2;
+                border: none;
+                border-radius: 40px;
+                padding: 0.5em;
+                color: snow;
+                width: 6em;
+            }
 }

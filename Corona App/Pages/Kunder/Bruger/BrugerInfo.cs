@@ -21,6 +21,7 @@ namespace Corona_App.Pages.Kunder //Lavet Af Cecilie
             set { _id = value; }
         }
 
+        //validering på navn og de andre properties.
         [Required]
         [RegularExpression(@"\D*", ErrorMessage = "Navn skal skrives med bogstaver")]
         [MinLength(2, ErrorMessage = "Skal indeholde minimum 2 tegn")]
@@ -58,6 +59,7 @@ namespace Corona_App.Pages.Kunder //Lavet Af Cecilie
             set { _adgangskode = value; }
         }
 
+        //validering med at der skal være noget før @ og noget efter @.
         [Required]
         [RegularExpression(@"\S+@\S+", ErrorMessage = "Email skal indeholde et @")]
         [MinLength(6, ErrorMessage ="Din email skal indeholde minimum 6 tegn")]
@@ -73,6 +75,7 @@ namespace Corona_App.Pages.Kunder //Lavet Af Cecilie
 
         }
 
+        //konstruktør med parameter
         public BrugerInfo(string Navn, string Mobilnummer, string Adresse, string Adgangskode, string Email)
         {
             _navn = Navn;
