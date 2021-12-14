@@ -9,10 +9,13 @@ namespace Corona_App.Pages.Kunder
 {
     public class BrugerCRUD : IKunde
     {
+        //gør at den kan finde vores json fil
         private string _filename = @"wwwroot\Kunde.json";
 
         public List<BrugerInfo> Bruger { get; private set; }
 
+
+        // læser json fil til ende, om brugeren findes
         public BrugerCRUD()
         {
             try
@@ -28,6 +31,7 @@ namespace Corona_App.Pages.Kunder
             }
         }
 
+        //metode til at gemme til json fil og skrive i filen.
         private void StoreToJson()
         {
             using (var file = File.Create(_filename))
@@ -37,24 +41,28 @@ namespace Corona_App.Pages.Kunder
             }
         }
 
+        // kommer selv med et nyt id udfra det max id der allerede findes
         public BrugerInfo GetSingle(int id)
         {
             return Bruger.Find(k => k.Id == id);
         }
 
+        //metode for at lave en bruger og gem den til json.
         public void Create(BrugerInfo b)
         {
             Bruger.Add(b);
             StoreToJson();
         }
 
+        // metode for at slette bruger, og fjerne den fra json fil
         public void Delete(BrugerInfo b)
         {
             BrugerInfo g = GetSingle(b.Id);
             Bruger.Remove(g);
             StoreToJson();
         }
-
+        
+        // metode for updatere bruger, opdatere brugeren med det specifikke id nr, og gemmer den igen i json
         public void Update(BrugerInfo b)
         {
             BrugerInfo get = GetSingle(b.Id);

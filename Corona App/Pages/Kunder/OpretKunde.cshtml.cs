@@ -9,9 +9,11 @@ namespace Corona_App.Pages.Kunder
 {
     public class OpretKundeModel : PageModel
     {
+        //binder brugerinfo property, så informationen kan bruges
         [BindProperty]
         public BrugerInfo b { get; set; }
 
+        // interface kunde, kan nu bruges her
         private IKunde _kunde;
 
         public OpretKundeModel(IKunde k)
@@ -30,6 +32,7 @@ namespace Corona_App.Pages.Kunder
                 return Page();
             }
 
+            // hvis id på bruger er lig med 0, gør id til 1 ellers tag max id og plus med 1 for den næste oprettede bruger.
             if (b.Id == 0)
             {
                 b.Id = 1;

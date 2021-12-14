@@ -1,0 +1,31 @@
+﻿@media only screen and (max-width: 414px)
+{
+
+    .image h1 {
+        position: absolute;
+        padding: 6.51rem 5.79rem;
+        background: rgba(255,255,255,0.5);
+    }
+
+    .betal {
+        border-radius: 50px;
+        display: flex;
+        justify-content:center;
+    }
+
+    .image 
+    {
+        position: relative;
+    }
+
+    .image img
+    {
+        width: 100%;
+
+    }
+
+    .form kommentar 
+    {
+        position: center;
+    }
+}

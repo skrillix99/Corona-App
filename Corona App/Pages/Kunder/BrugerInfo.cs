@@ -21,6 +21,7 @@ namespace Corona_App.Pages.Kunder
             set { _id = value; }
         }
 
+        //validering på navn og de andre properties.
         [Required]
         [RegularExpression(@"\D*", ErrorMessage = "Navn skal skrives med bogstaver")]
         public string Navn
@@ -53,6 +54,7 @@ namespace Corona_App.Pages.Kunder
             set { _adgangskode = value; }
         }
 
+        //validering med at der skal være noget før @ og noget efter @.
         [Required]
         [RegularExpression(@"\S+@\S+", ErrorMessage ="Email skal indeholde et @")]
         public string Email
@@ -66,6 +68,7 @@ namespace Corona_App.Pages.Kunder
 
         }
 
+        //konstruktør med parameter
         public BrugerInfo(string Navn, string Mobilnummer, string Adresse, string Adgangskode, string Email)
         {
             _navn = Navn;

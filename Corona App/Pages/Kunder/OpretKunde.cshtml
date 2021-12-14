@@ -11,6 +11,7 @@
         <div class="col-md-4">
             <form method="post">
 
+                @* Felt til at skrive ens navn, og kommer med en validation alert hvis man skriver noget forkert *@
                 <div class="form-group">
                     <label>Fulde navn</label>
                     <input type="text" asp-for="b.Navn" class="form-control" />
@@ -43,12 +44,14 @@
 
                 <p>Dit Tlf nummer skal være forbundet til en mobilepay konto, for at du kan modtage penge til at købe ind for andre</p>
 
+                @* Checkbox til ´accept af handelsbetingelser *@
                 <div class="text-center">
                     <label>
                         <input type="checkbox" />
                         Acepter vores handelsbetingelser
                     </label>
                 </div>
+
 
                 <p><a href="https://shop.rema1000.dk/handelsbetingelser">Læs vores handelsbetingelser her</a></p>
 
