@@ -121,9 +121,7 @@ font-weight: bold;
 .imgpadding {
     padding-right: 15px;
 }
-/*Media query
-*/
-@media only screen and (max-width: 600px) {
+
     .menuknapper {
         position: fixed;
         left: 0;
@@ -138,45 +136,47 @@ font-weight: bold;
         float: left;
         width: 25%;
         /*taget fra https://www.w3schools.com/howto/howto_css_four_columns.asp*/
-}
+    }
 
-/* Clear floats after the columns */
+    /* Clear floats after the columns */
     .rowtest:after {
         content: "";
         display: table;
         clear: both;
-        /*taget fra https://www.w3schools.com/howto/howto_css_four_columns.asp */ 
+        /*taget fra https://www.w3schools.com/howto/howto_css_four_columns.asp */
     }
+
     .skaler {
         width: 100%;
         height: 4rem;
     }
 
-.rund_knap {
-    border-radius: 50px ;
-}
+    .rund_knap {
+        border-radius: 50px;
+    }
 
-.opgave_border {
-    border-style: solid;
-    padding: 1em 0em;
-}
+    .opgave_border {
+        border-style: solid;
+        padding: 1em 0em;
+    }
 
-.ingen_liste_prik {
-    padding-left: 0px;
-    list-style-type: none;
-}
+    .ingen_liste_prik {
+        padding-left: 0px;
+        list-style-type: none;
+    }
 
-.ingen_liste_prik ul li {
-    list-style-type: none;
-}
+        .ingen_liste_prik ul li {
+            list-style-type: none;
+        }
 
-.knap_divider {
-    margin-right: 30%;
-}
-.little_margin_top {
-    margin-top: 2%;
-}
-.display_inline {
-    display:inline !important;
-}
-}
+    .knap_divider {
+        margin-right: 30%;
+    }
+
+    .little_margin_top {
+        margin-top: 2%;
+    }
+
+    .display_inline {
+        display: inline !important;
+    }
