@@ -14,7 +14,7 @@ namespace Corona_App.Pages.Kunder
 
         public List<Bestilling> KundensVare { get; set; }
         [BindProperty]
-        public BrugerInfo b { get; set; }
+        public List<Bestilling> b { get; set; }
 
         [BindProperty]
         public string SearchText { get; set; }
@@ -24,8 +24,9 @@ namespace Corona_App.Pages.Kunder
             _katelog = katelog;
         }
 
-        public void OnGet()
+        public void OnGet(int id)
         {
+            b = _katelog.KundensVare.FindAll(k => k.Id == id);
             KundensVare = _katelog.KundensVare;
         }
 
@@ -38,7 +39,7 @@ namespace Corona_App.Pages.Kunder
 
         public IActionResult OnPost()
         {
-            KundensVare = _katelog.SearchBestilling(b);
+            //KundensVare = _katelog.SearchBestilling(b); sort efter kommune
 
             return Page();
         }

@@ -13,20 +13,20 @@ namespace Corona_App.Pages.Varer
         private IKatalog _katelog;        
 
         [BindProperty]
-        public string Mobil { get; set; }
+        public string Mobil { get; set; }                
         public LokationModel(IKatalog katelog)
         {
             _katelog = katelog;
         }
         public void OnGet()
         {
-
+            
         }
 
         public IActionResult OnPost()
-        {
+        {            
             _katelog.UpdateLokation(Mobil);
-            return RedirectToPage("/Kunder/Kurv");
+            return RedirectToPage($"/Kunder/Kurv/{_katelog.GetKundeId(Mobil)}");
         }
     }
 }

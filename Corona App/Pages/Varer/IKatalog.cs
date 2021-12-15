@@ -20,5 +20,7 @@ namespace Corona_App.Pages.Varer
         void TilføjVareTilBestilling(int tilføj);
         void SletVareFraBestilling(int vareNr);
         List<Bestilling> SearchBestilling(BrugerInfo b);
+
+        int GetKundeId(string mobil);
     }
 }

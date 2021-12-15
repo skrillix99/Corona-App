@@ -150,7 +150,13 @@ namespace Corona_App.Pages.Varer
                     l.Id = Get.Id;
                 }
             }
-            StoreToJsonBestilling();
+            StoreToJsonBestilling();            
+        }
+
+        public int GetKundeId(string mobil)
+        {
+            BrugerInfo Get = BrugerCRUD.JsonFileRead(_filenameKunde).Find(k => k.Mobilnummer == mobil);
+            return Get.Id;
         }
         
 
