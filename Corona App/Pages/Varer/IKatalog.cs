@@ -22,5 +22,6 @@ namespace Corona_App.Pages.Varer
         List<Bestilling> SearchBestilling(BrugerInfo b);
 
         int GetKundeId(string mobil);
+        double CalcAllPrice();
     }
 }

@@ -3,14 +3,12 @@
 @{
 }
 
-<h1>welp</h1>
-
 <!--<form method="post"> // sort efter kommune
     <div class="form-group">
         <label>Vælg Kommune</label>
         <select onchange="this.form.submit()" asp-for="b.Kommune" class="form-control">-->
-            <!--https://stackoverflow.com/questions/7231157/how-to-submit-form-on-change-of-dropdown-list  første svar-->
-            <!--@foreach (var kom in Enum.GetValues(typeof(kommuner)))
+<!--https://stackoverflow.com/questions/7231157/how-to-submit-form-on-change-of-dropdown-list  første svar-->
+<!--@foreach (var kom in Enum.GetValues(typeof(kommuner)))
             {
                 <option value="@kom">@kom</option>
             }
@@ -18,57 +16,27 @@
     </div>
 </form>-->
 
-@foreach (var item in Model.b)
-{
-    
-    
-    <section style="border: dashed 1.5px #111; margin-bottom:2em;">
-        <p>@item.VareNr</p>
-        <p>@item.Navn</p>
-        <p>@item.Pris</p>
-        <p>@item.Kategori</p>
-        <p>@item.lokation</p>
-
-        <a asp-route-vareNr="@item.VareNr" asp-page-handler="slet">Slet</a>
-    </section>
-    
-
-}
-
-
-
-
-
-
-
 <div class="container">
     <div class="image">
         <h1>Indkøbsliste</h1>
         <img src="~/Billeder/images.jfif" alt="i" />
     </div>
 
+    @foreach (var item in Model.b)
+    {
+        <div class="dropdown-item container_dropdown_item">
 
-
-    <div class="text-center">
-        <label>
-            <input type="checkbox" />
-            Tilføj levering (+ 40 kr.)
-        </label>
-    </div>
-
+            <img src="https://www.dummyimage.com/40px40px" alt="Alternate Text" />
+            <div>
+                <p>@item.Navn</p>
+                <p>@item.Pris kr</p>                
+            </div>
+        </div>
+    }
 
     <form class="text-center">
         Kommentar til ordre:<br>
-        <textarea name="explanation" dirname="explanation.dir"></textarea>
-        <div class="form-group betal">
-            <input type="submit" value="Betal" class="btn btn-primary betal" />
-        </div>
-        @*<input type="submit" value="Submit">*@
+        <textarea name="explanation" dirname="explanation.dir"></textarea>                
     </form>
-
-
-    @*<div class="form-group betal">
-            <input type="submit" value="Betal" class="btn btn-primary betal" />
-        </div>*@
 
 </div>

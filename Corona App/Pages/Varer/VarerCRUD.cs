@@ -179,6 +179,20 @@ namespace Corona_App.Pages.Varer
             }
             return KundensVare.FindAll(k => k.lokation == b.Kommune);
         }        
+
+        public double CalcAllPrice() // Beregner den totale pris for alle varene en kunde har valgt
+        {
+            double TotalPrice = 0;
+            foreach (var item in KundensVare)
+            {
+                if(item.Id == 7)
+                {
+                    TotalPrice = TotalPrice + item.Pris;
+                }
+
+            }
+            return TotalPrice + 40;
+        }
         
     }
 }
