@@ -167,6 +167,10 @@ body {
     list-style-type: none;
 }
 
+.ingen_liste_prik ul li {
+    list-style-type: none;
+}
+
 .knap_divider {
     margin-right: 30%;
 }
