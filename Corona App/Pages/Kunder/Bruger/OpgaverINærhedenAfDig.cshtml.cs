@@ -29,9 +29,9 @@ namespace Corona_App.Pages.Kunder.Bruger
 
         public void OnGet()
         {           
-            bList = _kunde.Bruger;            
-            
-            
+            bList = _kunde.Bruger;
+
+
             KundensVare = _katelog.KundensVare;
             SamletPris = _katelog.CalcAllPrice();
             b = _kunde.GetSingle(7);
@@ -39,6 +39,7 @@ namespace Corona_App.Pages.Kunder.Bruger
 
         public void OnPost()
         {
+            KundensVare = _katelog.KundensVare;
             bList = _katelog.SearchBestilling(b);
         }
     }
