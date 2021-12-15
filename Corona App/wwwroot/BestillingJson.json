@@ -62,5 +62,21 @@
     "Navn": "hmm",
     "Kategori": 0,
     "lokation": 0
+  },
+  {
+    "Id": 7,
+    "VareNr": 213,
+    "Pris": 321,
+    "Navn": "hmm",
+    "Kategori": 0,
+    "lokation": 0
+  },
+  {
+    "Id": 7,
+    "VareNr": 215,
+    "Pris": 87,
+    "Navn": "g",
+    "Kategori": 0,
+    "lokation": 0
   }
 ]

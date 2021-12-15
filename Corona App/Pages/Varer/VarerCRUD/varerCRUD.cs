@@ -13,6 +13,9 @@ namespace Corona_App.Pages.Varer
         private string _filenameBestilling = @"wwwroot\BestillingJson.json";
         private string _filenameKunde = @"wwwroot\Kunde.json";
 
+        private IKunde _kunde;
+        //public List<BrugerInfo> Bruger { get; private set; }
+
         public List<Vare> Varer { get; private set; } // listen af vare
 
         public List<Bestilling> KundensVare { get; private set; }// listen af varene som en kunde har tilføjet til kurv (bestillinger)
@@ -170,14 +173,15 @@ namespace Corona_App.Pages.Varer
             return Varer.FindAll(k => k.Navn.ToLower() == searchText.ToLower() || k.Kategori.ToString().ToLower() == searchText.ToLower());
         }
 
-        public List<Bestilling> SearchBestilling(BrugerInfo b) // viser den/de vare fra Bestillinger som indholder enten det navn eller kategroi man har søgt efter
+        public List<BrugerInfo> SearchBestilling(BrugerInfo b) // viser den/de vare fra Bestillinger som indholder enten det navn eller kategroi man har søgt efter
         {
             if (b == null)
             {
-                return KundensVare;
+                return _kunde.Bruger;
                 throw new ArgumentNullException("Der er fejl i din søgning");
             }
-            return KundensVare.FindAll(k => k.lokation == b.Kommune);
+
+            return BrugerCRUD.JsonFileRead(_filenameKunde).FindAll(k => k.Kommune == b.Kommune);
         }
 
         public double CalcAllPrice() // Beregner den totale pris for alle varene en kunde har valgt

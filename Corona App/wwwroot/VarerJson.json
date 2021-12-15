@@ -6,6 +6,12 @@
     "Kategori": 0
   },
   {
+    "VareNr": 215,
+    "Pris": 87,
+    "Navn": "g",
+    "Kategori": 0
+  },
+  {
     "VareNr": 9,
     "Pris": 89,
     "Navn": "qq",
@@ -24,9 +30,21 @@
     "Kategori": 2
   },
   {
+    "VareNr": 214,
+    "Pris": 321,
+    "Navn": "sakd",
+    "Kategori": 2
+  },
+  {
     "VareNr": 9,
     "Pris": 99,
     "Navn": "asjdj",
+    "Kategori": 3
+  },
+  {
+    "VareNr": 216,
+    "Pris": 87,
+    "Navn": "f",
     "Kategori": 3
   },
   {
@@ -46,11 +64,5 @@
     "Pris": 675,
     "Navn": "testM",
     "Kategori": 4
-  },
-  {
-    "VareNr": 214,
-    "Pris": 321,
-    "Navn": "sakd",
-    "Kategori": 2
   }
 ]
