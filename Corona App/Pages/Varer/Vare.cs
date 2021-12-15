@@ -15,15 +15,15 @@ namespace Corona_App.Pages.Varer
             get;
             set;
         }
-        [Required]
+        [Required(ErrorMessage ="Må ikke være tom")]
         [Range(1, int.MaxValue, ErrorMessage = "Det må ikke være 0 eller negativ værdi.")]        
-        public int Pris
+        public double Pris
         {
             get;
             set;
         }
-        [Required]
-        [RegularExpression(@"\D*", ErrorMessage = "Der må ikke være tal i navnet.")]
+        [Required(ErrorMessage ="Må ikke være tom")]
+        [RegularExpression(@"\p{L}", ErrorMessage ="Kun bogstaver")]
         [StringLength(25, MinimumLength = 1, ErrorMessage = "Skal være minimum 1 tegn og max 25.")]
         public string Navn
         {

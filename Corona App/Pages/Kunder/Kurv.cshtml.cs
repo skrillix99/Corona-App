@@ -37,11 +37,5 @@ namespace Corona_App.Pages.Kunder
             return RedirectToPage("kurv");
         }
 
-        public IActionResult OnPost()
-        {
-            //KundensVare = _katelog.SearchBestilling(b); sort efter kommune
-
-            return Page();
-        }
     }
 }

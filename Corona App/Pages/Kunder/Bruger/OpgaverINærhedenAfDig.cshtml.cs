@@ -15,7 +15,11 @@ namespace Corona_App.Pages.Kunder.Bruger
 
         public int AntalVare { get; set; }
         public double SamletPris { get; set; }
+        public List<Bestilling> KundensVare { get; set; }
+        [BindProperty]
         public BrugerInfo b { get; set; }
+        [BindProperty]
+        public List<BrugerInfo> bList { get; set; }
 
         public OpgaverINærhedenAfDigModel(IKatalog katelog, IKunde kunde)
         {
@@ -24,14 +28,18 @@ namespace Corona_App.Pages.Kunder.Bruger
         }
 
         public void OnGet()
-        {
-            if(_katelog.KundensVare.FindAll(k => k.Id == 7).Count == 1)
-            {
-                AntalVare = 1;
-            }
-            AntalVare = _katelog.KundensVare.FindAll(k => k.Id == 7).Count;
+        {           
+            bList = _kunde.Bruger;            
+            
+            
+            KundensVare = _katelog.KundensVare;
             SamletPris = _katelog.CalcAllPrice();
             b = _kunde.GetSingle(7);
+        }
+
+        public void OnPost()
+        {
+            bList = _katelog.SearchBestilling(b);
         }
     }
 }

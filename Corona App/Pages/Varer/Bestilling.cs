@@ -34,7 +34,7 @@ namespace Corona_App.Pages.Varer
         }
         [Required]
         [Range(1, int.MaxValue, ErrorMessage = "Det må ikke være 0 eller negativ værdi.")]
-        public int Pris
+        public double Pris
         {
             get;
             set;

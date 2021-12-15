@@ -1,5 +1,5 @@
 ﻿@page
-@*Lavet Af Jonathan*@
+@*Lavet Af Jonathan og Marcus*@
 @model Corona_App.Pages.Kunder.Bruger.OpgaverINærhedenAfDigModel
 @{
     ViewData["Title"] = "Opgaver I Nærheden Af Dig";
@@ -10,25 +10,46 @@
 </div>
 
 <div class="text-center">
-    <input id="rund_knap" type="text" placeholder="  Søg efter lokation..." />
+
+    <form method="post">
+        <div class="form-group">
+            <label>Vælg Kommune</label>
+            <select onchange="this.form.submit()" asp-for="b.Kommune" class="form-control">-->
+    <!--https://stackoverflow.com/questions/7231157/how-to-submit-form-on-change-of-dropdown-list  første svar-->
+    @foreach (var kom in Enum.GetValues(typeof(kommuner)))
+                {
+                    <option value="@kom">@kom</option>
+                }
+            </select>
+        </div>
+    </form>
+
 </div>
 
 <div class="line-space"></div>
 <div class="line-space"></div>
 <form>
-    <div class="text-center">
-        <div class="opgave_border">
-            <ul class="ingen_liste_prik">
-                <li>@Model.b.Adresse</li>
-                <li>@Model.b.Kommune</li>
-                <li>@Model.AntalVare varer</li>
-                <li>@Model.SamletPris kr.</li>
-            </ul>
-            <button type="submit" formaction="/Kunder/Kurv/7" class="knap_divider tynd_knap rema_farve">Se Indkøbsliste</button>
-            <input type="submit" class="rema_farve tynd_knap rund_knap btn" formaction="/Kunder/Kurv/7" value="Tag imod opgaven" />
-        </div>
 
-        <div class="line-space"></div>
+    <div class="text-center">
+        @foreach (var kunder in @Model.bList)
+        {
+            if (Model.KundensVare.FindAll(k => k.Id == kunder.Id).Count > 1)
+            {
+
+                <div class="opgave_border">
+                    <ul class="ingen_liste_prik">
+                        <li>@kunder.Adresse</li>
+                        <li>@kunder.Kommune</li>
+                        <li>@Model.KundensVare.FindAll(k => k.Id == kunder.Id).Count varer</li>
+                        <li>@Model.SamletPris kr.</li>
+                    </ul>
+                    <button type="submit" formaction="/Kunder/Kurv/@kunder.Id" class="knap_divider tynd_knap rema_farve">Se Indkøbsliste</button>
+                    <input type="submit" class="rema_farve tynd_knap rund_knap btn" formaction="/Kunder/Kurv/@kunder.Id" value="Tag imod opgaven" />
+                </div>
+            }            
+        }
+
+        @*<div class="line-space"></div>
         <div class="opgave_border">
             <ul class="ingen_liste_prik">
                 <li>Eriksmidevej 12</li>
@@ -38,7 +59,7 @@
             </ul>
             <button class="knap_divider tynd_knap rema_farve">Se Indkøbsliste</button>
             <button class="rema_farve tynd_knap rund_knap">Tag imod opgaven</button>
-        </div>
+        </div>*@
     </div>
 </form>
 
