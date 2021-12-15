@@ -41,7 +41,7 @@
                         <li>@kunder.Adresse</li>
                         <li>@kunder.Kommune</li>
                         <li>@Model.KundensVare.FindAll(k => k.Id == kunder.Id).Count varer</li>
-                        <li>@Model.SamletPris kr.</li>
+                        <li>@Model.SamletPris.CalcAllPrice(kunder.Id) kr.</li>
                     </ul>
                     <button type="submit" formaction="/Kunder/Kurv/@kunder.Id" class="knap_divider tynd_knap rema_farve">Se Indkøbsliste</button>
                     <input type="submit" class="rema_farve tynd_knap rund_knap btn" formaction="/Kunder/Kurv/@kunder.Id" value="Tag imod opgaven" />

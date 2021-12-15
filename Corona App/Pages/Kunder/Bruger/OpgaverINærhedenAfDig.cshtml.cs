@@ -14,7 +14,7 @@ namespace Corona_App.Pages.Kunder.Bruger
         private IKunde _kunde;
 
         public int AntalVare { get; set; }
-        public double SamletPris { get; set; }
+        public IKatalog SamletPris { get; set; }
         public List<Bestilling> KundensVare { get; set; }
         [BindProperty]
         public BrugerInfo b { get; set; }
@@ -33,12 +33,13 @@ namespace Corona_App.Pages.Kunder.Bruger
 
 
             KundensVare = _katelog.KundensVare;
-            SamletPris = _katelog.CalcAllPrice();
+            SamletPris = _katelog;
             b = _kunde.GetSingle(7);
         }
 
         public void OnPost()
         {
+            SamletPris = _katelog;
             KundensVare = _katelog.KundensVare;
             bList = _katelog.SearchBestilling(b);
         }
