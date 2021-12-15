@@ -2,44 +2,49 @@
 @model Corona_App.Pages.GlemtAdgangskodeModel
 @{
     ViewData["Title"] = "Glemt Adgangskode";
+    Layout = null;
 }
-<div class="text-center">
-    <h1>Glemt Adgangskode</h1>
-</div>
+<head>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap-grid.css" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="text-center">
+        <h1>Glemt Adgangskode</h1>
+    </div>
 
-<div class="line-space"></div>
-<div class="line-space"></div>
-<div class="line-space"></div>
-
-<div class="text-center line-space">
-    <p>Indtast E-mail</p>
-</div>
-
-<div class="line-space"></div>
-<div class="text-center line-space">
-    <form>
-        <input type="text" placeholder="Indtast E-mail..."/>
-    </form>
-</div>
-
-<div class="line-space"></div>
-<div class="text-center">
-    <form>
-        <input type="submit" value="Nulstil Adgangskode" formaction="/Kunder/Adgangskoder/NyAdgangskode" class="btn rema_farve">
-    </form>
     <div class="line-space"></div>
-</div>
-
-<div class="text-center">Eller</div>
-
-<div class="line-space"></div>
-<div class="text-center">
-    <form>
-        <input type="submit" value="Brug Telefon Nummer" formaction="/Kunder/Adgangskoder/GlemtAdgangskodeTLF" class="btn rema_farve">
-    </form>
     <div class="line-space"></div>
-</div>
+    <div class="line-space"></div>
 
+    <div class="text-center line-space">
+        <p>Indtast E-mail</p>
+    </div>
 
+    <div class="line-space"></div>
+    <div class="text-center line-space">
+        <form>
+            <input type="text" placeholder="Indtast E-mail..." />
+        </form>
+    </div>
 
-@*https://localhost:44380/Kunder/Adgangskoder/GlemtAdgangskode*@
+    <div class="line-space"></div>
+    <div class="text-center">
+        <form>
+            <input type="submit" value="Nulstil Adgangskode" formaction="/Kunder/Adgangskoder/NyAdgangskode" class="btn rema_farve">
+        </form>
+        <div class="line-space"></div>
+    </div>
+
+    <div class="text-center">Eller</div>
+
+    <div class="line-space"></div>
+    <div class="text-center">
+        <form>
+            <input type="submit" value="Brug Telefon Nummer" formaction="/Kunder/Adgangskoder/GlemtAdgangskodeTLF" class="btn rema_farve">
+        </form>
+        <div class="line-space"></div>
+    </div>
+</body>

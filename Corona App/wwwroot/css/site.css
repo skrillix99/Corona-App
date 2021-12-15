@@ -93,8 +93,8 @@ body {
     margin: 0;
 }
 .rema_farve {
-    background-color: #2359a2;
-    color: white;
+    background-color: #2359a2 !important;
+    color: white !important;
 }
 
 .centered {

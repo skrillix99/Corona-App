@@ -1,79 +1,89 @@
-﻿@page 
- @*Lavet Af Cecilie*@
+﻿@page
+
+@*Lavet Af Cecilie*@
 @model Corona_App.Pages.Kunder.Bruger.OpretKundeModel
 @{
     ViewData["Title"] = "Opret bruger";
+    Layout = null;
 }
-<div class="container">
-    <div class="text-center">
-        <h1>Opret Bruger</h1>
-    </div>
-    <div class="row">
-        <div class="col-md-4">
-            <form method="post">
+<head>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap-grid.css" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <div class="text-center">
+            <h1>Opret Bruger</h1>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <form method="post">
 
-                @* Felt til at skrive ens navn, og kommer med en validation alert hvis man skriver noget forkert *@
-                <div class="form-group">
-                    <label>Fulde navn</label>
-                    <input type="text" asp-for="b.Navn" class="form-control" />
-                    <span asp-validation-for="b.Navn" class="alert-danger"></span>
-                </div>
+                    @* Felt til at skrive ens navn, og kommer med en validation alert hvis man skriver noget forkert *@
+                    <div class="form-group">
+                        <label>Fulde navn</label>
+                        <input type="text" asp-for="b.Navn" class="form-control" />
+                        <span asp-validation-for="b.Navn" class="alert-danger"></span>
+                    </div>
 
-                <div class="form-group">
-                    <label>Mobil nummer</label>
-                    <input type="text" asp-for="b.Mobilnummer" class="form-control" />
-                    <span asp-validation-for="b.Mobilnummer" class="alert-danger"></span>
-                </div>
+                    <div class="form-group">
+                        <label>Mobil nummer</label>
+                        <input type="text" asp-for="b.Mobilnummer" class="form-control" />
+                        <span asp-validation-for="b.Mobilnummer" class="alert-danger"></span>
+                    </div>
 
-                <div class="form-group">
-                    <label>Adresse</label>
-                    <input type="text" asp-for="b.Adresse" class="form-control" />
-                    <span asp-validation-for="b.Adresse" class="alert-danger"></span>
-                </div>
+                    <div class="form-group">
+                        <label>Adresse</label>
+                        <input type="text" asp-for="b.Adresse" class="form-control" />
+                        <span asp-validation-for="b.Adresse" class="alert-danger"></span>
+                    </div>
 
-                <div class="form-group">
-                    <label>Email</label>
-                    <input type="text" asp-for="b.Email" class="form-control" />
-                    <span asp-validation-for="b.Email" class="alert-danger"></span>
-                </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="text" asp-for="b.Email" class="form-control" />
+                        <span asp-validation-for="b.Email" class="alert-danger"></span>
+                    </div>
 
-                <div class="form-group">
-                    <label>Adgangskode</label>
-                    <input type="password" asp-for="b.Adgangskode" class="form-control" />
-                    <span asp-validation-for="b.Adgangskode" class="alert-danger"></span>
-                </div>
+                    <div class="form-group">
+                        <label>Adgangskode</label>
+                        <input type="password" asp-for="b.Adgangskode" class="form-control" />
+                        <span asp-validation-for="b.Adgangskode" class="alert-danger"></span>
+                    </div>
 
-                <div class="form-group">
-                    <label>Kommune</label>
-                    <select name="b.Kommune" asp-for="b.Kommune" class="form-control">
-                        @foreach (var kom in Enum.GetValues(typeof(kommuner)))
-                        {
-                            <option value="@kom">@kom</option>
-                        }
-                    </select>
-                </div>
+                    <div class="form-group">
+                        <label>Kommune</label>
+                        <select name="b.Kommune" asp-for="b.Kommune" class="form-control">
+                            @foreach (var kom in Enum.GetValues(typeof(kommuner)))
+                            {
+                                <option value="@kom">@kom</option>
+                            }
+                        </select>
+                    </div>
 
-                <p>Dit Tlf nummer skal være forbundet til en mobilepay konto, for at du kan modtage penge til at købe ind for andre</p>
-
-                <div class="line-space"></div>
-                <div class="text-center">
-                    <p><a href="https://shop.rema1000.dk/handelsbetingelser">Læs vores handelsbetingelser her</a></p>
-
-                    @* Checkbox til accept af handelsbetingelser *@
-                    <input type="checkbox" name="handelsbetingelserne" value="handelsbetingelserne" required /> <label>Jeg har læst og accepteret handelsbetingelserne.</label>
-
-                    <input type="submit" value="Opret Bruger" onclick="myFunction()" class="btn rema_farve">
+                    <p>Dit Tlf nummer skal være forbundet til en mobilepay konto, for at du kan modtage penge til at købe ind for andre</p>
 
                     <div class="line-space"></div>
+                    <div class="text-center">
+                        <p><a href="https://shop.rema1000.dk/handelsbetingelser">Læs vores handelsbetingelser her</a></p>
 
-                    <script>
-                        function myFunction() {
-                            var z = document.getElementById("myCheck").required;
-                            document.getElementById("test2").innerHTML = z;
-                        }
-                    </script>
-                </div>
-            </form>
+                        @* Checkbox til accept af handelsbetingelser *@
+                        <input type="checkbox" name="handelsbetingelserne" value="handelsbetingelserne" required /> <label>Jeg har læst og accepteret handelsbetingelserne.</label>
+
+                        <input type="submit" value="Opret Bruger" onclick="myFunction()" class="btn rema_farve">
+
+                        <div class="line-space"></div>
+
+                        <script>
+                            function myFunction() {
+                                var z = document.getElementById("myCheck").required;
+                                document.getElementById("test2").innerHTML = z;
+                            }
+                        </script>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-</div>
+</body>
