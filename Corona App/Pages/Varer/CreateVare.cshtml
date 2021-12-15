@@ -10,13 +10,7 @@
             <form method="post">
                 <div asp-validation-summary="All" class="alert-danger"></div>
                 <p>@Model.ErrorMsg</p>
-
-                <div class="form-group">
-                    <label asp-for="Varer.VareNr"></label>
-                    <input type="number" asp-for="Varer.VareNr" class="form-control" />
-                    <span asp-validation-for="Varer.VareNr" class="alert-danger"></span>
-                </div>
-
+                
                 <div class="form-group">
                     <label asp-for="Varer.Pris"></label>
                     <input type="number" asp-for="Varer.Pris" class="form-control" />

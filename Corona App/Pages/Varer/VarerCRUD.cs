@@ -15,7 +15,7 @@ namespace Corona_App.Pages.Varer
         
         public List<Vare> Varer { get; private set; } // listen af vare
 
-        public List<Bestilling> KundensVare { get; private set; }// listen af varene som en kunde har tilføjet til kurv
+        public List<Bestilling> KundensVare { get; private set; }// listen af varene som en kunde har tilføjet til kurv (bestillinger)
 
         public VarerCRUD()
         {
@@ -34,7 +34,7 @@ namespace Corona_App.Pages.Varer
 
             try
             {
-                using (var file = File.OpenText(_filenameBestilling))
+                using (var file = File.OpenText(_filenameBestilling)) // laver json filens indhold om til en List<bestilling>
                 {
                     KundensVare = JsonSerializer.Deserialize<List<Bestilling>>(file.ReadToEnd());
                 }
@@ -164,14 +164,14 @@ namespace Corona_App.Pages.Varer
             return Varer.FindAll(k => k.Navn.ToLower() == searchText.ToLower() || k.Kategori.ToString().ToLower() == searchText.ToLower());
         }        
         
-        public List<Bestilling> SearchBestilling(string searchText) // viser den/de vare fra Bestillinger som indholder enten det navn eller kategroi man har søgt efter
+        public List<Bestilling> SearchBestilling(BrugerInfo b) // viser den/de vare fra Bestillinger som indholder enten det navn eller kategroi man har søgt efter
         {
-            if(String.IsNullOrWhiteSpace(searchText))
+            if(b == null)
             {
                 return KundensVare;
                 throw new ArgumentNullException("Der er fejl i din søgning");
             }
-            return KundensVare.FindAll(k => k.lokation.ToString().ToLower() == searchText.ToLower());
+            return KundensVare.FindAll(k => k.lokation == b.Kommune);
         }        
         
     }

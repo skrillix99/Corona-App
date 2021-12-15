@@ -10,10 +10,6 @@ namespace Corona_App.Pages.Varer
 
     public class Vare: IComparable<Vare>
     {                
-
-        [Required]
-        [RegularExpression(@"\d*", ErrorMessage = "Det må kun være tal.")]
-        [Range(1, int.MaxValue, ErrorMessage = "Skal være minimum 1 tegn.")]
         public int VareNr
         {
             get;

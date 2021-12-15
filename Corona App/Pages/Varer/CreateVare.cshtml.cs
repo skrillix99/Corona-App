@@ -32,7 +32,7 @@ namespace Corona_App.Pages.Varer
                 {
                     return Page();
                 }
-
+                Varer.VareNr = _vareCRUD.Varer.Max(k => k.VareNr) + 1; // sætter VareNr til at altid være 1 højrere end det højste der findes i forvejen
                 _vareCRUD.Create(Varer);
             }
             catch (ArgumentNullException e)
