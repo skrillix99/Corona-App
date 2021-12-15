@@ -24,19 +24,21 @@
 
     @foreach (var item in Model.b)
     {
-        <div class="dropdown-item container_dropdown_item">
+        <div class="opgave_border Bredde100 little_margin_top">
+            <div class="dropdown-item container_dropdown_item">
 
-            <img src="https://www.dummyimage.com/40px40px" alt="Alternate Text" />
-            <div>
-                <p>@item.Navn</p>
-                <p>@item.Pris kr</p>                
+                <img src="https://www.dummyimage.com/40px40px" alt="Alternate Text" />
+                <div>
+                    <p class="display_inline">@item.Navn </p>
+                    <p class="display_inline float-right">@item.Pris kr.</p>
+                </div>
             </div>
         </div>
     }
 
     <form class="text-center">
         Kommentar til ordre:<br>
-        <textarea name="explanation" dirname="explanation.dir"></textarea>                
+        <textarea name="explanation" dirname="explanation.dir"></textarea>
     </form>
 
 </div>

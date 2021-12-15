@@ -174,4 +174,10 @@ body {
 .knap_divider {
     margin-right: 30%;
 }
+.little_margin_top {
+    margin-top: 2%;
+}
+.display_inline {
+    display:inline !important;
+}
 /*}*/
