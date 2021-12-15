@@ -51,7 +51,7 @@ namespace Corona_App.Pages.Kunder //Lavet Af Cecilie
             get { return _adresse; }
             set { _adresse = value; }
         }
-        [Required]
+        [Required(ErrorMessage ="Indtast adgangskode")]
         [MinLength(8, ErrorMessage = "Skal indeholde minumum 8 tegn")]
         [DataType(DataType.Password)]
         public string Adgangskode
