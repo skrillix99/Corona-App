@@ -23,28 +23,29 @@
     </div>
 </nav>
 
-
-
 <div class="kategori_banner">
 
     <div class="kategori_textOnImg">
         <h1>Frugt og Grønt</h1>
         <img src="/Billeder/Frugt-og-groent-2.jpg" alt="Frugt og grønt banner" />
+
     </div>
-        <form method="post">
-            <fieldset>
-                <input type="search" asp-for="Search" placeholder="Søg efter navnet på en vare" class="search_input" />
-                <input type="submit" value="Søg" class="btn" />
-            </fieldset>
-        </form>
+
+    <form method="post">
+        <fieldset>
+            <input type="search" asp-for="Search" placeholder="Søg efter navnet på en vare" class="search_input" />
+            <input type="submit" value="Søg" class="btn" />
+        </fieldset>
+    </form>
+
+    <a asp-page="/Varer/Lokation">content</a>
 </div>
+
+
 
 @foreach (var kata in Enum.GetValues(typeof(Katagoris)))
 {
-    
     <h2>@kata</h2>
-    @*}
-        }*@
     @foreach (var item in @Model.Varer)
     {
         if (kata.ToString() == item.Kategori.ToString())
@@ -58,9 +59,7 @@
                     <p>250 gram</p>
                 </div>
                 <a asp-page-handler="buynow" asp-route-vareNr="@item.VareNr">Tilføj</a>
-                
             </div>
-
         }
     }
 }

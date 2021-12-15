@@ -8,57 +8,54 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 namespace Corona_App.Pages.Varer.KatalogVarer //Lavet Af Marcus
 {
     
-        public class katalogModel : PageModel
+    public class katalogModel : PageModel
+    {
+        private IVare _katalog;
+
+        public List<Vare> Varer { get; private set; }
+
+        [BindProperty]
+        public string Search { get; set; }
+        public string ErrorMsg { get; set; }
+        public katalogModel(IVare katalog)
         {
-            private IVare _katalog;
+            _katalog = katalog;
+        }
 
-            public List<Vare> Varer { get; private set; }
-            [BindProperty]
-            public Vare KundensVare { get; set; }
-
-            [BindProperty]
-            public string Search { get; set; }
-            public string ErrorMsg { get; set; }
-            public katalogModel(IVare katalog)
+        public IActionResult OnGet()
+        {
+            try
             {
-                _katalog = katalog;
+                Varer = _katalog.Varer;
+                Varer.Sort();
+            }
+            catch (Exception e)
+            {
+                ErrorMsg = e.Message;
             }
 
-            public IActionResult OnGet()
-            {
-                try
-                {
-                    Varer = _katalog.Varer;
-                    Varer.Sort();
-                }
-                catch (Exception e)
-                {
-                    ErrorMsg = e.Message;
-                }
+            return Page();
+        }
 
-                return Page();
+
+        public IActionResult OnGetBuyNow(int vareNr) // tilføjer varen til KundensVare (bestillinger)
+        {
+            _katalog.TilføjVareTilBestilling(vareNr);
+            return RedirectToPage("katalog");
+        }
+        public IActionResult OnPost()
+        {
+            try
+            {
+                Varer = _katalog.Search(Search);
             }
 
-
-            public IActionResult OnGetBuyNow(int vareNr)
+            catch (ArgumentNullException n)
             {
-
-                _katalog.TilføjVareTilBestilling(vareNr);
-                return RedirectToPage("Katalog");
+                ErrorMsg = n.ParamName;
             }
-            public IActionResult OnPost()
-            {
-                try
-                {
-                    Varer = _katalog.Search(Search);
-                }
 
-                catch (ArgumentNullException n)
-                {
-                    ErrorMsg = n.ParamName;
-                }
-
-                return Page();
-            }
+            return Page();
         }
     }
+}

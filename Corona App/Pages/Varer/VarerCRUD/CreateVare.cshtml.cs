@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Corona_App.Pages.Varer //Lavet Af Marcus
+namespace Corona_App.Pages.Varer
 {
     public class CreateVareModel : PageModel
     {
@@ -32,7 +32,7 @@ namespace Corona_App.Pages.Varer //Lavet Af Marcus
                 {
                     return Page();
                 }
-
+                Varer.VareNr = _vareCRUD.Varer.Max(k => k.VareNr) + 1; // sætter VareNr til at altid være 1 højrere end det højste der findes i forvejen
                 _vareCRUD.Create(Varer);
             }
             catch (ArgumentNullException e)

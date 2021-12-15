@@ -2,14 +2,31 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.IO;
+using System.Text.Json;
 using System.ComponentModel.DataAnnotations;
+using Corona_App.Pages.Kunder;
 
 namespace Corona_App.Pages.Varer
 {
-    public enum Katagoris { Frugt, Grøntsager, Kartofler_løg, Færdig_salater, Smoothies }
-
-    public class Vare : IComparable<Vare>
+    public class Bestilling : IComparable<Vare>
     {
+
+        public Bestilling(int vareNr)
+        {
+            VareNr = vareNr;
+            Pris = 0;
+            Navn = "";
+            Kategori = 0;
+        }
+        public int Id
+        {
+            get; set;
+        }
+
+        [Required]
+        [RegularExpression(@"\d*", ErrorMessage = "Det må kun være tal.")]
+        [Range(1, int.MaxValue, ErrorMessage = "Skal være minimum 1 tegn.")]
         public int VareNr
         {
             get;
@@ -32,6 +49,12 @@ namespace Corona_App.Pages.Varer
         }
         [Required]
         public Katagoris Kategori
+        {
+            get;
+            set;
+        }
+        [Required]
+        public kommuner lokation
         {
             get;
             set;

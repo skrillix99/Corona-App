@@ -10,12 +10,7 @@
         <div class="col-md-4">
             <form method="post">
                 <div asp-validation-summary="All" class="alert-danger"></div>
-
-                <div class="form-group">
-                    <label asp-for="Varer.VareNr"></label>
-                    <input type="number" asp-for="Varer.VareNr" class="form-control" />
-                    <span asp-validation-for="Varer.VareNr" class="alert-danger"></span>
-                </div>
+                <p>@Model.ErrorMsg</p>
 
                 <div class="form-group">
                     <label asp-for="Varer.Pris"></label>
@@ -29,18 +24,12 @@
                     <span asp-validation-for="Varer.Navn" class="alert-danger"></span>
                 </div>
 
-                @*<div class="form-group">
-                        <label asp-for="@Model.Varer.Kategori"></label>
-                        <input type="text" asp-for="@Model.Varer.Kategori" class="form-control" />
-                        <span asp-validation-for="@Model.Varer.Kategori" class="alert-danger"></span>
-                    </div>*@
-
                 <div class="form-group">
                     <label>Katagori</label>
                     <select name="Varer.Kategori" asp-for="Varer.Kategori" class="form-control">
-                        @foreach (var kategori in Enum.GetValues(typeof(Katagoris)))
+                        @foreach (var katagori in Enum.GetValues(typeof(Katagoris)))
                         {
-                            <option value="@kategori">@kategori</option>
+                            <option value="@katagori">@katagori</option>
                         }
                     </select>
                 </div>
