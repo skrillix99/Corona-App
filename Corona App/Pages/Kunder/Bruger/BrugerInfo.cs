@@ -71,6 +71,7 @@ namespace Corona_App.Pages.Kunder //Lavet Af Cecilie
             set { _email = value; }
         }
 
+        
         public kommuner Kommune
         {
             get;
