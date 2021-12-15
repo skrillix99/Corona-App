@@ -74,7 +74,7 @@ body {
     height: 1.3rem;
 }
 
-.tynd_knap {
+.tynd_knap{
     font-size: 0.8em !important;
     padding: 7px;
 }
@@ -166,9 +166,9 @@ body {
     list-style-type: none;
 }
 
-    .ingen_liste_prik ul li {
-        list-style-type: none;
-    }
+.ingen_liste_prik ul li {
+    list-style-type: none;
+}
 
 .knap_divider {
     margin-right: 30%;
