@@ -19,13 +19,13 @@
     <div class="text-center">
         <div class="opgave_border">
             <ul class="ingen_liste_prik">
-                <li>Roskildevej 9</li>
-                <li>Roskilde 4000</li>
-                <li>4 varer</li>
-                <li>80 kr.</li>
+                <li>@Model.b.Adresse</li>
+                <li>@Model.b.Kommune</li>
+                <li>@Model.AntalVare varer</li>
+                <li>@Model.SamletPris kr.</li>
             </ul>
-            <button class="knap_divider skinnyboi rema_farve">Se Indkøbsliste</button>
-            <input type="submit" class="rema_farve skinnyboi rund_knap btn" formaction="/Kunder/Bruger/NuværendeOpgave" value="Tag imod opgaven" />
+            <button type="submit" formaction="/Kunder/Kurv/7" class="knap_divider tynd_knap rema_farve">Se Indkøbsliste</button>
+            <input type="submit" class="rema_farve tynd_knap rund_knap btn" formaction="/Kunder/Kurv/7" value="Tag imod opgaven" />
         </div>
 
         <div class="line-space"></div>
@@ -36,8 +36,8 @@
                 <li>9 varer</li>
                 <li>210 kr.</li>
             </ul>
-            <button class="knap_divider skinnyboi rema_farve">Se Indkøbsliste</button>
-            <button class="rema_farve skinnyboi rund_knap">Tag imod opgaven</button>
+            <button class="knap_divider tynd_knap rema_farve">Se Indkøbsliste</button>
+            <button class="rema_farve tynd_knap rund_knap">Tag imod opgaven</button>
         </div>
     </div>
 </form>
@@ -54,7 +54,7 @@
             <div class="columntest"><input type="submit" formaction="/Kunder/Bruger/OpgaverINærhedenAfDig" value="Leveringer" class="skaler btn btn-primary"></div>
         </form>
         <form method="get">
-            <div class="columntest"><input type="submit" formaction="/Kunder/Bruger/Bruger" value="Profil" class="skaler btn btn-primary"></div>
+            <div class="columntest"><input type="submit" formaction="/Kunder/Bruger/Bruger/3" value="Profil" class="skaler btn btn-primary"></div>
         </form>
     </div>
 </nav>

@@ -8,7 +8,6 @@ namespace Corona_App.Pages.Varer //Lavet Af Marcus
 {
     public interface IVare
     {
-
         List<Vare> Varer { get; }
         Vare GetSingle(int vareNr);
         void Create(Vare obj);
@@ -21,5 +20,8 @@ namespace Corona_App.Pages.Varer //Lavet Af Marcus
         void TilføjVareTilBestilling(int tilføj);
         void SletVareFraBestilling(int vareNr);
         List<Bestilling> SearchBestilling(BrugerInfo b);
+
+        int GetKundeId(string mobil);
+        double CalcAllPrice();
     }
 }

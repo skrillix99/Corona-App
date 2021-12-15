@@ -53,13 +53,7 @@ namespace Corona_App.Pages
             {
                 return RedirectToPage("/Kunder/Bruger/Velkommen"); //TO DO ÆNDRE PATHEN TIL VELKOMMEN SIDEN. 
             }
-
-            if (!ModelState.IsValid)
-            {
-
                 return Page();
-            }
-            return Page();
         }
     }
 }

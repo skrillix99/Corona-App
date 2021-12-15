@@ -1,0 +1,18 @@
+﻿@page
+@model Corona_App.Pages.Varer.LokationModel
+@{
+}
+<div class="centering">
+
+    <h2>Bekræftigelse af brugeren</h2>
+
+    <form method="post">
+        <fieldset>
+            <label>Skriv dit Telefon nummer</label>
+            <input type="number" asp-for="@Model.Mobil" />
+        </fieldset>
+
+        <input type="submit" value="Videre" />
+    </form>
+
+</div>

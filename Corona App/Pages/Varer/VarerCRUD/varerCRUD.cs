@@ -153,6 +153,12 @@ namespace Corona_App.Pages.Varer
             StoreToJsonBestilling();
         }
 
+        public int GetKundeId(string mobil)
+        {
+            BrugerInfo Get = BrugerCRUD.JsonFileRead(_filenameKunde).Find(k => k.Mobilnummer == mobil);
+            return Get.Id;
+        }
+
 
         public List<Vare> Search(string searchText) // viser den/de vare fra Varer som indholder enten det navn eller kategroi man har søgt efter
         {
@@ -172,6 +178,20 @@ namespace Corona_App.Pages.Varer
                 throw new ArgumentNullException("Der er fejl i din søgning");
             }
             return KundensVare.FindAll(k => k.lokation == b.Kommune);
+        }
+
+        public double CalcAllPrice() // Beregner den totale pris for alle varene en kunde har valgt
+        {
+            double TotalPrice = 0;
+            foreach (var item in KundensVare)
+            {
+                if (item.Id == 7)
+                {
+                    TotalPrice = TotalPrice + item.Pris;
+                }
+
+            }
+            return TotalPrice + 40;
         }
 
     }

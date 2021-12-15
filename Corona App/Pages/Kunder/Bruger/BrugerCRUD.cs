@@ -76,10 +76,11 @@ namespace Corona_App.Pages.Kunder //Lavet Af Cecilie & Marcus
             BrugerInfo get = GetSingle(b.Id);
             get.Mobilnummer = b.Mobilnummer;
 
-            get.Navn = b.Navn.ToLower();
-            get.Adresse = b.Adresse.ToLower();
+            get.Navn = b.Navn;
+            get.Adresse = b.Adresse;
             get.Adgangskode = b.Adgangskode;
-            get.Email = b.Email.ToLower();
+            get.Email = b.Email;
+            get.Kommune = b.Kommune;
 
             StoreToJson();
         }

@@ -49,9 +49,10 @@ namespace Corona_App.Pages.Kunder.Bruger //Lavet Af Cecilie
             }
 
             // hvis id på bruger er lig med 0, gør id til 1 ellers tag max id og plus med 1 for den næste oprettede bruger.
-            if (b.Id == 0)
+            
+            if (b.Id.Equals(0))
             {
-                b.Id = 1;
+                b.Id++;
             }
             b.Id = _kunde.Bruger.Max(k => k.Id) + 1;
 
