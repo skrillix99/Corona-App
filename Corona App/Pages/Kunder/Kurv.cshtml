@@ -5,6 +5,19 @@
 
 <h1>welp</h1>
 
+<form method="post">
+    <div class="form-group">
+        <label>Vælg Kommune</label>
+        <select onchange="this.form.submit()" asp-for="b.Kommune" class="form-control">
+            <!--https://stackoverflow.com/questions/7231157/how-to-submit-form-on-change-of-dropdown-list  første svar-->
+            @foreach (var kom in Enum.GetValues(typeof(kommuner)))
+            {
+                <option value="@kom">@kom</option>
+            }
+        </select>
+    </div>
+</form>
+
 @foreach (var item in Model.KundensVare)
 {    
     <section style="border: dashed 1.5px #111; margin-bottom:2em;">
@@ -14,6 +27,6 @@
         <p>@item.Kategori</p>
         <p>@item.lokation</p>
 
-        <a asp-route-vareNr="@item.VareNr" asp-page-handler="test">Slet</a>
+        <a asp-route-vareNr="@item.VareNr" asp-page-handler="slet">Slet</a>
     </section>
 }

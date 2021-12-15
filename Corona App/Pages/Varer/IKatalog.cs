@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Corona_App.Pages.Kunder;
 
 namespace Corona_App.Pages.Varer
 {
@@ -18,6 +19,6 @@ namespace Corona_App.Pages.Varer
         List<Bestilling> KundensVare { get; }
         void TilføjVareTilBestilling(int tilføj);
         void SletVareFraBestilling(int vareNr);
-
+        List<Bestilling> SearchBestilling(BrugerInfo b);
     }
 }

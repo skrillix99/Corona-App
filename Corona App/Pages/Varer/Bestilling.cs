@@ -8,8 +8,7 @@ using System.ComponentModel.DataAnnotations;
 using Corona_App.Pages.Kunder;
 
 namespace Corona_App.Pages.Varer
-{
-    //public enum Katagoris { Frugt, Grøntsager, Kartofler_løg, Færdig_salater, Smoothies }
+{    
     public class Bestilling : IComparable<Vare>
     {
 

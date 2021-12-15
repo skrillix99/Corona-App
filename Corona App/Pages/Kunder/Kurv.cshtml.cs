@@ -13,6 +13,11 @@ namespace Corona_App.Pages.Kunder
         public IKatalog _katelog;
 
         public List<Bestilling> KundensVare { get; set; }
+        [BindProperty]
+        public BrugerInfo b { get; set; }
+
+        [BindProperty]
+        public string SearchText { get; set; }
 
         public KurvModel(IKatalog katelog)
         {
@@ -24,11 +29,18 @@ namespace Corona_App.Pages.Kunder
             KundensVare = _katelog.KundensVare;
         }
 
-        public IActionResult OnGetTest(int vareNr)
+        public IActionResult OnGetSlet(int vareNr) // sletter varen fra kundens bestilling
         {
-            _katelog.SletVareFraBestilling(vareNr);
+            _katelog.SletVareFraBestilling(vareNr); 
             KundensVare = _katelog.KundensVare;
             return RedirectToPage("kurv");
+        }
+
+        public IActionResult OnPost()
+        {
+            KundensVare = _katelog.SearchBestilling(b);
+
+            return Page();
         }
     }
 }
