@@ -4,7 +4,7 @@
 @{
 }
 
-<div>
+<div style="margin-bottom:2em;">
     <h1>Liste af alle vare</h1>
     <form method="post">
         <input type="submit" formaction="\Varer\VarerCRUD\CreateVare" value="Opret Varer" class="btn rema_farve" />
@@ -13,13 +13,15 @@
 
 @foreach (Vare vare in Model.Varer)
 {
-    <p>Vare Nummer @vare.VareNr</p>
-    <p>Vare Navn @vare.Navn</p>
-    <p>Vare Pris @vare.Pris</p>
-    <p>Vare Katerogi @vare.Kategori</p>
+    <div style="margin-bottom: 2em; padding-left:1em;" class="opgave_border">
+        <p>Vare Nummer: @vare.VareNr</p>
+        <p>Vare Navn: @vare.Navn</p>
+        <p>Vare Pris: @vare.Pris</p>
+        <p>Vare Katerogi: @vare.Kategori</p>
+        <form method="post">
+            <input type="submit" formaction="/Varer/VarerCRUD/RedigerVare/@vare.VareNr" value="Rediger" class="btn rema_farve" />
+            <input type="submit" formaction="/Varer/VarerCRUD/SletVare/@vare.VareNr" value="Slet" class="btn btn-danger" />
+        </form>
+    </div>
 
-    <form method="post">
-        <input type="submit" formaction="/Varer/VarerCRUD/RedigerVare/@vare.VareNr" value="Rediger" class="btn rema_farve" />
-        <input type="submit" formaction="/Varer/VarerCRUD/SletVare/@vare.VareNr" value="Slet" class="btn rema_farve" />
-    </form>
 }
