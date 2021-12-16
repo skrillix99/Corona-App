@@ -26,20 +26,21 @@ namespace Corona_App.Pages.Kunder.Bruger
             _katelog = katelog;
             _kunde = kunde;
         }
-
         public void OnGet()
         {
             bList = _kunde.Bruger;
 
 
             KundensVare = _katelog.KundensVare;
-            SamletPris = _katelog.CalcAllPrice();
+            SamletPris = _katelog;
             b = _kunde.GetSingle(3);
         }
 
         public void OnPost()
         {
+            KundensVare = _katelog.KundensVare;
             bList = _katelog.SearchBestilling(b);
+            SamletPris = _katelog;
         }
     }
 }
