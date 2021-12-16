@@ -62,7 +62,6 @@
         top: 0;
         bottom: 0.25em;
         border-radius: 0;
-        width: 100%;
     }
 
     .container_dropdown_item {
@@ -97,7 +96,7 @@
             width: 4.5em;
             height: 2em;
             text-align: center;
-            line-height: 1.8em;
+            line-height: 1.2em;
             color: black;
             background: limegreen;
             font-size: 1.2em;
