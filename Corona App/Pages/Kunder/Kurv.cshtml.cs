@@ -12,6 +12,8 @@ namespace Corona_App.Pages.Kunder
     {
         public IVare _katelog;
 
+        public string ErrorMsg { get; set; }
+        
         public List<Bestilling> KundensVare { get; set; }
         [BindProperty]
         public List<Bestilling> b { get; set; }
@@ -38,8 +40,16 @@ namespace Corona_App.Pages.Kunder
         
         public IActionResult OnGetSlet(int vareNr) // sletter varen fra kundens bestilling
         {
-            _katelog.SletVareFraBestilling(vareNr);
-            KundensVare = _katelog.KundensVare;
+            try
+            {
+                _katelog.SletVareFraBestilling(vareNr);
+                KundensVare = _katelog.KundensVare;
+            }
+            catch (ArgumentNullException n)
+            {
+                ErrorMsg = n.ParamName;
+            }
+            
             return RedirectToPage("kurv");
         }
 

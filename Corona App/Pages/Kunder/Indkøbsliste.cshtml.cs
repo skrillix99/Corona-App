@@ -9,8 +9,22 @@ namespace Corona_App.Pages.Varer
 {
     public class IndkøbslisteModel : PageModel
     {
+        private IVare _katelog;
+        public List<Bestilling> b { get; set; }
+
+        public IndkøbslisteModel(IVare katelog)
+        {
+            _katelog = katelog;
+        }
+
         public void OnGet()
         {
+            b = _katelog.KundensVare.FindAll(k => k.Id == 7);
+        }
+
+        public void OnPost()
+        {
+            b = _katelog.KundensVare.FindAll(k => k.Id == 7);
         }
     }
 }

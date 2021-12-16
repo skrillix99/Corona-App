@@ -30,10 +30,11 @@ namespace Corona_App.Pages.Varer //Lavet Af Marcus
                 ErrorMsg = e.Message;
             }
         }
-        public IActionResult OnPost()
+        public IActionResult OnPost(int id)
         {
             try
             {
+                Varer = _katalog.GetSingle(id);
                 _katalog.Delete(Varer);
             }
             catch (ArgumentNullException e)
@@ -41,7 +42,7 @@ namespace Corona_App.Pages.Varer //Lavet Af Marcus
                 ErrorMsg = e.ParamName;
             }
 
-            return RedirectToPage("Katalog");
+            return RedirectToPage("/Varer/KatalogVarer/Katalog");
         }
     }
 }

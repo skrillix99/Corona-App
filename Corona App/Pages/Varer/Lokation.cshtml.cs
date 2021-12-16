@@ -24,7 +24,14 @@ namespace Corona_App.Pages.Varer
 
         public void OnPost()
         {
-            _katelog.UpdateLokation(Mobil);            
+            try
+            {
+                _katelog.UpdateLokation(Mobil);
+            }
+            catch (ArgumentNullException ae)
+            {
+                ErrorMsg = ae.ParamName;
+            }
         }
     }
 }
