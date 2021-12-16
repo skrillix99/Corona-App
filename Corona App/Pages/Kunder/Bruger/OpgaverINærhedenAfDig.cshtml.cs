@@ -14,7 +14,7 @@ namespace Corona_App.Pages.Kunder.Bruger
         private IKunde _kunde;
 
         public int AntalVare { get; set; }
-        public double SamletPris { get; set; }
+        public IVare SamletPris { get; set; }
         public List<Bestilling> KundensVare { get; set; }
         [BindProperty]
         public BrugerInfo b { get; set; }

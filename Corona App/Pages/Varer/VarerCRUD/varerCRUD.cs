@@ -184,12 +184,12 @@ namespace Corona_App.Pages.Varer
             return BrugerCRUD.JsonFileRead(_filenameKunde).FindAll(k => k.Kommune == b.Kommune);
         }
 
-        public double CalcAllPrice() // Beregner den totale pris for alle varene en kunde har valgt
+        public double CalcAllPrice(int id) // Beregner den totale pris for alle varene en kunde har valgt
         {
             double TotalPrice = 0;
             foreach (var item in KundensVare)
             {
-                if (item.Id == 7)
+                if (item.Id == id)
                 {
                     TotalPrice = TotalPrice + item.Pris;
                 }
