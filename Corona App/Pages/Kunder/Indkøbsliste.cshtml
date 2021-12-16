@@ -28,7 +28,7 @@
                 <div>
                     <p class="display_inline">@item.Navn </p>
                     <p class="display_inline float-right">@item.Pris kr.</p>
-
+                    <a type="submit" asp-page-handler="slet" class="btn rema_farve" asp-route-vareNr="@item.VareNr"> slet </a>
                 </div>
             </div>
         </div>
