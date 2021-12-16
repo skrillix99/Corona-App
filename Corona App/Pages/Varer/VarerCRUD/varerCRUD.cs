@@ -144,6 +144,10 @@ namespace Corona_App.Pages.Varer
         }
         public void UpdateLokation(string mobil) // redigere den angivede vare fra KundensVare
         {
+            if(BrugerCRUD.JsonFileRead(_filenameKunde).Find(k => k.Mobilnummer == mobil) == null)
+            {
+                throw new ArgumentNullException("Forkert mobilnummer");
+            }
             BrugerInfo Get = BrugerCRUD.JsonFileRead(_filenameKunde).Find(k => k.Mobilnummer == mobil);
             foreach (Bestilling l in KundensVare)
             {
