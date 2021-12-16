@@ -39,7 +39,7 @@ namespace Corona_App.Pages.Varer
             {
                 ErrorMsg = e.ParamName;
             }
-            return RedirectToPage("/Varer/Katalog");
+            return RedirectToPage("/Varer/KatalogVarer/Katalog");
 
         }
     }

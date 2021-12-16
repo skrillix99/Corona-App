@@ -180,3 +180,12 @@ font-weight: bold;
     .display_inline {
         display: inline !important;
     }
+
+    #margin_center {
+        margin-right: 2.5%;
+        margin-left: -5.5%;
+    }
+    
+    .margin_left_small {
+        margin-left: 2.5%;
+    }
