@@ -29,7 +29,13 @@ namespace Corona_App.Pages.Kunder
             b = _katelog.KundensVare.FindAll(k => k.Id == id);
             KundensVare = _katelog.KundensVare;
         }
-
+        
+        public void OnPost()
+        {
+            b = _katelog.KundensVare.FindAll(k => k.Id == 7);
+            KundensVare = _katelog.KundensVare;
+        }
+        
         public IActionResult OnGetSlet(int vareNr) // sletter varen fra kundens bestilling
         {
             _katelog.SletVareFraBestilling(vareNr);
