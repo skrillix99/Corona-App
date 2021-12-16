@@ -16,6 +16,7 @@
             <h1 class="text-center">Indkøbsliste</h1>
             <img src="~/Billeder/images.jfif" alt="i" />
         </div>
+     </div>
 
         @foreach (var item in Model.b)
         {
@@ -23,9 +24,9 @@
                 <div class="dropdown-item container_dropdown_item">
 
                     <img src="https://www.dummyimage.com/40px40px" alt="Alternate Text" />
-                    <div>
+                    <div class="display_inline">
                         <p class="display_inline">@item.Navn </p>
-                        <p class="display_inline float-right">@item.Pris kr.</p>
+                        <p class="display_inline float-right little_margin_top">@item.Pris kr.</p>
                     </div>
                 </div>
             </div>
