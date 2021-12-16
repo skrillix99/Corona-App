@@ -11,6 +11,7 @@ namespace Corona_App.Pages.Varer //Lavet Af Marcus
     {
         private IVare _katelog;
         public List<Bestilling> b { get; set; }
+        public string ErrorMsg { get; set; }
 
         public IndkøbslisteModel(IVare katelog)
         {
@@ -20,6 +21,19 @@ namespace Corona_App.Pages.Varer //Lavet Af Marcus
         public void OnGet()
         {
             b = _katelog.KundensVare.FindAll(k => k.Id == 7);
+        }
+        public IActionResult OnGetSlet(int vareNr)
+        {
+            try
+            {
+                _katelog.SletVareFraBestilling(vareNr);
+                b = _katelog.KundensVare.FindAll(k => k.Id == 7);
+            }
+            catch (ArgumentNullException n)
+            {
+                ErrorMsg = n.ParamName;
+            }
+            return Page();
         }
 
         public void OnPost()
