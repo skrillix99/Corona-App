@@ -181,7 +181,7 @@ namespace Corona_App.Pages.Varer
         {
             if (b == null)
             {
-                return _kunde.Bruger;
+                return BrugerCRUD.JsonFileRead(_filenameKunde);
                 throw new ArgumentNullException("Der er fejl i din søgning");
             }
 

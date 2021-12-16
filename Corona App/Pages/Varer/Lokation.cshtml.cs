@@ -11,6 +11,11 @@ namespace Corona_App.Pages.Varer
     {
         private IVare _katelog;
 
+        public string ErrorMsg
+        {
+            get; set;
+        }
+
         [BindProperty]
         public string Mobil { get; set; }
         public LokationModel(IVare katelog)
