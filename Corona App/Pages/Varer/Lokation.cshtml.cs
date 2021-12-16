@@ -22,10 +22,9 @@ namespace Corona_App.Pages.Varer
 
         }
 
-        public IActionResult OnPost()
+        public void OnPost()
         {
-            _katelog.UpdateLokation(Mobil);
-            return RedirectToPage($"/Kunder/Kurv/{_katelog.GetKundeId(Mobil)}");
+            _katelog.UpdateLokation(Mobil);            
         }
     }
 }
