@@ -27,7 +27,7 @@ namespace Corona_App.Pages.Varer //Lavet Af Marcus
 
         }
 
-        public void OnPost()
+        public IActionResult OnPost()
         {
             try
             {
@@ -37,6 +37,8 @@ namespace Corona_App.Pages.Varer //Lavet Af Marcus
             {
                 ErrorMsg = ae.ParamName;
             }
+            return RedirectToPage("/Kunder/Indkøbsliste");
+
         }
     }
 }
