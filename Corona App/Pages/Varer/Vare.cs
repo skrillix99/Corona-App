@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 
-namespace Corona_App.Pages.Varer
+namespace Corona_App.Pages.Varer //Lavet Af Marcus
 {
     public enum Katagoris { Frugt, Grøntsager, Kartofler_løg, Færdig_salater, Smoothies }
 

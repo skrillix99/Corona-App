@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Corona_App.Pages.Varer;
 
-namespace Corona_App.Pages.Kunder
+namespace Corona_App.Pages.Kunder //Lavet Af Marcus & Jonathan
 {
     public class KurvModel : PageModel
     {

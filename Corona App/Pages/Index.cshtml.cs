@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 using Corona_App.Pages.Kunder;
 using System.Text.RegularExpressions;
 
-namespace Corona_App.Pages
+namespace Corona_App.Pages //Lavet Af Anders
 {
     public class IndexModel : PageModel
     {

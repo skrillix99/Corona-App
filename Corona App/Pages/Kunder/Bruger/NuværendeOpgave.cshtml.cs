@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Corona_App.Pages.Varer;
 
-namespace Corona_App.Pages.Kunder.Bruger
+namespace Corona_App.Pages.Kunder.Bruger //Lavet Af Marcus & Jonathan
 {
     public class NuværendeOpgaveModel : PageModel
     {

@@ -7,7 +7,7 @@ using System.Text.Json;
 using System.ComponentModel.DataAnnotations;
 using Corona_App.Pages.Kunder;
 
-namespace Corona_App.Pages.Varer
+namespace Corona_App.Pages.Varer //Lavet Af Marcus
 {
     public class Bestilling : IComparable<Vare>
     {

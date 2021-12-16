@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Text.Json;
 
-namespace Corona_App.Pages.Varer.VarerCRUD
+namespace Corona_App.Pages.Varer.VarerCRUD //Lavet Af Marcus
 {
     public class BestillingCRUD
     {

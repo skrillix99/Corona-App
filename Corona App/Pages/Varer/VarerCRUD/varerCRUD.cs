@@ -4,9 +4,9 @@ using System.IO;
 using System.Text.Json;
 using Corona_App.Pages.Kunder;
 
-namespace Corona_App.Pages.Varer
+namespace Corona_App.Pages.Varer //Lavet Af Marcus
 {
-    public class varerCRUD : IVare
+    public class varerCRUD : IVare 
     {
         // sti til Json filer
         private string _filename = @"wwwroot\VarerJson.json";

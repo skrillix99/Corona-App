@@ -1,6 +1,8 @@
 ﻿@page "{id}"
 @model Corona_App.Pages.Kunder.KurvModel
+@*Lavet Af Marcus & Jonathan*@
 @{
+    ViewData["Title"] = "Kurv";
 }
 
 <body>
@@ -16,28 +18,27 @@
             <h1 class="text-center">Indkøbsliste</h1>
             <img src="~/Billeder/images.jfif" alt="i" />
         </div>
+    </div>
+    @foreach (var item in Model.b)
+    {
+        <div class="opgave_border Bredde100 little_margin_top">
+            <div class="dropdown-item container_dropdown_item">
 
-        @foreach (var item in Model.b)
-        {
-            <div class="opgave_border Bredde100 little_margin_top">
-                <div class="dropdown-item container_dropdown_item">
-
-                    <img src="https://www.dummyimage.com/40px40px" alt="Alternate Text" />
-                    <div>
-                        <p class="display_inline">@item.Navn </p>
-                        <p class="display_inline float-right">@item.Pris kr.</p>
-                    </div>
+                <img src="https://www.dummyimage.com/40px40px" alt="Alternate Text" />
+                <div>
+                    <p class="display_inline">@item.Navn </p>
+                    <p class="display_inline float-right">@item.Pris kr.</p>
                 </div>
             </div>
-        }
+        </div>
+    }
 
-        <form class="text-center">
-            Kommentar til ordre:<br>
-            <textarea name="explanation" dirname="explanation.dir"></textarea>
-        </form>
-        <form class="text-center" method="post">
-            <input type="submit" class="btn rema_farve btn-primary" value="Accepter Ordre" formaction="/Kunder/Bruger/NuværendeOpgave" />
-        </form>
-    </div>
+    <form class="text-center">
+        Kommentar til ordre:<br>
+        <textarea name="explanation" dirname="explanation.dir"></textarea>
+    </form>
+    <form class="text-center" method="post">
+        <input type="submit" class="btn rema_farve btn-primary" value="Accepter Ordre" formaction="/Kunder/Bruger/NuværendeOpgave" />
+    </form>
 
 </body>
