@@ -23,7 +23,7 @@ namespace Corona_App.Pages.Varer //Lavet Af Marcus
             set;
         }
         [Required(ErrorMessage = "Må ikke være tom")]
-        [RegularExpression(@"\p{L}", ErrorMessage = "Kun bogstaver")]
+        [RegularExpression(@"\D*", ErrorMessage = "Kun bogstaver")]
         [StringLength(25, MinimumLength = 1, ErrorMessage = "Skal være minimum 1 tegn og max 25.")]
         public string Navn
         {

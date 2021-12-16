@@ -6,7 +6,7 @@ using Corona_App.Pages.Kunder;
 
 namespace Corona_App.Pages.Varer //Lavet Af Marcus
 {
-    public class varerCRUD : IVare 
+    public class varerCRUD : IVare
     {
         // sti til Json filer
         private string _filename = @"wwwroot\VarerJson.json";
@@ -144,6 +144,10 @@ namespace Corona_App.Pages.Varer //Lavet Af Marcus
         }
         public void UpdateLokation(string mobil) // redigere den angivede vare fra KundensVare
         {
+            if (BrugerCRUD.JsonFileRead(_filenameKunde).Find(k => k.Mobilnummer == mobil) == null)
+            {
+                throw new ArgumentNullException("Forkert mobilnummer");
+            }
             BrugerInfo Get = BrugerCRUD.JsonFileRead(_filenameKunde).Find(k => k.Mobilnummer == mobil);
             foreach (Bestilling l in KundensVare)
             {
@@ -177,19 +181,19 @@ namespace Corona_App.Pages.Varer //Lavet Af Marcus
         {
             if (b == null)
             {
-                return _kunde.Bruger;
+                return BrugerCRUD.JsonFileRead(_filenameKunde);
                 throw new ArgumentNullException("Der er fejl i din søgning");
             }
 
             return BrugerCRUD.JsonFileRead(_filenameKunde).FindAll(k => k.Kommune == b.Kommune);
         }
 
-        public double CalcAllPrice() // Beregner den totale pris for alle varene en kunde har valgt
+        public double CalcAllPrice(int id) // Beregner den totale pris for alle varene en kunde har valgt
         {
             double TotalPrice = 0;
             foreach (var item in KundensVare)
             {
-                if (item.Id == 7)
+                if (item.Id == id)
                 {
                     TotalPrice = TotalPrice + item.Pris;
                 }

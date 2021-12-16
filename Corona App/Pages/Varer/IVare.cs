@@ -22,6 +22,6 @@ namespace Corona_App.Pages.Varer //Lavet Af Marcus
         List<BrugerInfo> SearchBestilling(BrugerInfo b);
 
         int GetKundeId(string mobil);
-        double CalcAllPrice();
+        double CalcAllPrice(int id);
     }
 }

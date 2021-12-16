@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Corona_App.Pages.Varer //Lavet Af Marcus
 {
-    public class RedigereVareModel : PageModel 
+    public class RedigereVareModel : PageModel
     {
         private IVare _katalog;
         [BindProperty]
@@ -28,10 +28,11 @@ namespace Corona_App.Pages.Varer //Lavet Af Marcus
                 ErrorMsg = e.Message;
             }
         }
-        public IActionResult OnPost()
+        public IActionResult OnPost(int id)
         {
             try
             {
+                Varer = _katalog.GetSingle(id);
                 if (!ModelState.IsValid)
                 {
                     return Page();
@@ -41,9 +42,9 @@ namespace Corona_App.Pages.Varer //Lavet Af Marcus
             }
             catch (ArgumentNullException e)
             {
-                ErrorMsg = e.ParamName;   
+                ErrorMsg = e.ParamName;
             }
-            return RedirectToPage("Katalog");
+            return RedirectToPage("/Varer/KatalogVarer/Katalog");
         }
     }
 }

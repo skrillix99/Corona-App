@@ -11,6 +11,11 @@ namespace Corona_App.Pages.Varer //Lavet Af Marcus
     {
         private IVare _katelog;
 
+        public string ErrorMsg
+        {
+            get; set;
+        }
+
         [BindProperty]
         public string Mobil { get; set; }
         public LokationModel(IVare katelog)
@@ -22,10 +27,16 @@ namespace Corona_App.Pages.Varer //Lavet Af Marcus
 
         }
 
-        public IActionResult OnPost()
+        public void OnPost()
         {
-            _katelog.UpdateLokation(Mobil);
-            return RedirectToPage($"/Kunder/Kurv/{_katelog.GetKundeId(Mobil)}");
+            try
+            {
+                _katelog.UpdateLokation(Mobil);
+            }
+            catch (ArgumentNullException ae)
+            {
+                ErrorMsg = ae.ParamName;
+            }
         }
     }
 }

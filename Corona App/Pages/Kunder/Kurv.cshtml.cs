@@ -12,6 +12,8 @@ namespace Corona_App.Pages.Kunder //Lavet Af Marcus & Jonathan
     {
         public IVare _katelog;
 
+        public string ErrorMsg { get; set; }
+
         public List<Bestilling> KundensVare { get; set; }
         [BindProperty]
         public List<Bestilling> b { get; set; }
@@ -30,10 +32,24 @@ namespace Corona_App.Pages.Kunder //Lavet Af Marcus & Jonathan
             KundensVare = _katelog.KundensVare;
         }
 
+        public void OnPost()
+        {
+            b = _katelog.KundensVare.FindAll(k => k.Id == 7);
+            KundensVare = _katelog.KundensVare;
+        }
+
         public IActionResult OnGetSlet(int vareNr) // sletter varen fra kundens bestilling
         {
-            _katelog.SletVareFraBestilling(vareNr);
-            KundensVare = _katelog.KundensVare;
+            try
+            {
+                _katelog.SletVareFraBestilling(vareNr);
+                KundensVare = _katelog.KundensVare;
+            }
+            catch (ArgumentNullException n)
+            {
+                ErrorMsg = n.ParamName;
+            }
+
             return RedirectToPage("kurv");
         }
 

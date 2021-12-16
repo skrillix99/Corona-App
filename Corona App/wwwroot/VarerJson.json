@@ -8,7 +8,7 @@
   {
     "VareNr": 215,
     "Pris": 15,
-    "Navn": "Æble",
+    "Navn": "\u00E6ble",
     "Kategori": 0
   },
   {
@@ -20,7 +20,7 @@
   {
     "VareNr": 1,
     "Pris": 20,
-    "Navn": "Rød Pepper",
+    "Navn": "R\u00F8d Pepper",
     "Kategori": 1
   },
   {
@@ -32,7 +32,7 @@
   {
     "VareNr": 214,
     "Pris": 30,
-    "Navn": "Søde Kartofler",
+    "Navn": "S\u00F8de Kartofler",
     "Kategori": 2
   },
   {
@@ -44,7 +44,7 @@
   {
     "VareNr": 216,
     "Pris": 60,
-    "Navn": "Cæsar Salat",
+    "Navn": "C\u00E6sar Salat",
     "Kategori": 3
   },
   {
@@ -56,7 +56,7 @@
   {
     "VareNr": 22,
     "Pris": 30,
-    "Navn": "Hindbær Smoothie",
+    "Navn": "Hindb\u00E6r Smoothie",
     "Kategori": 4
   }
 ]

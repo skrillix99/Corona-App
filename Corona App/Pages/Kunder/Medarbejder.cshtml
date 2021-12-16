@@ -1,0 +1,22 @@
+﻿@page
+@model Corona_App.Pages.Kunder.MedarbejderModel
+@{
+}
+
+
+<nav class="menuknapper">
+    <div class="rowtest">
+        <form method="get">
+            <div class="columntest"><input type="submit" formaction="/Varer/VarerCRUD/CreateVare" value="Opret Vare" class="skaler btn btn-primary"></div>
+        </form>
+        <form method="get">
+            <div class="columntest"><input type="submit" formaction="/Varer/VarerCRUD/RedigerVare" value="Rediger Vare" class="skaler btn btn-primary"></div>
+        </form>
+        <form method="get">
+            <div class="columntest"><input type="submit" formaction="/Varer/VarerCRUD/SletVare" value="Slet Vare" class="skaler btn btn-primary"></div>
+        </form>
+        <form method="get">
+            <div class="columntest"><input type="submit" formaction="/Kunder/Bruger/Velkommen" value="Forside" class="skaler btn btn-primary"></div>
+        </form>
+    </div>
+</nav>

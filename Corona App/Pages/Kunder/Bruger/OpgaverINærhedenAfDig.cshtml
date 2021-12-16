@@ -42,24 +42,12 @@
                         <li>@kunder.Adresse</li>
                         <li>@kunder.Kommune</li>
                         <li>@Model.KundensVare.FindAll(k => k.Id == kunder.Id).Count varer</li>
-                        <li>@Model.SamletPris kr.</li>
+                        <li>@Model.SamletPris.CalcAllPrice(kunder.Id) kr.</li>
                     </ul>
-                    <button type="submit" formaction="/Kunder/Kurv/@kunder.Id" class="tynd_knap rema_farve text-center">Se Indkøbsliste</button>
+                    <button type="submit" formaction="/Kunder/Indkøbsliste" class="tynd_knap rema_farve text-center">Se Indkøbsliste</button>
                 </div>
             }
         }
-
-        @*<div class="line-space"></div>
-            <div class="opgave_border">
-                <ul class="ingen_liste_prik">
-                    <li>Eriksmidevej 12</li>
-                    <li>Greve 2670</li>
-                    <li>9 varer</li>
-                    <li>210 kr.</li>
-                </ul>
-                <button class="knap_divider tynd_knap rema_farve">Se Indkøbsliste</button>
-                <button class="rema_farve tynd_knap rund_knap">Tag imod opgaven</button>
-            </div>*@
     </div>
 </form>
 

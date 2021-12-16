@@ -1,12 +1,13 @@
 ﻿@page "{id}"
- @*Lavet Af Marcus*@
+@*Lavet Af Marcus*@
 @model Corona_App.Pages.Varer.SletModel
 @{
     ViewData["Title"] = "Slet Varer";
 }
-
 <div class="container">
     <h1>Er du sikker på at du vil slette denne vare?</h1>
+
+    <p class="alert-danger">@Model.ErrorMsg</p>
     <div class="row">
         <div class="col-md-4">
             <form method="post">

@@ -1,0 +1,20 @@
+﻿@page
+@model Corona_App.Pages.Varer.VarerCRUD.ListeOverVarerModel
+@*Lavet Af Marcus*@
+@{
+}
+
+<h1>Liste af alle vare</h1>
+
+@foreach (Vare vare in Model.Varer)
+{
+    <p>@vare.VareNr</p>
+    <p>@vare.Navn</p>
+    <p>@vare.Pris</p>
+    <p>@vare.Kategori</p>
+
+    <form method="post">
+        <input type="submit" formaction="/Varer/VarerCRUD/RedigerVare/@vare.VareNr" value="Rediger" class="btn rema_farve" />
+        <input type="submit" formaction="/Varer/VarerCRUD/SletVare/@vare.VareNr" value="Slet" class="btn rema_farve" />
+    </form>
+}

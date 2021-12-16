@@ -39,7 +39,7 @@ namespace Corona_App.Pages.Varer //Lavet Af Marcus
             {
                 ErrorMsg = e.ParamName;
             }
-            return RedirectToPage("/Varer/Katalog");
+            return RedirectToPage("/Varer/KatalogVarer/Katalog");
 
         }
     }
