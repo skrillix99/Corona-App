@@ -35,6 +35,10 @@ namespace Corona_App.Pages.Kunder.Bruger //Lavet Af Marcus & Jonathan
             KundensVare = _katelog.KundensVare;
             return RedirectToPage("kurv");
         }
+        public void OnPost()
+        {
+            b = _katelog.KundensVare.FindAll(k => k.Id == 7);
+        }
 
     }
 }

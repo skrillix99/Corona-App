@@ -1,5 +1,4 @@
-﻿@media only screen and (max-width: 415px) {
-    .kategori_banner {
+﻿    .kategori_banner {
         width: 100%;
         margin: 0;
         padding: 0;
@@ -121,12 +120,11 @@
             width: 100%;
         }
 
-            .centering input[type="submit"] {
-                background-color: #2359a2;
-                border: none;
-                border-radius: 40px;
-                padding: 0.5em;
-                color: snow;
-                width: 6em;
-            }
-}
+        .centering input[type="submit"] {
+            background-color: #2359a2;
+            border: none;
+            border-radius: 40px;
+            padding: 0.5em;
+            color: snow;
+            width: 6em;
+        }
