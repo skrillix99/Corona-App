@@ -22,7 +22,7 @@ namespace Corona_App.Pages //Lavet Af Anders
         {
             [Required(ErrorMessage = "Du skal udfylde e-mail feltet")]
             [RegularExpression(@"\S+@\S+", ErrorMessage = "Din e-mail skal indeholde et @")]   //Giver e-mailfeltet en fejl, hvis der mangler et @   
-            [MinLength(10, ErrorMessage = "Din e-mail skal være mindst 10 tegn")]
+            [MinLength(5, ErrorMessage = "Din e-mail skal være minimum 5 tegn")]
             public string Email { get; set; }
 
 
